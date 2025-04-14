@@ -17,25 +17,28 @@ export default function Home() {
             Andrew Gardner
           </h1>
           <p className="text-xl md:text-2xl font-medium text-primary-700">
-            Frontend Developer & Web Enthusiast
+            Full Stack Developer
           </p>
           <p className="text-lg text-medium-contrast max-w-2xl mx-auto">
-            I create engaging web experiences with modern technology.
-            Specializing in responsive design and interactive web applications.
+            Passionate developer focused on creating intuitive web applications
+            and solving complex problems. Experienced in full-stack development
+            with expertise in modern web technologies.
           </p>
           <div className="flex gap-4 justify-center pt-4">
             <Button
               size="lg"
               className="text-base bg-gradient-brand hover:opacity-90"
+              asChild
             >
-              View Projects
+              <a href="#projects">View Projects</a>
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="text-base border-primary-600 text-primary-700 hover:bg-primary-50"
+              asChild
             >
-              Get in Touch
+              <a href="mailto:agard1205@gmail.com">Get in Touch</a>
             </Button>
           </div>
         </div>
@@ -43,21 +46,21 @@ export default function Home() {
         {/* Tech Stack Section */}
         <div className="py-12">
           <h2 className="text-3xl font-bold text-center mb-8">
-            Technical Skills
+            Technical Expertise
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="border-l-4 border-l-primary-500">
               <CardHeader>
                 <CardTitle className="font-mono tracking-tight text-primary-700">
-                  Frontend Development
+                  Core Technologies
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc list-inside space-y-2">
-                  <li>React.js & Next.js</li>
-                  <li>TypeScript</li>
-                  <li>Tailwind CSS</li>
-                  <li>Responsive Design</li>
+                  <li>Java</li>
+                  <li>Python</li>
+                  <li>C++</li>
+                  <li>JavaScript/TypeScript</li>
                 </ul>
               </CardContent>
             </Card>
@@ -65,15 +68,15 @@ export default function Home() {
             <Card className="border-l-4 border-l-secondary-500">
               <CardHeader>
                 <CardTitle className="font-mono tracking-tight text-secondary-700">
-                  Tools & Technologies
+                  Development Skills
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc list-inside space-y-2">
-                  <li>Git & GitHub</li>
-                  <li>VS Code</li>
-                  <li>npm/yarn</li>
-                  <li>REST APIs</li>
+                  <li>Full Stack Development</li>
+                  <li>UI/UX Design</li>
+                  <li>Testing & Debugging</li>
+                  <li>System Architecture</li>
                 </ul>
               </CardContent>
             </Card>
@@ -81,15 +84,15 @@ export default function Home() {
             <Card className="border-l-4 border-l-accent-500">
               <CardHeader>
                 <CardTitle className="font-mono tracking-tight text-accent-700">
-                  Additional Skills
+                  Professional Skills
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc list-inside space-y-2">
-                  <li>UI/UX Design</li>
-                  <li>Web Performance</li>
-                  <li>SEO Basics</li>
+                  <li>Project Management</li>
                   <li>Problem Solving</li>
+                  <li>Technical Leadership</li>
+                  <li>Client Communication</li>
                 </ul>
               </CardContent>
             </Card>
@@ -97,48 +100,56 @@ export default function Home() {
         </div>
 
         {/* Featured Projects */}
-        <section className="py-12">
+        <section className="py-12" id="projects">
           <h2 className="text-3xl font-bold text-center mb-8">
             Featured Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card>
               <CardHeader>
-                <CardTitle>Project Name 1</CardTitle>
-                <CardDescription>Web Application</CardDescription>
+                <CardTitle>Highlander Hustle</CardTitle>
+                <CardDescription>System Design & UX Research</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="mb-4">
-                  A brief description of the project and its key features.
-                  Technologies used and problems solved.
+                  Led the design and development of a comprehensive information
+                  system for athletics management. Conducted user research,
+                  designed system architecture, and delivered a scalable
+                  solution.
                 </p>
-                <div className="flex gap-4">
-                  <Button variant="outline" size="sm">
-                    View Live
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    Source Code
-                  </Button>
-                </div>
+                <ul className="list-disc list-inside mb-4 text-sm text-muted-foreground">
+                  <li>User-centered design approach</li>
+                  <li>System architecture planning</li>
+                  <li>Cross-functional team leadership</li>
+                </ul>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <CardTitle>Project Name 2</CardTitle>
-                <CardDescription>Frontend Development</CardDescription>
+                <CardTitle>Dynamic Contact Platform</CardTitle>
+                <CardDescription>Web Development</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="mb-4">
-                  A brief description of the project and its key features.
-                  Technologies used and problems solved.
+                  Engineered a modern web platform for professional networking
+                  and contact management, featuring responsive design and
+                  seamless information delivery.
                 </p>
+                <ul className="list-disc list-inside mb-4 text-sm text-muted-foreground">
+                  <li>Responsive web design</li>
+                  <li>Modern JavaScript implementation</li>
+                  <li>Performance optimization</li>
+                </ul>
                 <div className="flex gap-4">
-                  <Button variant="outline" size="sm">
-                    View Live
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    Source Code
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href="https://atg25.github.io/LinksPage/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Live
+                    </a>
                   </Button>
                 </div>
               </CardContent>
@@ -146,37 +157,149 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Professional Experience */}
+        <section className="py-12">
+          <h2 className="text-3xl font-bold text-center mb-8">
+            Professional Experience
+          </h2>
+          <div className="space-y-6 max-w-4xl mx-auto">
+            <Card>
+              <CardHeader>
+                <CardTitle>Technical Operations Lead</CardTitle>
+                <CardDescription>
+                  NJIT Office of Admissions | Oct 2024 - Present
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc list-inside space-y-2">
+                  <li>
+                    Streamlined data processing workflows for improved
+                    efficiency in student admissions
+                  </li>
+                  <li>
+                    Coordinated cross-functional teams for successful event
+                    execution
+                  </li>
+                  <li>
+                    Implemented process improvements resulting in enhanced user
+                    satisfaction
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Systems Administrator</CardTitle>
+                <CardDescription>
+                  American Campus Communities | Oct 2023 - May 2024
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc list-inside space-y-2">
+                  <li>
+                    Leveraged CRM systems to optimize communication and data
+                    analysis
+                  </li>
+                  <li>
+                    Developed automated solutions for business process
+                    optimization
+                  </li>
+                  <li>
+                    Maintained 95% customer satisfaction rate through technical
+                    support
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Education Section - Moved down */}
+        <section className="py-12">
+          <h2 className="text-3xl font-bold text-center mb-8">Education</h2>
+          <Card className="max-w-3xl mx-auto">
+            <CardHeader>
+              <CardTitle>NJIT - Ying Wu College of Computing</CardTitle>
+              <CardDescription>
+                B.S. in Web & Information Systems | Minor in Computer Science
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <p>
+                  <strong>GPA:</strong> 3.64 | Dean{"'"}s List
+                </p>
+                <div>
+                  <p className="font-medium mb-2">Key Areas of Study:</p>
+                  <ul className="list-disc list-inside grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <li>System Architecture</li>
+                    <li>User Experience Design</li>
+                    <li>Software Development</li>
+                    <li>Database Management</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* About Me Section */}
         <section className="py-12 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">About Me</h2>
           <p className="text-lg text-medium-contrast mb-6">
-            I'm a passionate web developer and student at NJIT, focused on
-            creating intuitive and performant web applications. With a strong
-            foundation in frontend development, I'm constantly learning and
-            exploring new technologies to build better digital experiences.
+            I{"'"}m a full-stack developer passionate about creating innovative
+            digital solutions. With a strong foundation in web technologies and
+            system design, I focus on delivering high-quality, user-centered
+            applications. I{"'"}m actively involved in the tech community
+            through the Financial Technology Club and various development
+            projects.
           </p>
           <Button
             size="lg"
             className="text-base bg-gradient-brand hover:opacity-90"
+            asChild
           >
-            Download Resume
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              Download Resume
+            </a>
           </Button>
         </section>
 
         {/* Contact Section */}
         <section className="text-center space-y-8 py-16">
-          <h2 className="text-3xl font-bold">Let's Work Together</h2>
+          <h2 className="text-3xl font-bold">Let{"'"}s Connect</h2>
           <p className="text-lg text-medium-contrast max-w-2xl mx-auto">
-            I'm always interested in hearing about new projects and
-            opportunities. Whether you have a question or just want to say hi,
-            I'll try my best to get back to you!
+            Whether you{"'"}re interested in discussing potential opportunities
+            or learning more about my projects, feel free to reach out.
           </p>
-          <Button
-            size="lg"
-            className="text-base bg-gradient-innovation hover:opacity-90"
-          >
-            Get in Touch
-          </Button>
+          <div className="flex gap-4 justify-center">
+            <Button
+              size="lg"
+              className="text-base bg-gradient-innovation hover:opacity-90"
+              asChild
+            >
+              <a href="mailto:agard1205@gmail.com">Email Me</a>
+            </Button>
+            <Button size="lg" variant="outline" className="text-base" asChild>
+              <a
+                href="https://linkedin.com/in/andrew-gardner2026"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" className="text-base" asChild>
+              <a
+                href="https://github.com/atg25"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </Button>
+          </div>
         </section>
       </main>
     </div>

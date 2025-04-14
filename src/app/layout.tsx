@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
+import React from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,12 +18,12 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Outlaw AI Consultancy",
-    template: "%s | Outlaw AI Consultancy",
+    default: "Andrew Gardner | Developer Portfolio",
+    template: "%s | Andrew Gardner | Developer Portfolio",
   },
-  description: "Challenging the AI status quo with radical honesty and evidence-based disruption",
-  authors: [{ name: "Outlaw AI Consultancy" }],
-  keywords: ["AI consultancy", "digital transformation", "disruptive innovation"],
+  description: "Front-end developer &  tech enthusiast creating engaging web experiences.",
+  authors: [{ name: "Andrew Gardner" }],
+  keywords: ["Web Developer", "digital transformation", "Technology consultant", "Frontend Developer", "Portfolio"],
 };
 
 export const viewport: Viewport = {
