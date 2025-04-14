@@ -1,35 +1,37 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { Barlow, REM } from "next/font/google";
+import { cn } from "@/lib/utils";
 import React from "react";
+import { MainNav } from "@/components/main-nav";
 
-const inter = Inter({
+const barlow = Barlow({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ['400', '500', '600', '700'],
+const rem = REM({
   subsets: ["latin"],
-  variable: "--font-mono",
+  weight: ["500", "600", "700"],
+  variable: "--font-heading",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
     default: "Andrew Gardner | Developer Portfolio",
-    template: "%s | Andrew Gardner | Developer Portfolio",
+    template: "%s | Andrew Gardner",
   },
-  description: "Front-end developer &  tech enthusiast creating engaging web experiences.",
-  authors: [{ name: "Andrew Gardner" }],
-  keywords: ["Web Developer", "digital transformation", "Technology consultant", "Frontend Developer", "Portfolio"],
+  description:
+    "Front-end developer & digital explorer crafting thoughtful web experiences.",
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#111827" },
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f1729" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -41,8 +43,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${ibmPlexMono.variable} font-sans antialiased`}>
+    <html lang="en" className="dark">
+      <body
+        className={cn(
+          barlow.variable,
+          rem.variable,
+          "min-h-screen bg-background font-sans antialiased"
+        )}
+      >
+        <MainNav />
         {children}
       </body>
     </html>

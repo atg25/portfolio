@@ -4,73 +4,74 @@
 
 @layer base {
   :root {
-    /* Brand Typography Variables */
-    --font-heading: var(--font-mono);
-    --line-height-body: 1.625;
-    --tracking-heading-tight: -0.03em;
+    --background: 220 17% 17%;
+    --foreground: 220 13% 91%;
 
-    /* Brand Colors in HSL */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --card: 220 17% 20%;
+    --card-foreground: 220 13% 91%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --popover: 220 17% 20%;
+    --popover-foreground: 220 13% 91%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 201 96% 32%;
+    --primary: 158 45% 22%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 142 72% 29%;
+    --secondary: 158 45% 22%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 17% 25%;
+    --muted-foreground: 220 13% 65%;
 
-    --accent: 270 95% 75%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 158 45% 22%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 201 96% 32%;
+    --border: 220 17% 25%;
+    --input: 220 17% 25%;
+    --ring: 158 45% 22%;
 
     --radius: 0.5rem;
+
+    --font-sans: "Barlow", system-ui, sans-serif;
+    --font-heading: "REM", system-ui, sans-serif;
+    --line-height-body: 1.6;
+    --tracking-heading: -0.04em;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 17% 17%;
+    --foreground: 220 13% 91%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 17% 20%;
+    --card-foreground: 220 13% 91%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 17% 20%;
+    --popover-foreground: 220 13% 91%;
 
-    --primary: 201 96% 32%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 158 45% 22%;
+    --primary-foreground: 220 13% 91%;
 
-    --secondary: 142 72% 29%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 158 45% 22%;
+    --secondary-foreground: 220 13% 91%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 17% 25%;
+    --muted-foreground: 220 13% 65%;
 
-    --accent: 270 95% 75%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 158 45% 22%;
+    --accent-foreground: 220 13% 91%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 201 96% 32%;
+    --border: 220 17% 25%;
+    --input: 220 17% 25%;
+    --ring: 158 45% 22%;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
@@ -79,37 +80,61 @@
     @apply bg-background text-foreground;
   }
 
-  /* Outlaw Typography Base Styles */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-mono font-bold tracking-tighter;
+  /* Explorer Typography Base Styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold tracking-tight;
+    letter-spacing: var(--tracking-heading);
   }
 
-  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
-  h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
-  h3 { @apply text-2xl md:text-3xl; }
-  h4 { @apply text-xl md:text-2xl; }
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl uppercase;
+    font-variation-settings: "wght" 700;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl uppercase;
+    font-variation-settings: "wght" 600;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl uppercase;
+    font-variation-settings: "wght" 600;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
 
   p {
-    @apply text-base leading-relaxed;
+    @apply text-base leading-relaxed font-medium;
   }
 
   .supporting-text {
-    @apply text-sm text-muted-foreground;
+    @apply text-sm text-muted-foreground font-medium;
   }
 }
 
 @layer utilities {
   /* Brand Gradient Utilities */
   .bg-gradient-brand {
-    @apply bg-gradient-to-r from-primary-600 to-primary-500;
+    @apply bg-gradient-to-r from-primary-500 to-accent-500;
   }
-  
+
   .text-gradient-brand {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-accent-500;
   }
 
   .bg-gradient-innovation {
-    @apply bg-gradient-to-r from-accent-600 to-accent-500;
+    @apply bg-gradient-to-r from-secondary-500 to-accent-500;
+  }
+
+  .text-gradient-adventure {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary-500 to-accent-500;
   }
 
   /* High-contrast text utilities for accessibility */
@@ -118,6 +143,28 @@
   }
 
   .text-medium-contrast {
-    @apply text-neutral-700 dark:text-neutral-300;
+    @apply text-gray-600;
   }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Explorer-themed animations */
+@keyframes pathfinder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-pathfinder {
+  background-size: 200% 200%;
+  animation: pathfinder 6s ease infinite;
 }

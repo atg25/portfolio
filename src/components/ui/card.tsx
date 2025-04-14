@@ -1,25 +1,30 @@
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string
-}
-
-function Card({ className, ...props }: CardProps) {
-  return (
-    <div
-      data-slot="card"
-      className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
-        className
-      )}
-      {...props}
-    />
-  )
-}
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & {
+    variant?: "default" | "expedition" | "terrain";
+  }
+>(({ className, variant = "default", ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      {
+        "border-l-4 border-l-primary-500": variant === "default",
+        "border-l-4 border-l-secondary-500": variant === "expedition",
+        "border-l-4 border-l-accent-500": variant === "terrain",
+      },
+      className
+    )}
+    {...props}
+  />
+));
+Card.displayName = "Card";
 
 interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string
+  className?: string;
 }
 
 function CardHeader({ className, ...props }: CardHeaderProps) {
@@ -32,39 +37,46 @@ function CardHeader({ className, ...props }: CardHeaderProps) {
       )}
       {...props}
     />
-  )
+  );
 }
 
 interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  className?: string
+  className?: string;
 }
 
 function CardTitle({ className, ...props }: CardTitleProps) {
   return (
     <h3
       data-slot="card-title"
-      className={cn("leading-none font-semibold", className)}
+      className={cn(
+        "leading-none font-semibold transition-all duration-300 dark:hover:text-primary-400 dark:hover:drop-shadow-[0_0_8px_rgba(24,144,255,0.5)]",
+        className
+      )}
       {...props}
     />
-  )
+  );
 }
 
-interface CardDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  className?: string
+interface CardDescriptionProps
+  extends React.HTMLAttributes<HTMLParagraphElement> {
+  className?: string;
 }
 
 function CardDescription({ className, ...props }: CardDescriptionProps) {
   return (
     <p
       data-slot="card-description"
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn(
+        "text-muted-foreground text-sm transition-colors duration-300 dark:group-hover:text-muted-foreground/70",
+        className
+      )}
       {...props}
     />
-  )
+  );
 }
 
 interface CardActionProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string
+  className?: string;
 }
 
 function CardAction({ className, ...props }: CardActionProps) {
@@ -77,11 +89,11 @@ function CardAction({ className, ...props }: CardActionProps) {
       )}
       {...props}
     />
-  )
+  );
 }
 
 interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string
+  className?: string;
 }
 
 function CardContent({ className, ...props }: CardContentProps) {
@@ -91,11 +103,11 @@ function CardContent({ className, ...props }: CardContentProps) {
       className={cn("px-6", className)}
       {...props}
     />
-  )
+  );
 }
 
 interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string
+  className?: string;
 }
 
 function CardFooter({ className, ...props }: CardFooterProps) {
@@ -105,7 +117,7 @@ function CardFooter({ className, ...props }: CardFooterProps) {
       className={cn("flex items-center px-6 [.border-t]:pt-6", className)}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -116,4 +128,4 @@ export {
   CardAction,
   CardDescription,
   CardContent,
-}
+};
