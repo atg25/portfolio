@@ -12,9 +12,9 @@ const Card = React.forwardRef<
     className={cn(
       "rounded-lg border bg-card text-card-foreground shadow-sm",
       {
-        "border-l-4 border-l-primary-500": variant === "default",
-        "border-l-4 border-l-secondary-500": variant === "expedition",
-        "border-l-4 border-l-accent-500": variant === "terrain",
+        "border-l-4 border-l-primary": variant === "default",
+        "border-l-4 border-l-secondary": variant === "expedition",
+        "border-l-4 border-l-accent": variant === "terrain",
       },
       className
     )}
@@ -32,7 +32,7 @@ function CardHeader({ className, ...props }: CardHeaderProps) {
     <div
       data-slot="card-header"
       className={cn(
-        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
+        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 pt-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
         className
       )}
       {...props}
@@ -100,7 +100,7 @@ function CardContent({ className, ...props }: CardContentProps) {
   return (
     <div
       data-slot="card-content"
-      className={cn("px-6", className)}
+      className={cn("px-6 py-6", className)}
       {...props}
     />
   );
@@ -114,7 +114,7 @@ function CardFooter({ className, ...props }: CardFooterProps) {
   return (
     <div
       data-slot="card-footer"
-      className={cn("flex items-center px-6 [.border-t]:pt-6", className)}
+      className={cn("flex items-center px-6 pb-6 [.border-t]:pt-6", className)}
       {...props}
     />
   );

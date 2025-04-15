@@ -5,20 +5,21 @@ import { Button } from "@/components/ui/button";
 
 const routes = [
   {
-    href: "#projects",
+    href: "/projects",
     label: "Projects",
   },
   {
-    href: "#experience",
+    href: "/experience",
     label: "Experience",
+  },
+  {
+    href: "/contact",
+    label: "Contact",
   },
   {
     href: "/resume.pdf",
     label: "Resume",
-  },
-  {
-    href: "#contact",
-    label: "Contact",
+    external: true,
   },
 ];
 
@@ -40,7 +41,13 @@ export function MainNav() {
               className="text-sm font-medium transition-colors hover:text-primary"
               asChild
             >
-              <Link href={route.href}>{route.label}</Link>
+              {route.external ? (
+                <a href={route.href} target="_blank" rel="noopener noreferrer">
+                  {route.label}
+                </a>
+              ) : (
+                <Link href={route.href}>{route.label}</Link>
+              )}
             </Button>
           ))}
         </div>

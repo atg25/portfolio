@@ -1,23 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Barlow, REM } from "next/font/google";
-import { cn } from "@/lib/utils";
+import "@fontsource/jetbrains-mono";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/500.css";
+import "@fontsource/jetbrains-mono/600.css";
+import "@fontsource/jetbrains-mono/700.css";
 import React from "react";
 import { MainNav } from "@/components/main-nav";
-
-const barlow = Barlow({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const rem = REM({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-heading",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -44,13 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={cn(
-          barlow.variable,
-          rem.variable,
-          "min-h-screen bg-background font-sans antialiased"
-        )}
-      >
+      <body className="min-h-screen bg-background font-sans antialiased">
         <MainNav />
         {children}
       </body>
