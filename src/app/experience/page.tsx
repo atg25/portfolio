@@ -21,7 +21,9 @@ export default function Experience() {
         >
           <h1 className="font-heading text-4xl md:text-5xl">Experience</h1>
           <p className="text-lg text-muted-foreground/80">
-            My professional journey and educational background
+            Here’s my journey so far—full of learning, teamwork, and growth. I’m
+            grateful for every opportunity to collaborate and help others
+            succeed.
           </p>
         </motion.div>
 
@@ -64,21 +66,23 @@ export default function Experience() {
                         workflows and enhancing data management systems.
                       </p>
                       <div>
-                        <h3 className="font-medium mb-2">Key Responsibilities:</h3>
+                        <h3 className="font-medium mb-2">
+                          Key Responsibilities:
+                        </h3>
                         <ul className="list-disc list-inside space-y-2 text-muted-foreground">
                           <li>
-                            Streamlined data processing workflows, reducing
-                            processing time by 40%
+                            Worked with a great team to streamline data
+                            processing workflows, making things easier for
+                            everyone.
                           </li>
                           <li>
-                            Coordinated cross-functional teams for system
-                            implementations
+                            Helped coordinate cross-functional teams for system
+                            improvements.
                           </li>
                           <li>
-                            Implemented process improvements across multiple
-                            departments
+                            Supported process improvements across departments.
                           </li>
-                          <li>Developed automated solutions for routine tasks</li>
+                          <li>Built automated solutions for everyday tasks.</li>
                         </ul>
                       </div>
                     </div>
@@ -117,16 +121,20 @@ export default function Experience() {
                         <h3 className="font-medium mb-2">Key Achievements:</h3>
                         <ul className="list-disc list-inside space-y-2 text-muted-foreground">
                           <li>
-                            Leveraged CRM systems for improved resident
-                            communication
+                            Used CRM systems to improve resident communication
+                            and support.
                           </li>
                           <li>
-                            Developed automated solutions for maintenance
-                            requests
+                            Built simple automated solutions for maintenance
+                            requests.
                           </li>
-                          <li>Maintained high customer satisfaction ratings</li>
                           <li>
-                            Implemented new security protocols and procedures
+                            Maintained high customer satisfaction ratings by
+                            listening and responding to feedback.
+                          </li>
+                          <li>
+                            Helped implement new security protocols and
+                            procedures.
                           </li>
                         </ul>
                       </div>

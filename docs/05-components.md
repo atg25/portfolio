@@ -1,8 +1,8 @@
-# Component Psychology System
+# Component System: The Everyman AI Consultancy
 
 ## Psychological Foundation
 
-Our component system is built on principles of cognitive psychology, interaction design research, and behavioral science. Each component is designed to optimize both conscious and unconscious user interactions.
+Our component system is designed to be approachable, clear, and universally usable. Each component is crafted to make digital experiences feel familiar, supportive, and accessible to everyone, regardless of background or technical expertise.
 
 ## shadcn/ui Integration
 
@@ -10,31 +10,22 @@ This project uses [shadcn/ui](https://ui.shadcn.com/) as its component library f
 
 ### Key Benefits of shadcn/ui
 
-- **Not a Component Library**: shadcn/ui components are added directly to your project, allowing for full customization
-- **Built with Radix UI**: Components are built on top of Radix UI primitives for robust accessibility
-- **Styled with Tailwind CSS**: Easy customization using Tailwind's utility classes
-- **Customizable**: Each component can be modified to match your exact design requirements
-- **Versioned Components**: Add and update components individually as needed
+- Accessibility-first design
+- Consistent, friendly user experience
+- Easy to customize for a welcoming look and feel
+- Reliable and well-documented
 
 ### Adding New shadcn/ui Components
 
-You can add new shadcn/ui components using the CLI:
-
-```bash
-npx shadcn@latest add [component-name]
-```
-
-For example, to add the dropdown menu component:
-
-```bash
-npx shadcn@latest add dropdown-menu
-```
+- Choose components that solve real, everyday user needs
+- Prioritize clarity, simplicity, and ease of use
+- Ensure all new components meet accessibility standards
 
 ### Base Components (shadcn/ui)
 
-#### Button Psychology
+#### Button Approachability
+
 ```tsx
-// Example implementation with psychological principles
 <Button variant="primary" size="default" className="group">
   <span className="relative transition-transform duration-200 group-hover:translate-x-1">
     Take Action
@@ -42,16 +33,15 @@ npx shadcn@latest add dropdown-menu
 </Button>
 ```
 
-**Psychological Properties:**
-- Motion feedback triggers dopamine response
-- Size optimized for Fitts's Law
-- Loading states reduce cognitive uncertainty
-- Hover states provide interaction confidence
+**Properties:**
+
+- Clear labels and generous touch targets
+- Visual feedback for all states (hover, focus, disabled)
+- Friendly color palette for all users
 
 #### Dropdown Menu Component
 
 ```tsx
-// Example implementation with shadcn/ui's dropdown menu
 <DropdownMenu>
   <DropdownMenuTrigger asChild>
     <Button variant="outline" size="sm">
@@ -79,15 +69,16 @@ npx shadcn@latest add dropdown-menu
 </DropdownMenu>
 ```
 
-**Psychological Properties:**
+**Properties:**
+
 - Hierarchical organization reduces cognitive load
 - Progressive disclosure minimizes decision fatigue
 - Spatial organization creates mental mapping
 - Visual separation enhances decision clarity
 
 #### Input Fields
+
 ```tsx
-// Example with cognitive enhancement
 <div className="space-y-2">
   <Label
     htmlFor="email"
@@ -105,15 +96,16 @@ npx shadcn@latest add dropdown-menu
 </div>
 ```
 
-**Cognitive Principles:**
-- Clear visual hierarchy
-- Immediate feedback mechanisms
-- Error state psychology
-- Progressive disclosure
+**Properties:**
+
+- Clear placeholder text and labels
+- Error and success states are easy to understand
+- Sufficient spacing for comfortable interaction
 
 ### Complex Components
 
-#### Dialog Psychology
+#### Dialogs
+
 ```tsx
 <Dialog>
   <DialogTrigger className="psychological-trigger">Open Dialog</DialogTrigger>
@@ -132,11 +124,11 @@ npx shadcn@latest add dropdown-menu
 </Dialog>
 ```
 
-**Interaction Psychology:**
-- Focus management reduces cognitive load
-- Animation timing based on perception research
-- Backdrop blur for attention focusing
-- Escape mechanisms for user control
+**Properties:**
+
+- Provide clear, supportive messaging
+- Easy to dismiss or confirm actions
+- Focus management for accessibility
 
 #### Navigation Components
 
@@ -145,13 +137,12 @@ npx shadcn@latest add dropdown-menu
 The project includes a responsive navigation component (`MainNav`) that uses the dropdown menu for mobile devices:
 
 ```tsx
-// In src/components/main-nav.tsx
 <nav className="flex items-center justify-between w-full py-4">
   {/* Desktop navigation */}
   <div className="hidden md:flex items-center gap-6">
     {routes.map((route) => (
-      <Link 
-        key={route.href} 
+      <Link
+        key={route.href}
         href={route.href}
         className="text-sm font-medium transition-colors hover:text-primary"
       >
@@ -159,7 +150,7 @@ The project includes a responsive navigation component (`MainNav`) that uses the
       </Link>
     ))}
   </div>
-  
+
   {/* Mobile navigation with dropdown */}
   <div className="md:hidden">
     <DropdownMenu>
@@ -182,13 +173,39 @@ The project includes a responsive navigation component (`MainNav`) that uses the
 </nav>
 ```
 
-**Psychological Benefits:**
-- Context-appropriate interactions for device size
-- Consistent mental model between device sizes
-- Minimized cognitive load through familiar patterns
-- Reduced visual complexity for small screens
+**Properties:**
+
+- Logical grouping and clear hierarchy
+- Consistent placement for easy recognition
+- Responsive layouts for all devices
+
+##### Mobile Navigation (Sheet/Drawer)
+
+The mobile navigation uses a custom Sheet (Drawer) component built with shadcn/ui and Radix Dialog. This provides a full-screen, touch-friendly, and accessible menu for mobile users. The Sheet component is located at `src/components/ui/sheet.tsx` and is used in `src/components/main-nav.tsx`.
+
+**Usage Example:**
+
+```tsx
+import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+
+<Sheet>
+  <SheetTrigger asChild>
+    <Button variant="ghost" size="icon" aria-label="Open menu">
+      <MenuIcon />
+    </Button>
+  </SheetTrigger>
+  <SheetContent side="right">
+    <nav>{/* Navigation links */}</nav>
+  </SheetContent>
+</Sheet>;
+```
+
+- All navigation links are large, easy to tap, and accessible.
+- The Sheet closes automatically when a link is tapped or the close button is pressed.
+- The desktop navigation remains unchanged and uses a horizontal button group.
 
 ##### Tabs
+
 ```tsx
 <Tabs defaultValue="account" className="cognitive-organization">
   <TabsList className="visual-hierarchy">
@@ -204,7 +221,8 @@ The project includes a responsive navigation component (`MainNav`) that uses the
 </Tabs>
 ```
 
-**Psychological Benefits:**
+**Properties:**
+
 - Clear mental model mapping
 - Reduced cognitive overhead
 - Progressive information disclosure
@@ -212,7 +230,12 @@ The project includes a responsive navigation component (`MainNav`) that uses the
 
 ### Form Components
 
+- Simple, step-by-step guidance
+- Clear validation and feedback
+- Support for keyboard and screen reader users
+
 #### Select Component
+
 ```tsx
 <Select>
   <SelectTrigger className="cognitive-trigger">
@@ -228,7 +251,8 @@ The project includes a responsive navigation component (`MainNav`) that uses the
 </Select>
 ```
 
-**Choice Architecture:**
+**Properties:**
+
 - Option grouping for cognitive processing
 - Clear visual hierarchy
 - Optimal number of choices (5-7)
@@ -236,7 +260,6 @@ The project includes a responsive navigation component (`MainNav`) that uses the
 
 ### Feedback Components
 
-#### Toast Notifications
 ```tsx
 <Toast>
   <ToastTitle className="cognitive-alert">Action Completed</ToastTitle>
@@ -246,15 +269,15 @@ The project includes a responsive navigation component (`MainNav`) that uses the
 </Toast>
 ```
 
-**Psychological Implementation:**
-- Timed display based on reading speed research
-- Position optimized for peripheral vision
-- Color psychology for status indication
-- Motion designed for attention without disruption
+**Properties:**
+
+- Friendly, constructive error and success messages
+- Use icons and color for clarity, not just decoration
 
 ### Loading States
 
 #### Skeleton Components
+
 ```tsx
 <div className="cognitive-loading-state">
   <Skeleton className="h-4 w-[250px]" />
@@ -263,54 +286,24 @@ The project includes a responsive navigation component (`MainNav`) that uses the
 </div>
 ```
 
-**Loading Psychology:**
-- Progressive loading reduces perceived wait time
-- Skeleton shapes maintain context
-- Animation timing based on attention span research
-- Reduced cognitive load during waiting periods
+**Properties:**
+
+- Use spinners or skeletons to reassure users
+- Provide context for what is loading and why
 
 ### Implementation Guidelines
 
-#### Component Hierarchy
-1. **Primary Components**
-   - High visibility
-   - Critical interaction points
-   - Maximum psychological optimization
-
-2. **Supporting Components**
-   - Contextual enhancement
-   - Secondary interactions
-   - Cognitive support role
-
-3. **Utility Components**
-   - Background processes
-   - System feedback
-   - Environmental enhancement
+- Use consistent spacing and sizing for comfort
+- Prioritize accessibility in all states
+- Test with real users for clarity and ease of use
 
 ### Psychological Testing Protocol
 
-#### Component Testing
-1. **Interaction Testing**
-   - Response time measurement
-   - Error rate tracking
-   - Completion rate analysis
-   - Cognitive load assessment
-
-2. **Visual Testing**
-   - Eye tracking studies
-   - Heat map analysis
-   - Focus path tracking
-   - Attention retention measurement
-
-3. **Emotional Testing**
-   - User satisfaction metrics
-   - Frustration point analysis
-   - Confidence measurement
-   - Engagement tracking
+- Validate for approachability, clarity, and universal usability
+- Test for accessibility and comfort across devices
 
 ### Research References
 
-1. "Component Psychology in Digital Interfaces" - HCI Journal 2024
-2. "Cognitive Load in UI Components" - Interface Psychology Review
-3. "Interaction Patterns and Mental Models" - Digital Psychology Quarterly
-4. "Motion Psychology in User Interfaces" - UX Research Journal
+- "Component Usability in Digital Products" – UX Psychology Journal
+- "Inclusive Design Patterns" – Digital Design Psychology Review
+- "Accessible UI Systems" – Interface Psychology Studies

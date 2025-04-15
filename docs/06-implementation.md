@@ -1,6 +1,8 @@
-# Implementation Guide
+# Implementation Guide: The Everyman AI Consultancy
 
 ## Project Setup
+
+Our setup process is designed to be approachable and accessible for everyone, regardless of technical background. Each step is clearly explained to ensure all users can confidently get started.
 
 ### Next.js 14 Setup
 
@@ -46,6 +48,8 @@ src/
 
 ## Configuration Files
 
+Configuration is focused on clarity, consistency, and ease of use. All settings are documented to help everyone understand and customize their environment.
+
 ### Tailwind Configuration
 
 The project uses Tailwind CSS v3.3.3 which is fully compatible with Next.js 14.1.3 and our design system. Our configuration extends the base Tailwind setup with custom theme values derived from our design system documentation.
@@ -56,32 +60,32 @@ The project uses Tailwind CSS v3.3.3 which is fully compatible with Next.js 14.1
 export default {
   darkMode: "class", // Uses class strategy for dark mode toggling
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'], // Dynamic font loading
-        mono: ['var(--font-mono)', 'monospace'], // IBM Plex Mono
-        heading: ['var(--font-mono)', 'monospace'], // Used for brand typography
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"], // Dynamic font loading
+        mono: ["var(--font-mono)", "monospace"], // IBM Plex Mono
+        heading: ["var(--font-mono)", "monospace"], // Used for brand typography
       },
       colors: {
         // Core Brand Colors - Complete color scale for gradient creation
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
+          50: "#f0f9ff",
+          100: "#e0f2fe",
+          200: "#bae6fd",
+          300: "#7dd3fc",
+          400: "#38bdf8",
+          500: "#0ea5e9",
+          600: "#0284c7",
+          700: "#0369a1",
+          800: "#075985",
+          900: "#0c4a6e",
+          950: "#082f49",
         },
         secondary: {
           // ...complete color scale
@@ -92,24 +96,24 @@ export default {
         neutral: {
           // ...complete grayscale
         },
-        
+
         // Semantic Colors - For contextual meaning
         success: {
-          light: '#dcfce7',
-          DEFAULT: '#22c55e',
-          dark: '#15803d',
+          light: "#dcfce7",
+          DEFAULT: "#22c55e",
+          dark: "#15803d",
         },
         error: {
-          light: '#fee2e2',
-          DEFAULT: '#ef4444',
-          dark: '#b91c1c',
+          light: "#fee2e2",
+          DEFAULT: "#ef4444",
+          dark: "#b91c1c",
         },
         warning: {
-          light: '#fef3c7',
-          DEFAULT: '#f59e0b',
-          dark: '#b45309',
+          light: "#fef3c7",
+          DEFAULT: "#f59e0b",
+          dark: "#b45309",
         },
-        
+
         // System Colors - Theme-aware using CSS variables
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -133,14 +137,14 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      
+
       // Border radius system follows the design system's radius scale
       borderRadius: {
-        lg: "var(--radius)",  // 0.5rem by default
+        lg: "var(--radius)", // 0.5rem by default
         md: "calc(var(--radius) - 2px)", // 0.375rem
         sm: "calc(var(--radius) - 4px)", // 0.25rem
       },
-      
+
       // Container configuration for consistent layouts
       container: {
         center: true,
@@ -152,7 +156,7 @@ export default {
     },
   },
   plugins: [],
-}
+};
 ```
 
 #### CSS Variables Implementation
@@ -196,26 +200,33 @@ Our theme uses CSS variables for dynamic theming support, implemented in `global
 
 ## Implementation Checklist
 
+- [ ] Ensure all features are accessible and easy to use
+- [ ] Use clear, friendly language in all UI text
+- [ ] Test with users of varying backgrounds and abilities
+- [ ] Document all changes for transparency and learning
+
 ### 1. Typography Implementation
 
 1. Install Inter font:
+
 ```typescript
 // layout.tsx
-import { Inter } from 'next/font/google'
+import { Inter } from "next/font/google";
 
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 ```
 
 2. Apply base typography styles:
+
 ```css
 /* globals.css */
 @layer base {
   :root {
-    --font-sans: 'Inter var';
+    --font-sans: "Inter var";
   }
 
   body {
@@ -232,6 +243,7 @@ const inter = Inter({
 ### 2. Color System Implementation
 
 1. Define color variables:
+
 ```css
 /* globals.css */
 @layer base {
@@ -244,6 +256,7 @@ const inter = Inter({
 ```
 
 2. Create color utility classes:
+
 ```css
 /* globals.css */
 @layer utilities {
@@ -256,54 +269,85 @@ const inter = Inter({
 ### 3. Component Implementation
 
 #### Example Button Component
+
 ```typescript
 // components/ui/button.tsx
-import { cva } from 'class-variance-authority'
+import { cva } from "class-variance-authority";
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
   {
     variants: {
       variant: {
-        default: 'bg-primary-500 text-white hover:bg-primary-600',
-        secondary: 'bg-secondary-500 text-white hover:bg-secondary-600',
+        default: "bg-primary-500 text-white hover:bg-primary-600",
+        secondary: "bg-secondary-500 text-white hover:bg-secondary-600",
         // ...other variants
       },
       size: {
-        default: 'h-10 py-2 px-4',
-        sm: 'h-9 px-3',
-        lg: 'h-11 px-8',
+        default: "h-10 py-2 px-4",
+        sm: "h-9 px-3",
+        lg: "h-11 px-8",
       },
     },
     defaultVariants: {
-      variant: 'default',
-      size: 'default',
+      variant: "default",
+      size: "default",
     },
   }
-)
+);
 ```
+
+## Component & Navigation Updates (April 2025)
+
+- **Mobile Navigation:**
+
+  - The mobile menu now uses a custom Sheet (Drawer) component (`src/components/ui/sheet.tsx`) built with shadcn/ui and Radix Dialog for a full-screen, touch-friendly, and accessible experience.
+  - The Sheet is integrated in `src/components/main-nav.tsx` and replaces the previous DropdownMenu approach for mobile.
+  - All navigation links are large, easy to tap, and accessible. The Sheet closes automatically when a link is tapped or the close button is pressed.
+  - Desktop navigation remains a horizontal button group.
+
+- **Component Consistency:**
+
+  - All UI components (Button, Card, Sheet) use the `cn` utility for className merging and follow shadcn/ui patterns.
+  - Utility functions are centralized in `src/lib/utils.ts`.
+  - All pages and layouts use responsive Tailwind classes for mobile-friendliness.
+
+- **Theming & Typography:**
+
+  - Color and typography variables are defined in `src/app/globals.css` and follow the Everyman archetype for clarity and approachability.
+  - Only Inter/system-ui is used for headings and body text.
+
+- **Accessibility:**
+  - All navigation and interactive elements include ARIA labels and are keyboard accessible.
+  - Focus management and overlay are handled by the Sheet component for mobile nav.
 
 ## Testing Protocol
 
+Testing focuses on usability, accessibility, and real-world scenarios to ensure everyone can benefit from the system.
+
 ### 1. Visual Regression Testing
+
 - Use tools like Chromatic or Percy
 - Test across breakpoints
 - Validate color contrast
 - Check typography scaling
 
 ### 2. Accessibility Testing
+
 - Automated testing with axe-core
 - Manual keyboard navigation testing
 - Screen reader compatibility
 - Color contrast validation
 
 ### 3. Performance Testing
+
 - Lighthouse metrics
 - Core Web Vitals
 - Bundle size analysis
 - Runtime performance
 
 ### 4. Psychological Testing
+
 - User interaction recording
 - Heat map analysis
 - Eye-tracking studies
@@ -311,25 +355,34 @@ const buttonVariants = cva(
 
 ## Quality Assurance Checklist
 
+- [ ] Accessibility for all users
+- [ ] Clarity and approachability in all interactions
+- [ ] Consistent, friendly design and messaging
+- [ ] Reliable performance across devices
+
 ### Typography
+
 - [ ] Font loading optimization
 - [ ] Responsive type scaling
 - [ ] Line length constraints
 - [ ] Proper hierarchy implementation
 
 ### Colors
+
 - [ ] Contrast ratios met
 - [ ] Color blindness testing
 - [ ] Dark mode compatibility
 - [ ] System color preferences
 
 ### Layout
+
 - [ ] Responsive breakpoints
 - [ ] Grid system implementation
 - [ ] Spacing consistency
 - [ ] Container queries where needed
 
 ### Components
+
 - [ ] Accessibility compliance
 - [ ] Interaction states
 - [ ] Loading states
@@ -337,25 +390,33 @@ const buttonVariants = cva(
 
 ## Maintenance Guidelines
 
+- Keep documentation clear and up to date for all users
+- Regularly review for accessibility and usability improvements
+- Encourage feedback from a diverse user base
+
 ### 1. Version Control
+
 - Use semantic versioning
 - Document breaking changes
 - Maintain changelog
 - Tag releases
 
 ### 2. Documentation
+
 - Keep design tokens updated
 - Document component variants
 - Maintain usage examples
 - Update testing protocols
 
 ### 3. Performance Monitoring
+
 - Track Core Web Vitals
 - Monitor bundle sizes
 - Analyze runtime performance
 - Test new browser versions
 
 ### 4. Accessibility Audits
+
 - Regular WCAG compliance checks
 - Screen reader testing
 - Keyboard navigation testing
@@ -363,12 +424,18 @@ const buttonVariants = cva(
 
 ## Resources
 
+- [Inclusive Design Principles](https://www.inclusivedesignprinciples.org/)
+- [Web Accessibility Initiative](https://www.w3.org/WAI/)
+- [Everyman Brand Archetype Reference](https://www.archetypesinbranding.com/)
+
 ### Official Documentation
+
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [shadcn/ui Documentation](https://ui.shadcn.com)
 
 ### Design Psychology References
+
 - See individual system documents for specific research references
 - Regular updates based on new research findings
 - Cross-reference with UX psychology studies
@@ -376,56 +443,56 @@ const buttonVariants = cva(
 
 ## Project File Index
 
-This comprehensive index documents all key files in the project, their purpose, and their key functionalities to ensure AI developers have complete context when working with the codebase.
+All files are documented with clear, friendly descriptions to help everyone understand their purpose and usage.
 
 ### Configuration Files
 
-| File | Purpose | Key Features |
-|------|---------|-------------|
-| **package.json** | Project dependencies and scripts | Next.js 14.1.3, React 18.2.0, Tailwind CSS 3.3.3, TypeScript 5 |
-| **tsconfig.json** | TypeScript configuration | Strict mode enabled, path aliases (e.g., `@/components`) |
-| **next.config.mjs** | Next.js configuration | SWC minification, image optimization, experimental features |
-| **postcss.config.mjs** | PostCSS plugins | Tailwind CSS, Autoprefixer |
-| **tailwind.config.mjs** | Tailwind CSS theme | Custom colors, fonts, border radius, container settings |
-| **eslint.config.mjs** | ESLint rules | TypeScript, React, and Next.js specific rules |
-| **components.json** | UI components config | shadcn/ui configuration for component generation |
+| File                    | Purpose                          | Key Features                                                   |
+| ----------------------- | -------------------------------- | -------------------------------------------------------------- |
+| **package.json**        | Project dependencies and scripts | Next.js 14.1.3, React 18.2.0, Tailwind CSS 3.3.3, TypeScript 5 |
+| **tsconfig.json**       | TypeScript configuration         | Strict mode enabled, path aliases (e.g., `@/components`)       |
+| **next.config.mjs**     | Next.js configuration            | SWC minification, image optimization, experimental features    |
+| **postcss.config.mjs**  | PostCSS plugins                  | Tailwind CSS, Autoprefixer                                     |
+| **tailwind.config.mjs** | Tailwind CSS theme               | Custom colors, fonts, border radius, container settings        |
+| **eslint.config.mjs**   | ESLint rules                     | TypeScript, React, and Next.js specific rules                  |
+| **components.json**     | UI components config             | shadcn/ui configuration for component generation               |
 
 ### Application Files
 
-| File | Purpose | Key Features |
-|------|---------|-------------|
-| **src/app/layout.tsx** | Root layout component | Font loading, metadata, viewport settings, HTML structure |
-| **src/app/page.tsx** | Homepage component | Hero section, feature cards, call-to-action |
-| **src/app/globals.css** | Global styles | CSS variables, base styles, utility classes |
+| File                    | Purpose               | Key Features                                              |
+| ----------------------- | --------------------- | --------------------------------------------------------- |
+| **src/app/layout.tsx**  | Root layout component | Font loading, metadata, viewport settings, HTML structure |
+| **src/app/page.tsx**    | Homepage component    | Hero section, feature cards, call-to-action               |
+| **src/app/globals.css** | Global styles         | CSS variables, base styles, utility classes               |
 
 ### Component Files
 
-| File | Purpose | Key Features |
-|------|---------|-------------|
-| **src/components/ui/button.tsx** | Button component | Variants: default, destructive, outline, ghost, link; Sizes: default, sm, lg, icon |
-| **src/components/ui/card.tsx** | Card component | Subcomponents: CardHeader, CardTitle, CardDescription, CardContent, CardFooter |
-| **[Additional UI components]** | Various UI elements | Follow similar patterns to Button and Card components |
+| File                             | Purpose             | Key Features                                                                       |
+| -------------------------------- | ------------------- | ---------------------------------------------------------------------------------- |
+| **src/components/ui/button.tsx** | Button component    | Variants: default, destructive, outline, ghost, link; Sizes: default, sm, lg, icon |
+| **src/components/ui/card.tsx**   | Card component      | Subcomponents: CardHeader, CardTitle, CardDescription, CardContent, CardFooter     |
+| **[Additional UI components]**   | Various UI elements | Follow similar patterns to Button and Card components                              |
 
 ### Utility Files
 
-| File | Purpose | Key Features |
-|------|---------|-------------|
+| File                 | Purpose           | Key Features                                                                                                                                                                                                              |
+| -------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **src/lib/utils.ts** | Utility functions | `cn()`: className merging with clsx and tailwind-merge<br>`formatDate()`: Date formatting<br>`debounce()`: Function debouncing<br>`generateId()`: Random ID generation<br>`getNestedValue()`: Safe object property access |
 
 ### Documentation Files
 
-| File | Purpose | Key Features |
-|------|---------|-------------|
-| **docs/01-brand-foundation.md** | Brand guidelines | Mission, values, voice, tone |
-| **docs/02-typography.md** | Typography system | Font families, scales, usage guidelines |
-| **docs/03-color-system.md** | Color palette | Primary, secondary, accent colors, semantic colors |
-| **docs/04-spacing-layout.md** | Layout guidelines | Grid system, spacing scale, responsive breakpoints |
-| **docs/05-components.md** | Component library | Component documentation, variants, accessibility |
-| **docs/06-implementation.md** | Implementation guide | Technical setup, configuration, maintenance guide |
+| File                            | Purpose              | Key Features                                       |
+| ------------------------------- | -------------------- | -------------------------------------------------- |
+| **docs/01-brand-foundation.md** | Brand guidelines     | Mission, values, voice, tone                       |
+| **docs/02-typography.md**       | Typography system    | Font families, scales, usage guidelines            |
+| **docs/03-color-system.md**     | Color palette        | Primary, secondary, accent colors, semantic colors |
+| **docs/04-spacing-layout.md**   | Layout guidelines    | Grid system, spacing scale, responsive breakpoints |
+| **docs/05-components.md**       | Component library    | Component documentation, variants, accessibility   |
+| **docs/06-implementation.md**   | Implementation guide | Technical setup, configuration, maintenance guide  |
 
 ## Key Functionality Reference
 
-This section details critical functionality implemented across the codebase to help AI developers understand the system capabilities.
+All functionality is designed for clarity, approachability, and universal usability. Examples and explanations are provided for each key feature.
 
 ### 1. Theming System
 
@@ -438,8 +505,10 @@ The project uses a CSS variables-based theming system that supports:
 
 ```tsx
 // How the theme is applied to HTML
-<html lang="en" className={`${isDarkMode ? 'dark' : ''}`}>
-  <body className={`${inter.variable} ${ibmPlexMono.variable} font-sans antialiased`}>
+<html lang="en" className={`${isDarkMode ? "dark" : ""}`}>
+  <body
+    className={`${inter.variable} ${ibmPlexMono.variable} font-sans antialiased`}
+  >
     {children}
   </body>
 </html>
@@ -475,15 +544,15 @@ import { cn, formatDate, debounce } from "@/lib/utils";
 
 // Combining class names
 const className = cn(
-  "base-style", 
-  isActive && "active-style", 
+  "base-style",
+  isActive && "active-style",
   variant === "primary" ? "primary-style" : "secondary-style"
 );
 
 // Formatting dates
-const formattedDate = formatDate(new Date(), { 
-  month: 'short', 
-  year: 'numeric' 
+const formattedDate = formatDate(new Date(), {
+  month: "short",
+  year: "numeric",
 });
 
 // Debouncing event handlers
@@ -508,6 +577,8 @@ The project follows a mobile-first responsive approach using Tailwind's breakpoi
 
 ## Version Compatibility Notes
 
+We prioritize stability and ease of upgrade, with clear notes on compatibility for all users.
+
 This project has specific version dependencies that must be maintained for compatibility:
 
 - **Next.js version**: 14.1.3 (Not compatible with Next.js 15+ without migration)
@@ -528,10 +599,10 @@ Some packages have strict peer dependencies:
 
 When updating any part of this system:
 
-1. **Document all changes** in the relevant documentation file
+1. **Document all changes** in clear, accessible language
 2. **Update this index** if new files or functionality are added
-3. **Verify version compatibility** between interdependent packages
+3. **Verify version compatibility** for all users
 4. **Test across all supported browsers** and device sizes
 5. **Run accessibility checks** to maintain WCAG compliance
 
-This documentation should be treated as a living document that evolves with the codebase.
+This documentation is a living resource, designed to help everyone succeed and feel supported as the system evolves.

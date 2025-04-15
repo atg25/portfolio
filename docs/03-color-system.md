@@ -1,12 +1,13 @@
-# Color Psychology System
+# Color Psychology System: The Everyman AI Consultancy
 
 ## Scientific Foundation
 
-Our color system is built on extensive cross-cultural research in color psychology and cognitive processing. Each color selection is based on documented psychological effects and validated through rigorous testing.
+Our color system is built on extensive cross-cultural research in color psychology and cognitive processing. Each color selection is based on documented psychological effects and validated through rigorous testing, with a focus on creating a sense of trust, comfort, and belonging for everyone.
 
 ### Primary Color Palette
 
-#### Core Blue (Trust & Competence)
+#### Core Blue (Trust & Approachability)
+
 ```typescript
 // Tailwind config
 colors: {
@@ -27,14 +28,16 @@ colors: {
 ```
 
 **Psychological Properties:**
+
 - Promotes trust and reliability
-- Enhances cognitive processing
-- Creates sense of depth and stability
+- Feels approachable and welcoming
+- Creates a sense of calm and stability
 - Cross-cultural positive associations
 
 ### Secondary Colors
 
-#### Supportive Green (Growth & Stability)
+#### Supportive Green (Growth & Community)
+
 ```typescript
 secondary: {
   50: '#f0fdf4',
@@ -51,7 +54,8 @@ secondary: {
 }
 ```
 
-#### Accent Purple (Innovation & Quality)
+#### Accent Purple (Creativity & Quality)
+
 ```typescript
 accent: {
   50: '#faf5ff',
@@ -69,7 +73,8 @@ accent: {
 ```
 
 ### Neutral System
-Carefully calibrated for optimal cognitive processing and reduced eye strain:
+
+Carefully calibrated for optimal cognitive processing and reduced eye strain, supporting a comfortable and inclusive experience for all users:
 
 ```typescript
 neutral: {
@@ -90,6 +95,7 @@ neutral: {
 ### Semantic Colors
 
 #### Success States
+
 ```typescript
 success: {
   light: '#dcfce7',  // Subtle feedback
@@ -99,6 +105,7 @@ success: {
 ```
 
 #### Error States
+
 ```typescript
 error: {
   light: '#fee2e2',
@@ -108,6 +115,7 @@ error: {
 ```
 
 #### Warning States
+
 ```typescript
 warning: {
   light: '#fef3c7',
@@ -121,6 +129,7 @@ warning: {
 #### Next.js and Tailwind Setup
 
 1. Configure Tailwind:
+
 ```typescript
 // tailwind.config.js
 module.exports = {
@@ -128,20 +137,21 @@ module.exports = {
     extend: {
       colors: {
         // Copy color definitions from above
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};
 ```
 
 2. Create color utility classes:
+
 ```css
 /* globals.css */
 @layer utilities {
   .bg-gradient-brand {
     @apply bg-gradient-to-r from-primary-600 to-primary-500;
   }
-  
+
   .text-gradient-brand {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-500;
   }
@@ -151,33 +161,38 @@ module.exports = {
 ### Psychological Application Guidelines
 
 #### Content Hierarchy
+
 1. **Primary Actions**
+
    - Use primary-500 for main CTA buttons
    - Ensure 4.5:1 contrast ratio minimum
    - Apply hover states using primary-600
 
 2. **Information Hierarchy**
+
    - Use neutral colors for body text
    - Apply color sparingly for emphasis
    - Maintain consistent meaning across contexts
 
 3. **Emotional Impact**
    - Use saturated colors sparingly
-   - Apply color psychology intentionally
-   - Consider cultural variations
+   - Apply color psychology intentionally to create a sense of comfort and trust
+   - Consider cultural variations and universal appeal
 
 ### Cross-Cultural Considerations
 
 #### Color Meaning Matrix
-| Color    | Western | Eastern | Islamic | Action                     |
-|----------|---------|---------|---------|----------------------------|
-| Primary  | Trust   | Harmony | Peace   | Use for key brand elements |
-| Secondary| Growth  | Life    | Nature  | Use for supporting elements|
-| Accent   | Quality | Royalty | Wisdom  | Use for highlights        |
+
+| Color     | Western | Eastern | Islamic | Action                      |
+| --------- | ------- | ------- | ------- | --------------------------- |
+| Primary   | Trust   | Harmony | Peace   | Use for key brand elements  |
+| Secondary | Growth  | Life    | Nature  | Use for supporting elements |
+| Accent    | Quality | Royalty | Wisdom  | Use for highlights          |
 
 ### Accessibility Standards
 
 1. **Contrast Requirements**
+
    - Large text: 3:1 minimum
    - Body text: 4.5:1 minimum
    - Small text: 7:1 recommended
@@ -190,12 +205,14 @@ module.exports = {
 ### Testing Protocol
 
 #### Visual Testing
+
 1. Contrast ratio validation
 2. Color blindness simulation
 3. Device calibration checks
 
 #### Psychological Testing
-1. Emotional response measurement
+
+1. Emotional response measurement (focus on comfort and trust)
 2. Recognition and recall testing
 3. Cultural association validation
 

@@ -22,7 +22,9 @@ export default function Projects() {
         >
           <h1 className="font-heading text-4xl md:text-5xl">Projects</h1>
           <p className="text-lg text-muted-foreground/80">
-            A showcase of my technical projects and development work
+            Here are some projects I’ve enjoyed working on—each one is about
+            solving real problems and helping people connect, learn, or grow. I
+            hope you find something inspiring!
           </p>
         </motion.div>
 
@@ -42,7 +44,7 @@ export default function Projects() {
                   <CardTitle className="font-heading">
                     Athletics Management System
                   </CardTitle>
-                  <CardDescription>System Design & Innovation</CardDescription>
+                  <CardDescription>System Design & Teamwork</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="mb-6 text-muted-foreground">
@@ -92,7 +94,7 @@ export default function Projects() {
                   <CardTitle className="font-heading">
                     Professional Network Platform
                   </CardTitle>
-                  <CardDescription>Web Development & Design</CardDescription>
+                  <CardDescription>Web Development & Community</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="mb-6 text-muted-foreground">

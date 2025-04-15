@@ -1,8 +1,8 @@
-# Spacing & Layout System
+# Spacing & Layout System: The Everyman AI Consultancy
 
 ## Psychological Principles
 
-Our spacing and layout system is founded on cognitive psychology research regarding visual processing, attention patterns, and spatial relationships. Each measurement and proportion is carefully calibrated to enhance information processing and emotional comfort.
+Our spacing and layout system is designed to create a sense of comfort, clarity, and inclusivity. It is based on research into visual scanning patterns and cognitive grouping, ensuring that everyone can easily navigate and understand content regardless of background or ability.
 
 ### Base Unit System
 
@@ -76,9 +76,10 @@ container: {
 
 ### Psychological Grid System
 
-Our grid system is based on research into visual scanning patterns and cognitive grouping:
+Our grid system is built to support clear organization and a welcoming experience for all users:
 
 #### Base Grid
+
 - 12-column system for maximum flexibility
 - Gutters aligned with spacing scale
 - Responsive breakpoints based on cognitive load research
@@ -106,30 +107,33 @@ grid: {
 ### Component Spacing
 
 #### Internal Spacing (Padding)
+
 Based on content density research:
 
-| Component Type | Internal Spacing | Rationale |
-|---------------|------------------|-----------|
-| Cards         | p-6 (1.5rem)    | Optimal content breathing room |
-| Buttons       | px-4 py-2       | Touch target optimization |
-| Forms         | p-4             | Input field clarity |
-| Navigation    | px-6 py-4       | Menu item recognition |
+| Component Type | Internal Spacing | Rationale                      |
+| -------------- | ---------------- | ------------------------------ |
+| Cards          | p-6 (1.5rem)     | Optimal content breathing room |
+| Buttons        | px-4 py-2        | Touch target optimization      |
+| Forms          | p-4              | Input field clarity            |
+| Navigation     | px-6 py-4        | Menu item recognition          |
 
 #### External Spacing (Margin)
+
 Based on cognitive grouping principles:
 
-| Context | Spacing | Psychological Purpose |
-|---------|---------|---------------------|
-| Section Breaks | my-16 | Content chunking |
-| Related Items | gap-4 | Visual grouping |
-| List Items | space-y-2 | Hierarchical clarity |
-| Grid Items | gap-6 | Content distinction |
+| Context        | Spacing   | Psychological Purpose |
+| -------------- | --------- | --------------------- |
+| Section Breaks | my-16     | Content chunking      |
+| Related Items  | gap-4     | Visual grouping       |
+| List Items     | space-y-2 | Hierarchical clarity  |
+| Grid Items     | gap-6     | Content distinction   |
 
 ### White Space Strategy
 
 Research-based spacing principles:
 
 1. **Cognitive Breathing Room**
+
    - Minimum 16px (1rem) between distinct elements
    - Increased spacing (24px+) between major sections
    - Progressive spacing increase with content hierarchy
@@ -142,6 +146,7 @@ Research-based spacing principles:
 ### Implementation Examples
 
 #### Card Component
+
 ```tsx
 <div className="p-6 space-y-4 bg-white rounded-lg shadow-md">
   <h3 className="text-xl font-semibold">Card Title</h3>
@@ -153,15 +158,14 @@ Research-based spacing principles:
 ```
 
 #### Content Section
+
 ```tsx
 <section className="container mx-auto py-16 space-y-8">
   <header className="space-y-4">
     <h2 className="text-3xl font-bold">Section Title</h2>
     <p className="text-xl text-gray-600">Section description</p>
   </header>
-  <div className="grid grid-cols-3 gap-6">
-    {/* Grid items */}
-  </div>
+  <div className="grid grid-cols-3 gap-6">{/* Grid items */}</div>
 </section>
 ```
 
@@ -171,20 +175,22 @@ Spacing adjusts based on device context and cognitive load research:
 
 ```typescript
 // Example responsive spacing classes
-className="p-4 sm:p-6 lg:p-8" // Progressive padding
-className="gap-4 sm:gap-6 lg:gap-8" // Progressive grid gap
-className="space-y-4 sm:space-y-6 lg:space-y-8" // Progressive vertical spacing
+className = "p-4 sm:p-6 lg:p-8"; // Progressive padding
+className = "gap-4 sm:gap-6 lg:gap-8"; // Progressive grid gap
+className = "space-y-4 sm:space-y-6 lg:space-y-8"; // Progressive vertical spacing
 ```
 
 ### Testing Protocol
 
 #### Layout Testing
+
 1. Cognitive load measurement
 2. Eye-tracking studies
 3. User flow analysis
 4. Content density optimization
 
 #### Spacing Validation
+
 1. Readability metrics
 2. Information hierarchy clarity
 3. Touch target validation

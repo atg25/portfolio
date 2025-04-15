@@ -14,16 +14,17 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-background">
       <main className="container mx-auto space-y-16 pt-20 px-4">
-        <motion.div 
+        <motion.div
           className="text-center space-y-6 max-w-[800px] mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="font-heading text-4xl md:text-5xl">Contact Me</h1>
+          <h1 className="font-heading text-4xl md:text-5xl">Contact</h1>
           <p className="text-lg text-muted-foreground/80">
-            Let's connect! Feel free to reach out for opportunities or
-            collaborations.
+            We’d love to hear from you! Whether you have a question, want to
+            collaborate, or just want to say hello, everyone is welcome to reach
+            out.
           </p>
         </motion.div>
 
@@ -49,7 +50,10 @@ export default function Contact() {
                   <div>
                     <h3 className="font-medium mb-2">Email</h3>
                     <p className="text-muted-foreground">
-                      <a href="mailto:atg25@njit.edu" className="hover:underline">
+                      <a
+                        href="mailto:atg25@njit.edu"
+                        className="hover:underline"
+                      >
                         atg25@njit.edu
                       </a>
                     </p>
@@ -99,11 +103,15 @@ export default function Contact() {
                 <CardHeader>
                   <CardTitle className="font-heading">Send a Message</CardTitle>
                   <CardDescription>
-                    Fill out the form below to get in touch
+                    Fill out the form below and I’ll get back to you soon. Your
+                    message matters!
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                  <form
+                    className="space-y-4"
+                    onSubmit={(e) => e.preventDefault()}
+                  >
                     <div>
                       <label htmlFor="name" className="block font-medium mb-2">
                         Name
@@ -129,7 +137,10 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="message" className="block font-medium mb-2">
+                      <label
+                        htmlFor="message"
+                        className="block font-medium mb-2"
+                      >
                         Message
                       </label>
                       <textarea
@@ -143,6 +154,14 @@ export default function Contact() {
                     <Button type="submit" className="w-full">
                       Send Message
                     </Button>
+                    {/* Supportive feedback message for demonstration */}
+                    <p
+                      className="text-green-600 text-center pt-2"
+                      aria-live="polite"
+                    >
+                      {/* Example: */}
+                      {/* Thank you for reaching out! I appreciate your message and will respond as soon as possible. */}
+                    </p>
                   </form>
                 </CardContent>
               </Card>
