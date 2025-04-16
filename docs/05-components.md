@@ -1,8 +1,8 @@
-# Component System: The Everyman AI Consultancy
+# Component System: The Creator Archetype (Genuine & Approachable)
 
 ## Psychological Foundation
 
-Our component system is designed to be approachable, clear, and universally usable. Each component is crafted to make digital experiences feel familiar, supportive, and accessible to everyone, regardless of background or technical expertise.
+Our component system is designed to be inventive, expressive, and visually dynamic. Each component is crafted to make digital experiences feel creative, inspiring, and accessible to everyone, regardless of background or technical expertise.
 
 ## shadcn/ui Integration
 
@@ -21,9 +21,35 @@ This project uses [shadcn/ui](https://ui.shadcn.com/) as its component library f
 - Prioritize clarity, simplicity, and ease of use
 - Ensure all new components meet accessibility standards
 
+## Creator Component Principles
+
+- Components should be creative and expressive, but always easy to use.
+- Use animation and color to guide, not to show off.
+- Show real examples and honest feedback.
+- Make every component accessible and friendly.
+
+## Example Enhancements
+
+- Animated buttons, cards, and navigation
+- Portfolio/gallery with creative filtering or presentation
+- "Behind the Scenes" or "Process" components
+- Use of SVGs, hand-drawn icons, or custom illustrations
+
+## Usage Guidelines
+
+- Prioritize clarity and comfort in every component.
+- Use creative details to invite interaction, not to distract.
+- Document how components help users, not just how they look.
+
 ### Base Components (shadcn/ui)
 
-#### Button Approachability
+#### Button
+
+- Located at `src/components/ui/button.tsx`.
+- Supports variants: default, destructive, outline, ghost, link.
+- Sizes: default, sm, lg, icon.
+- Uses `cn` utility for className merging.
+- Example:
 
 ```tsx
 <Button variant="primary" size="default" className="group">
@@ -33,11 +59,26 @@ This project uses [shadcn/ui](https://ui.shadcn.com/) as its component library f
 </Button>
 ```
 
-**Properties:**
+#### Card
 
-- Clear labels and generous touch targets
-- Visual feedback for all states (hover, focus, disabled)
-- Friendly color palette for all users
+- Located at `src/components/ui/card.tsx`.
+- Composition: CardHeader, CardTitle, CardDescription, CardContent, CardFooter.
+- Example:
+
+```tsx
+<Card>
+  <CardHeader>
+    <CardTitle>Project Title</CardTitle>
+    <CardDescription>Short description</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Project details here</p>
+  </CardContent>
+  <CardFooter>
+    <Button>Learn More</Button>
+  </CardFooter>
+</Card>
+```
 
 #### Dropdown Menu Component
 
@@ -101,6 +142,28 @@ This project uses [shadcn/ui](https://ui.shadcn.com/) as its component library f
 - Clear placeholder text and labels
 - Error and success states are easy to understand
 - Sufficient spacing for comfortable interaction
+
+#### Sheet (Drawer)
+
+- Located at `src/components/ui/sheet.tsx`.
+- Used for mobile navigation in `main-nav.tsx`.
+- Built with shadcn/ui and Radix Dialog for accessibility and focus management.
+- Example:
+
+```tsx
+import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+
+<Sheet>
+  <SheetTrigger asChild>
+    <Button variant="ghost" size="icon" aria-label="Open menu">
+      <MenuIcon />
+    </Button>
+  </SheetTrigger>
+  <SheetContent side="right">
+    <nav>{/* Navigation links */}</nav>
+  </SheetContent>
+</Sheet>;
+```
 
 ### Complex Components
 
@@ -204,6 +267,11 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 - The Sheet closes automatically when a link is tapped or the close button is pressed.
 - The desktop navigation remains unchanged and uses a horizontal button group.
 
+### Utility Functions
+
+- Use `cn` from `src/lib/utils.ts` for className merging in all components.
+- Other utilities: `formatDate`, `debounce`, `generateId`, `getNestedValue`.
+
 ##### Tabs
 
 ```tsx
@@ -293,9 +361,9 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 
 ### Implementation Guidelines
 
-- Use consistent spacing and sizing for comfort
-- Prioritize accessibility in all states
-- Test with real users for clarity and ease of use
+- All components use responsive Tailwind classes.
+- Follow the design system for spacing, color, and typography.
+- Test for accessibility and usability.
 
 ### Psychological Testing Protocol
 

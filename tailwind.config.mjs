@@ -6,7 +6,14 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
-        heading: ["var(--font-heading)", "Inter", "system-ui", "sans-serif"],
+        heading: [
+          "var(--font-heading)",
+          "Montserrat",
+          "Poppins",
+          "Inter",
+          "system-ui",
+          "sans-serif",
+        ],
       },
       colors: {
         border: "hsl(var(--border))",

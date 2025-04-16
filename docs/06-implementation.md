@@ -1,4 +1,4 @@
-# Implementation Guide: The Everyman AI Consultancy
+# Implementation Guide: The Creator Archetype (Genuine & Approachable)
 
 ## Project Setup
 
@@ -34,16 +34,23 @@ cd my-app
 ```
 src/
 ├── app/
-│   ├── layout.tsx
-│   └── page.tsx
+│   ├── layout.tsx         # Root layout (font loading, metadata, nav)
+│   ├── page.tsx           # Home page (hero, features, call-to-action)
+│   ├── globals.css        # Global styles (CSS variables, base styles)
+│   ├── contact/
+│   │   └── page.tsx       # Contact page
+│   ├── experience/
+│   │   └── page.tsx       # Experience page
+│   └── projects/
+│       └── page.tsx       # Projects page
 ├── components/
-│   ├── ui/           # shadcn components
-│   └── shared/       # reusable components
-├── styles/
-│   ├── globals.css
-│   └── typography.css
+│   ├── main-nav.tsx       # Main navigation (desktop & mobile)
+│   └── ui/
+│       ├── button.tsx     # Button component (variants, sizes)
+│       ├── card.tsx       # Card component (header, content, footer)
+│       └── sheet.tsx      # Sheet/Drawer for mobile nav
 └── lib/
-    └── utils.ts      # utility functions
+    └── utils.ts           # Utility functions (cn, formatDate, debounce, etc.)
 ```
 
 ## Configuration Files
@@ -205,6 +212,23 @@ Our theme uses CSS variables for dynamic theming support, implemented in `global
 - [ ] Test with users of varying backgrounds and abilities
 - [ ] Document all changes for transparency and learning
 
+## Implementation for the Creator Brand
+
+- Use bold, expressive color palettes, but keep everything readable and comfortable.
+- Typography should be creative, but always clear and honest.
+- Layouts should be creative, but never confusing.
+- Components should be easy to use, with helpful feedback and clear actions.
+- Show the process, not just the results—share what worked, what didn’t, and what you learned.
+- Keep accessibility and usability at the center of every decision.
+
+## Example Checklist
+
+- [ ] Hero section is inviting and clear, not overhyped
+- [ ] Navigation and buttons are easy to use and understand
+- [ ] Project/gallery sections tell real stories, not just show visuals
+- [ ] Color and typography support the message, not just the style
+- [ ] “Behind the Scenes” or “Process” content is honest and practical
+
 ### 1. Typography Implementation
 
 1. Install Inter font:
@@ -301,7 +325,7 @@ const buttonVariants = cva(
 
 - **Mobile Navigation:**
 
-  - The mobile menu now uses a custom Sheet (Drawer) component (`src/components/ui/sheet.tsx`) built with shadcn/ui and Radix Dialog for a full-screen, touch-friendly, and accessible experience.
+  - The mobile menu uses a custom Sheet (Drawer) component (`src/components/ui/sheet.tsx`) built with shadcn/ui and Radix Dialog for a full-screen, touch-friendly, and accessible experience.
   - The Sheet is integrated in `src/components/main-nav.tsx` and replaces the previous DropdownMenu approach for mobile.
   - All navigation links are large, easy to tap, and accessible. The Sheet closes automatically when a link is tapped or the close button is pressed.
   - Desktop navigation remains a horizontal button group.
@@ -314,8 +338,8 @@ const buttonVariants = cva(
 
 - **Theming & Typography:**
 
-  - Color and typography variables are defined in `src/app/globals.css` and follow the Everyman archetype for clarity and approachability.
-  - Only Inter/system-ui is used for headings and body text.
+  - Color and typography variables are defined in `src/app/globals.css` and follow the Creator archetype for boldness and creativity.
+  - Inter and Montserrat (or Poppins) are used for headings and body text, as set in Tailwind and CSS variables.
 
 - **Accessibility:**
   - All navigation and interactive elements include ARIA labels and are keyboard accessible.
@@ -426,7 +450,7 @@ Testing focuses on usability, accessibility, and real-world scenarios to ensure 
 
 - [Inclusive Design Principles](https://www.inclusivedesignprinciples.org/)
 - [Web Accessibility Initiative](https://www.w3.org/WAI/)
-- [Everyman Brand Archetype Reference](https://www.archetypesinbranding.com/)
+- [Creator Brand Archetype Reference](https://www.archetypesinbranding.com/)
 
 ### Official Documentation
 
@@ -459,19 +483,23 @@ All files are documented with clear, friendly descriptions to help everyone unde
 
 ### Application Files
 
-| File                    | Purpose               | Key Features                                              |
-| ----------------------- | --------------------- | --------------------------------------------------------- |
-| **src/app/layout.tsx**  | Root layout component | Font loading, metadata, viewport settings, HTML structure |
-| **src/app/page.tsx**    | Homepage component    | Hero section, feature cards, call-to-action               |
-| **src/app/globals.css** | Global styles         | CSS variables, base styles, utility classes               |
+| File                            | Purpose               | Key Features                                              |
+| ------------------------------- | --------------------- | --------------------------------------------------------- |
+| **src/app/layout.tsx**          | Root layout component | Font loading, metadata, viewport settings, HTML structure |
+| **src/app/page.tsx**            | Homepage component    | Hero section, feature cards, call-to-action               |
+| **src/app/globals.css**         | Global styles         | CSS variables, base styles, utility classes               |
+| **src/app/contact/page.tsx**    | Contact page          | Contact form, accessibility features                      |
+| **src/app/experience/page.tsx** | Experience page       | Education, skills, and experience cards                   |
+| **src/app/projects/page.tsx**   | Projects page         | Project showcase, feature lists, technology stacks        |
 
 ### Component Files
 
-| File                             | Purpose             | Key Features                                                                       |
-| -------------------------------- | ------------------- | ---------------------------------------------------------------------------------- |
-| **src/components/ui/button.tsx** | Button component    | Variants: default, destructive, outline, ghost, link; Sizes: default, sm, lg, icon |
-| **src/components/ui/card.tsx**   | Card component      | Subcomponents: CardHeader, CardTitle, CardDescription, CardContent, CardFooter     |
-| **[Additional UI components]**   | Various UI elements | Follow similar patterns to Button and Card components                              |
+| File                             | Purpose          | Key Features                                                                       |
+| -------------------------------- | ---------------- | ---------------------------------------------------------------------------------- |
+| **src/components/ui/button.tsx** | Button component | Variants: default, destructive, outline, ghost, link; Sizes: default, sm, lg, icon |
+| **src/components/ui/card.tsx**   | Card component   | Subcomponents: CardHeader, CardTitle, CardDescription, CardContent, CardFooter     |
+| **src/components/ui/sheet.tsx**  | Sheet/Drawer     | Mobile navigation, ARIA support, focus management                                  |
+| **src/components/main-nav.tsx**  | Main navigation  | Desktop and mobile navigation, Sheet integration                                   |
 
 ### Utility Files
 

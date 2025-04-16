@@ -20,11 +20,13 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="font-heading text-4xl md:text-5xl">Contact</h1>
+          <h1 className="font-heading text-4xl md:text-5xl text-gradient-brand">
+            Let’s chat about your idea
+          </h1>
           <p className="text-lg text-muted-foreground/80">
-            We’d love to hear from you! Whether you have a question, want to
-            collaborate, or just want to say hello, everyone is welcome to reach
-            out.
+            Got a question, want to work together, or just want to say hi? I’d
+            love to hear from you. Drop me a message and I’ll get back to you
+            soon.
           </p>
         </motion.div>
 
@@ -41,7 +43,7 @@ export default function Contact() {
             >
               <Card variant="default">
                 <CardHeader>
-                  <CardTitle className="font-heading">
+                  <CardTitle className="font-heading text-gradient-brand">
                     Contact Information
                   </CardTitle>
                   <CardDescription>Ways to reach me directly</CardDescription>
@@ -101,7 +103,9 @@ export default function Contact() {
             >
               <Card variant="default">
                 <CardHeader>
-                  <CardTitle className="font-heading">Send a Message</CardTitle>
+                  <CardTitle className="font-heading text-gradient-brand">
+                    Send a Message
+                  </CardTitle>
                   <CardDescription>
                     Fill out the form below and I’ll get back to you soon. Your
                     message matters!
@@ -151,16 +155,17 @@ export default function Contact() {
                         required
                       ></textarea>
                     </div>
-                    <Button type="submit" className="w-full">
+                    <Button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-primary to-accent text-white hover:opacity-90"
+                    >
                       Send Message
                     </Button>
-                    {/* Supportive feedback message for demonstration */}
                     <p
                       className="text-green-600 text-center pt-2"
                       aria-live="polite"
                     >
-                      {/* Example: */}
-                      {/* Thank you for reaching out! I appreciate your message and will respond as soon as possible. */}
+                      {/* Thank you for reaching out! I’ll reply as soon as I can. */}
                     </p>
                   </form>
                 </CardContent>

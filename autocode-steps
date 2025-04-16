@@ -1,0 +1,11 @@
+1. "as a professional in **\_** can you tell me how you would (add something)?"
+2. "now can you update all of my brand documents to reflect these changes"
+3. "now read the docs again and read the code in src and tell me how you would update the content to fit the (changes)"
+4. "make a sprint plan for any changes like a checklist. put these plans in the docs folder called sprint\_\_.md"
+5. "now i want you to read all of sprint\_\_.md and apply all of the changes"
+6. "i want you to review all of the code and get it organized, remove duplication, generally clean the codebase"
+7. "can you look at my code in src and update my docs\06-implementation.md and docs\05-components.md to keep the context up to date to use in the future"
+
+- These steps are assuming there are no errors throughout the process, if you do have any errors let Copilot know. If they keep struggling with errors remind it to take a step back and analyze the project entirely with the 5 ys analysis.
+- Remember to say please and thank you, this will make it work better.
+- If you want some really pro looking stuff, say its for a fortune 100 company and your work is being presented to the c-suite

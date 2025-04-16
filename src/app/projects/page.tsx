@@ -20,11 +20,13 @@ export default function Projects() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="font-heading text-4xl md:text-5xl">Projects</h1>
+          <h1 className="font-heading text-4xl md:text-5xl text-gradient-brand">
+            Projects
+          </h1>
           <p className="text-lg text-muted-foreground/80">
-            Here are some projects I’ve enjoyed working on—each one is about
-            solving real problems and helping people connect, learn, or grow. I
-            hope you find something inspiring!
+            Here’s a look at some things I’ve built. Each project taught me
+            something new—if you want to know more about how I made any of
+            these, just ask!
           </p>
         </motion.div>
 
@@ -41,19 +43,23 @@ export default function Projects() {
             >
               <Card variant="expedition">
                 <CardHeader>
-                  <CardTitle className="font-heading">
+                  <CardTitle className="font-heading text-gradient-brand">
                     Athletics Management System
                   </CardTitle>
                   <CardDescription>System Design & Teamwork</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="mb-6 text-muted-foreground">
-                    Developed a comprehensive athletics management system for
-                    tracking athlete performance, scheduling events, and
-                    managing team resources. The system streamlines
-                    administrative tasks and enhances communication between
-                    coaches, athletes, and staff.
+                    Built a system for tracking athlete performance, scheduling
+                    events, and managing team resources. I learned a lot about
+                    working with real users and making things simple for
+                    everyone.
                   </p>
+                  <div className="italic text-accent-foreground text-sm pb-2">
+                    What I learned: Listening to feedback early made the system
+                    better for coaches and athletes. Collaboration really
+                    matters.
+                  </div>
                   <div className="space-y-4">
                     <div>
                       <h3 className="font-medium mb-2">Key Features:</h3>
@@ -91,19 +97,21 @@ export default function Projects() {
             >
               <Card variant="terrain">
                 <CardHeader>
-                  <CardTitle className="font-heading">
+                  <CardTitle className="font-heading text-gradient-brand">
                     Professional Network Platform
                   </CardTitle>
                   <CardDescription>Web Development & Community</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="mb-6 text-muted-foreground">
-                    Created an innovative web platform for professional
-                    networking, implementing responsive design patterns and
-                    modern development practices. The platform enables
-                    professionals to connect, share experiences, and discover
-                    opportunities.
+                    Created a web platform for professional networking. I
+                    focused on making it easy to connect and share, and learned
+                    how important it is to keep things simple and welcoming.
                   </p>
+                  <div className="italic text-accent-foreground text-sm pb-2">
+                    What I learned: The best features came from talking to users
+                    and trying out ideas quickly.
+                  </div>
                   <div className="space-y-4">
                     <div>
                       <h3 className="font-medium mb-2">Key Features:</h3>
@@ -152,18 +160,21 @@ export default function Projects() {
             >
               <Card>
                 <CardHeader>
-                  <CardTitle className="font-heading">
+                  <CardTitle className="font-heading text-gradient-brand">
                     Personal Portfolio Website
                   </CardTitle>
                   <CardDescription>Frontend Development</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="mb-6 text-muted-foreground">
-                    Designed and developed a personal portfolio website
-                    showcasing my projects and professional experience. The site
-                    features a modern design, responsive layout, and smooth
-                    navigation.
+                    Designed and built this portfolio to share my work and
+                    process. It’s always a work in progress, and I’m always
+                    learning new ways to make it better.
                   </p>
+                  <div className="italic text-accent-foreground text-sm pb-2">
+                    What I learned: Sharing my process helps others and keeps me
+                    honest about what works and what doesn’t.
+                  </div>
                   <div className="space-y-4">
                     <div>
                       <h3 className="font-medium mb-2">Key Features:</h3>

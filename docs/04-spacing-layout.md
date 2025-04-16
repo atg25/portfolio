@@ -1,8 +1,15 @@
-# Spacing & Layout System: The Everyman AI Consultancy
+# Spacing & Layout System: The Creator Archetype (Genuine & Approachable)
 
 ## Psychological Principles
 
 Our spacing and layout system is designed to create a sense of comfort, clarity, and inclusivity. It is based on research into visual scanning patterns and cognitive grouping, ensuring that everyone can easily navigate and understand content regardless of background or ability.
+
+## Layout Principles
+
+- Use creative layouts, but keep navigation and reading easy.
+- Let things breathe—don’t crowd the page.
+- Use layering and asymmetry for interest, but keep the flow natural.
+- Make sure every section feels welcoming and open.
 
 ### Base Unit System
 
@@ -143,6 +150,12 @@ Research-based spacing principles:
    - Attention-directing spacing patterns
    - Content density optimization
 
+## Example Patterns
+
+- Hero sections with layered images, gradients, and bold type
+- Project galleries with masonry or staggered grids
+- Section dividers with hand-drawn or abstract shapes
+
 ### Implementation Examples
 
 #### Card Component
@@ -179,6 +192,12 @@ className = "p-4 sm:p-6 lg:p-8"; // Progressive padding
 className = "gap-4 sm:gap-6 lg:gap-8"; // Progressive grid gap
 className = "space-y-4 sm:space-y-6 lg:space-y-8"; // Progressive vertical spacing
 ```
+
+### Usage Guidelines
+
+- Prioritize comfort and clarity over visual tricks.
+- Use spacing to make content easy to scan and interact with.
+- Let creative elements support the story, not distract from it.
 
 ### Testing Protocol
 

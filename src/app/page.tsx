@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export default function Home() {
@@ -29,8 +29,6 @@ export default function Home() {
       },
     },
   };
-
-  const carouselRef = useRef<HTMLDivElement>(null);
 
   // Project data for carousel
   const projects = [
@@ -85,34 +83,35 @@ export default function Home() {
         {/* Hero/Intro Section */}
         <section className="text-center space-y-8 px-2 sm:px-0">
           <motion.h1
-            className="font-heading text-5xl md:text-6xl lg:text-7xl"
+            className="font-heading text-5xl md:text-6xl lg:text-7xl text-gradient-brand"
             variants={nameVariants}
             initial="hidden"
             animate="visible"
           >
-            {Array.from("Andrew Gardner").map((letter, index) => (
+            {Array.from("Hi, I'm Andrew.").map((letter, index) => (
               <motion.span key={`name-${index}`} variants={letterVariants}>
                 {letter}
               </motion.span>
             ))}
           </motion.h1>
           <motion.p
-            className="text-lg text-primary font-semibold max-w-xl mx-auto mt-2"
+            className="text-xl text-muted-foreground/90 max-w-2xl mx-auto font-semibold"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
           >
-            Let’s build something great together—everyone is welcome here.
+            I like building things that are useful and a little different.
+            Here’s some of my work—take a look, and if you have an idea, let’s
+            talk.
           </motion.p>
           <motion.p
-            className="text-xl text-muted-foreground/80 max-w-2xl mx-auto"
+            className="text-lg text-muted-foreground/80 max-w-xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2 }}
           >
-            I’m here to help you succeed with practical, user-friendly digital
-            solutions. Whether you’re just starting out or looking to grow, I’m
-            ready to support your journey.
+            I believe creativity is for everyone. I love learning by doing and
+            sharing what I find along the way.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6">
             <Button
@@ -120,7 +119,7 @@ export default function Home() {
               className="rounded-full px-6 py-3 text-base shadow-md bg-gradient-to-r from-primary to-accent hover:opacity-90"
             >
               <Link href="/contact" aria-label="Contact Andrew Gardner">
-                Get in Touch
+                Let’s chat
               </Link>
             </Button>
             <Button
@@ -136,6 +135,15 @@ export default function Home() {
               >
                 View Resume
               </a>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="rounded-full px-6 py-3 text-base shadow-md text-primary hover:bg-accent/10"
+            >
+              <Link href="#process" aria-label="See My Approach">
+                See how I work
+              </Link>
             </Button>
             <div className="flex gap-3 mt-2 sm:mt-0">
               <a
@@ -262,27 +270,30 @@ export default function Home() {
         </section>
 
         {/* About Me Section */}
-        <section className="max-w-3xl mx-auto text-center space-y-6 py-12 px-2 sm:px-0">
-          <h2 className="text-3xl font-heading">About Me</h2>
+        <section
+          className="max-w-3xl mx-auto text-center space-y-6 py-12 px-2 sm:px-0"
+          id="process"
+        >
+          <h2 className="text-3xl font-heading text-gradient-brand">
+            My Approach
+          </h2>
           <p className="text-lg text-muted-foreground/90">
-            Hi, I’m Andrew Gardner—a web developer and tech consultant who
-            believes technology should be accessible and helpful for everyone. I
-            love collaborating, learning, and making a positive impact. Outside
-            of work, you’ll find me exploring new tech, hiking, or helping
-            others grow their skills.
+            I believe creativity is for everyone. I learn by doing, and I’m
+            always happy to share what I find along the way. If you want to
+            build something new or just talk about ideas, I’d love to connect.
           </p>
         </section>
 
         {/* Featured Projects - Single Card Carousel */}
         <section className="max-w-6xl mx-auto pb-20 px-2 sm:px-0">
           <motion.h2
-            className="text-3xl font-heading text-center mb-12"
+            className="text-3xl font-heading text-center mb-12 text-gradient-brand"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            Featured Projects
+            Projects I’ve Worked On
           </motion.h2>
           <div className="relative flex flex-col items-center justify-center gap-4 sm:flex-row">
             <button
@@ -313,6 +324,11 @@ export default function Home() {
                   <p className="text-muted-foreground">
                     {projects[currentProject].description}
                   </p>
+                  <div className="italic text-accent-foreground text-sm pb-2">
+                    Here’s what I learned: Every project is a chance to try
+                    something new, make mistakes, and get better. If you’re
+                    curious about the details, just ask!
+                  </div>
                   <div className="flex gap-4">
                     <Button variant="outline" asChild className="rounded-full">
                       <Link href="/projects">See Project Details</Link>

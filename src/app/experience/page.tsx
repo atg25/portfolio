@@ -19,18 +19,20 @@ export default function Experience() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="font-heading text-4xl md:text-5xl">Experience</h1>
+          <h1 className="font-heading text-4xl md:text-5xl text-gradient-brand">
+            Experience
+          </h1>
           <p className="text-lg text-muted-foreground/80">
             Here’s my journey so far—full of learning, teamwork, and growth. I’m
-            grateful for every opportunity to collaborate and help others
-            succeed.
+            grateful for every chance to solve problems and help others along
+            the way.
           </p>
         </motion.div>
 
         {/* Professional Experience */}
         <section>
           <motion.h2
-            className="text-3xl font-heading text-center mb-8"
+            className="text-3xl font-heading text-center mb-8 text-gradient-brand"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -51,7 +53,7 @@ export default function Experience() {
               >
                 <Card>
                   <CardHeader>
-                    <CardTitle className="font-heading">
+                    <CardTitle className="font-heading text-gradient-brand">
                       Technical Operations Lead
                     </CardTitle>
                     <CardDescription>
@@ -61,10 +63,14 @@ export default function Experience() {
                   <CardContent>
                     <div className="space-y-4">
                       <p className="text-muted-foreground">
-                        Leading technical operations and process improvements
-                        for the admissions department, focusing on streamlining
-                        workflows and enhancing data management systems.
+                        Led technical operations and process improvements for
+                        the admissions department. I learned how important it is
+                        to listen, adapt, and make things easier for everyone.
                       </p>
+                      <div className="italic text-accent-foreground text-sm pb-2">
+                        What I learned: The best solutions come from working
+                        with others and being open to change.
+                      </div>
                       <div>
                         <h3 className="font-medium mb-2">
                           Key Responsibilities:
@@ -103,7 +109,7 @@ export default function Experience() {
               >
                 <Card>
                   <CardHeader>
-                    <CardTitle className="font-heading">
+                    <CardTitle className="font-heading text-gradient-brand">
                       Systems Administrator
                     </CardTitle>
                     <CardDescription>
@@ -113,10 +119,14 @@ export default function Experience() {
                   <CardContent>
                     <div className="space-y-4">
                       <p className="text-muted-foreground">
-                        Managed and optimized system operations for campus
-                        housing facilities, implementing efficient solutions for
-                        resident management and facility maintenance.
+                        Managed and improved system operations for campus
+                        housing. I focused on making things run smoothly and
+                        supporting residents and staff.
                       </p>
+                      <div className="italic text-accent-foreground text-sm pb-2">
+                        What I learned: Small improvements can make a big
+                        difference for people’s day-to-day experience.
+                      </div>
                       <div>
                         <h3 className="font-medium mb-2">Key Achievements:</h3>
                         <ul className="list-disc list-inside space-y-2 text-muted-foreground">
@@ -149,7 +159,7 @@ export default function Experience() {
         {/* Education */}
         <section className="pb-16">
           <motion.h2
-            className="text-3xl font-heading text-center mb-8"
+            className="text-3xl font-heading text-center mb-8 text-gradient-brand"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -169,7 +179,7 @@ export default function Experience() {
             >
               <Card className="max-w-3xl mx-auto">
                 <CardHeader>
-                  <CardTitle className="font-heading">
+                  <CardTitle className="font-heading text-gradient-brand">
                     NJIT - Ying Wu College of Computing
                   </CardTitle>
                   <CardDescription>

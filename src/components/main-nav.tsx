@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 
 const routes = [
@@ -65,7 +64,7 @@ export function MainNav() {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent>
               <nav className="flex flex-col gap-2 mt-8">
                 {routes.map((route) =>
                   route.external ? (

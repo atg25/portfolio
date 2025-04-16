@@ -1,8 +1,15 @@
-# Color Psychology System: The Everyman AI Consultancy
+# Color System: The Creator Archetype (Genuine & Approachable)
 
 ## Scientific Foundation
 
 Our color system is built on extensive cross-cultural research in color psychology and cognitive processing. Each color selection is based on documented psychological effects and validated through rigorous testing, with a focus on creating a sense of trust, comfort, and belonging for everyone.
+
+## Color Principles
+
+- Use bold, expressive colors, but keep contrast high for clarity.
+- Gradients and accents are welcome, but don’t distract from the message.
+- Use color to guide, highlight, and support—not to overwhelm.
+- Always check for accessibility and comfort.
 
 ### Primary Color Palette
 
@@ -124,6 +131,13 @@ warning: {
 }
 ```
 
+## Example Palette
+
+- Primary: Vivid purple or blue
+- Secondary: Vibrant orange or pink
+- Accent: Electric teal, yellow, or gradient blends
+- Neutrals: Clean white, deep charcoal, and soft gray
+
 ### Implementation Guidelines
 
 #### Next.js and Tailwind Setup
@@ -157,6 +171,12 @@ module.exports = {
   }
 }
 ```
+
+## Usage Guidelines
+
+- Use gradients for backgrounds and highlights, but keep text readable.
+- Let color support the story, not take it over.
+- Use accent colors to draw attention to actions or important info.
 
 ### Psychological Application Guidelines
 
