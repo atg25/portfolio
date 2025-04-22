@@ -44,7 +44,7 @@ export default function Playground() {
         "Chart.js and Recharts",
       ],
       github: "https://github.com/atg25/219dashboard",
-      demo: "https://219dashboard-oqoc72or4-andrew-gardners-projects.vercel.app",
+      demo: "/dataviz",
       whatILearned:
         "What I learned: Building visualizations that are both powerful and easy to use takes careful design and lots of user feedback.",
     },
