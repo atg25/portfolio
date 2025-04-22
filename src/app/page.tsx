@@ -33,18 +33,30 @@ export default function Home() {
   // Project data for carousel
   const projects = [
     {
+      title: "Data Visualization Dashboard",
+      description:
+        "An interactive dashboard for visualizing complex datasets with charts and graphs. Built to help users explore and understand data trends easily.",
+      border: "border-blue-400/30",
+      github: "https://github.com/atg25/219dashboard",
+      demo: "https://219dashboard-oqoc72or4-andrew-gardners-projects.vercel.app",
+    },
+    {
       title: "Highlander Hustle Prototype",
       description:
         "A comprehensive system for managing athletic programs, featuring performance tracking, event scheduling, and team communication tools.",
       border: "border-primary/30",
+      figma:
+        "https://www.figma.com/design/ff5kroo7lHROkYmJXkTkBP/Highlander-Hustle-Prototype?node-id=0-1&p=f&t=ZIXnxrQZQi20nhp7-0",
+      demo: "https://www.figma.com/proto/ff5kroo7lHROkYmJXkTkBP/Highlander-Hustle-Prototype?node-id=148-223&p=f&t=ZIXnxrQZQi20nhp7-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=148%3A223",
     },
     {
-      title: "Professional Network Platform",
+      title: "First Portfolio Website",
       description:
-        "A modern web platform enabling professionals to connect, share experiences, and discover opportunities.",
+        "My first major website project, where I learned the fundamentals of web development, design, and deployment. Built with care and lots of late nights!",
       border: "border-accent/30",
+      github: "https://github.com/atg25/P4",
+      demo: "https://atg25.github.io/P4/",
     },
-    // Add more projects here as needed
   ];
   const [currentProject, setCurrentProject] = useState(0);
   const handlePrev = () => {
@@ -293,7 +305,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            Projects I’ve Worked On
+            Projects I'm Proud Of
           </motion.h2>
           <div className="relative flex flex-col items-center justify-center gap-4 sm:flex-row">
             <button
@@ -330,9 +342,51 @@ export default function Home() {
                     curious about the details, just ask!
                   </div>
                   <div className="flex gap-4">
-                    <Button variant="outline" asChild className="rounded-full">
-                      <Link href="/projects">See Project Details</Link>
-                    </Button>
+                    {projects[currentProject].github && (
+                      <Button
+                        variant="outline"
+                        asChild
+                        className="rounded-full"
+                      >
+                        <a
+                          href={projects[currentProject].github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View on GitHub
+                        </a>
+                      </Button>
+                    )}
+                    {projects[currentProject].figma && (
+                      <Button
+                        variant="outline"
+                        asChild
+                        className="rounded-full"
+                      >
+                        <a
+                          href={projects[currentProject].figma}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View on Figma
+                        </a>
+                      </Button>
+                    )}
+                    {projects[currentProject].demo && (
+                      <Button
+                        variant="default"
+                        asChild
+                        className="rounded-full"
+                      >
+                        <a
+                          href={projects[currentProject].demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Live Demo
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>

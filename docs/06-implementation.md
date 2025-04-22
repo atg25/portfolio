@@ -48,9 +48,10 @@ src/
 │   └── ui/
 │       ├── button.tsx     # Button component (variants, sizes)
 │       ├── card.tsx       # Card component (header, content, footer)
+│       ├── ProjectCard.tsx # Project showcase card
 │       └── sheet.tsx      # Sheet/Drawer for mobile nav
 └── lib/
-    └── utils.ts           # Utility functions (cn, formatDate, debounce, etc.)
+    └── utils.ts           # Utility functions (cn)
 ```
 
 ## Configuration Files
@@ -494,18 +495,19 @@ All files are documented with clear, friendly descriptions to help everyone unde
 
 ### Component Files
 
-| File                             | Purpose          | Key Features                                                                       |
-| -------------------------------- | ---------------- | ---------------------------------------------------------------------------------- |
-| **src/components/ui/button.tsx** | Button component | Variants: default, destructive, outline, ghost, link; Sizes: default, sm, lg, icon |
-| **src/components/ui/card.tsx**   | Card component   | Subcomponents: CardHeader, CardTitle, CardDescription, CardContent, CardFooter     |
-| **src/components/ui/sheet.tsx**  | Sheet/Drawer     | Mobile navigation, ARIA support, focus management                                  |
-| **src/components/main-nav.tsx**  | Main navigation  | Desktop and mobile navigation, Sheet integration                                   |
+| File                                  | Purpose               | Key Features                                                                                 |
+| ------------------------------------- | --------------------- | -------------------------------------------------------------------------------------------- |
+| **src/components/ui/button.tsx**      | Button component      | Variants: default, destructive, outline, ghost, link; Sizes: default, sm, lg, icon           |
+| **src/components/ui/card.tsx**        | Card component        | Subcomponents: CardHeader, CardTitle, CardDescription, CardContent, CardFooter               |
+| **src/components/ui/ProjectCard.tsx** | Project showcase card | Reusable, prop-driven; used for all projects in projects page; accepts features, tech, links |
+| **src/components/ui/sheet.tsx**       | Sheet/Drawer          | Mobile navigation, ARIA support, focus management                                            |
+| **src/components/main-nav.tsx**       | Main navigation       | Desktop and mobile navigation, Sheet integration                                             |
 
 ### Utility Files
 
-| File                 | Purpose           | Key Features                                                                                                                                                                                                              |
-| -------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **src/lib/utils.ts** | Utility functions | `cn()`: className merging with clsx and tailwind-merge<br>`formatDate()`: Date formatting<br>`debounce()`: Function debouncing<br>`generateId()`: Random ID generation<br>`getNestedValue()`: Safe object property access |
+| File                 | Purpose           | Key Features                                       |
+| -------------------- | ----------------- | -------------------------------------------------- |
+| **src/lib/utils.ts** | Utility functions | `cn()`: className merging with clsx/tailwind-merge |
 
 ### Documentation Files
 
@@ -564,30 +566,24 @@ Components follow a composition pattern that enables flexibility while maintaini
 
 ### 3. Utility Function System
 
-The utils.ts file contains essential utility functions that should be used consistently:
+The utils.ts file now contains only the essential `cn` utility function for className merging. All other utilities have been removed for clarity and maintainability.
 
 ```typescript
-// Example usage of utility functions
-import { cn, formatDate, debounce } from "@/lib/utils";
+// Example usage of utility function
+import { cn } from "@/lib/utils";
 
-// Combining class names
 const className = cn(
   "base-style",
   isActive && "active-style",
   variant === "primary" ? "primary-style" : "secondary-style"
 );
-
-// Formatting dates
-const formattedDate = formatDate(new Date(), {
-  month: "short",
-  year: "numeric",
-});
-
-// Debouncing event handlers
-const handleResize = debounce(() => {
-  // Handle resize logic
-}, 200);
 ```
+
+### Component Implementation Updates (April 2025)
+
+- All project cards in `src/app/projects/page.tsx` now use the reusable `ProjectCard` component.
+- This reduces code duplication and makes it easier to add or update projects.
+- Utility functions are now limited to `cn` for simplicity and consistency.
 
 ### 4. Responsive Design Pattern
 

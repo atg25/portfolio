@@ -8,7 +8,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 const routes = [
   {
     href: "/projects",
-    label: "Projects",
+    label: "Playground",
   },
   {
     href: "/experience",

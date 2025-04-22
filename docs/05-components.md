@@ -269,8 +269,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 
 ### Utility Functions
 
-- Use `cn` from `src/lib/utils.ts` for className merging in all components.
-- Other utilities: `formatDate`, `debounce`, `generateId`, `getNestedValue`.
+- Only `cn` from `src/lib/utils.ts` is present and used for className merging in all components.
 
 ##### Tabs
 
@@ -364,6 +363,45 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 - All components use responsive Tailwind classes.
 - Follow the design system for spacing, color, and typography.
 - Test for accessibility and usability.
+
+### ProjectCard Component
+
+#### Overview
+
+- **Location:** `src/components/ui/ProjectCard.tsx`
+- **Purpose:** Encapsulates all project showcase card UI and logic for the Projects page, reducing duplication and improving maintainability.
+- **Props:**
+  - `title` (string): Project title
+  - `description` (string): Main project description
+  - `cardDescription` (string, optional): Subtitle or context
+  - `features` (string[]): List of key features
+  - `technologies` (string[]): List of technologies used
+  - `github` (string, optional): GitHub URL
+  - `demo` (string, optional): Live demo URL
+  - `figma` (string, optional): Figma prototype URL
+  - `variant` (string, optional): Card style variant
+  - `whatILearned` (string, optional): Reflection/learning summary
+  - `children` (ReactNode, optional): For custom actions or content
+
+#### Usage Example
+
+```tsx
+<ProjectCard
+  title="Personal Portfolio Website"
+  description="Designed and built this portfolio to share my work and process."
+  cardDescription="Frontend Development"
+  features={["Responsive design", "Dark mode support"]}
+  technologies={["Next.js", "TailwindCSS"]}
+  github="https://github.com/atg25/portfolio"
+  whatILearned="What I learned: Sharing my process helps others."
+/>
+```
+
+#### Notes
+
+- Used in `src/app/projects/page.tsx` for all project showcases.
+- Accepts all relevant project data as props, making it easy to add or update projects.
+- Follows the same composition and styling conventions as other shadcn/ui components.
 
 ### Psychological Testing Protocol
 

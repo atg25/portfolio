@@ -1,16 +1,118 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { ProjectCard } from "@/components/ui/ProjectCard";
 
-export default function Projects() {
+export default function Playground() {
+  const projects = [
+    {
+      title: "Personal Portfolio Website",
+      description:
+        "Designed and built this portfolio to share my work and process. It’s always a work in progress, and I’m always learning new ways to make it better.",
+      cardDescription: "Frontend Development",
+      features: [
+        "Responsive design across all devices",
+        "Dark mode support",
+        "Project showcase with detailed information",
+        "Contact form integration",
+      ],
+      technologies: [
+        "Next.js 14 with App Router",
+        "TailwindCSS for styling",
+        "Shadcn UI components",
+        "TypeScript for type safety",
+      ],
+      github: "https://github.com/atg25/portfolio",
+      whatILearned:
+        "What I learned: Sharing my process helps others and keeps me honest about what works and what doesn’t.",
+    },
+    {
+      title: "Data Visualization Dashboard",
+      description:
+        "An interactive dashboard for visualizing complex datasets with charts and graphs. Built to help users explore and understand data trends easily.",
+      cardDescription: "Data Analytics & Visualization",
+      features: [
+        "Interactive charts and graphs",
+        "Real-time data updates",
+        "Customizable dashboards",
+        "Responsive and accessible UI",
+      ],
+      technologies: [
+        "React.js & TypeScript",
+        "D3.js for data visualization",
+        "Tailwind CSS for styling",
+        "Chart.js and Recharts",
+      ],
+      github: "https://github.com/atg25/219dashboard",
+      demo: "https://219dashboard-oqoc72or4-andrew-gardners-projects.vercel.app",
+      whatILearned:
+        "What I learned: Building visualizations that are both powerful and easy to use takes careful design and lots of user feedback.",
+    },
+    {
+      title: "Athletics Management System",
+      description:
+        "Built a system for tracking athlete performance, scheduling events, and managing team resources. I learned a lot about working with real users and making things simple for everyone.",
+      cardDescription: "System Design & Teamwork",
+      features: [
+        "Athlete performance tracking and analytics",
+        "Event scheduling and facility management",
+        "Team communication portal",
+        "Resource allocation system",
+      ],
+      technologies: [
+        "React.js for frontend development",
+        "Node.js and Express for backend API",
+        "MongoDB for data storage",
+        "WebSocket for real-time updates",
+      ],
+      figma:
+        "https://www.figma.com/design/ff5kroo7lHROkYmJXkTkBP/Highlander-Hustle-Prototype?node-id=0-1&p=f&t=ZIXnxrQZQi20nhp7-0",
+      demo: "https://www.figma.com/proto/ff5kroo7lHROkYmJXkTkBP/Highlander-Hustle-Prototype?node-id=148-223&p=f&t=ZIXnxrQZQi20nhp7-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=148%3A223",
+      variant: "expedition",
+      whatILearned:
+        "What I learned: Listening to feedback early made the system better for coaches and athletes. Collaboration really matters.",
+    },
+    {
+      title: "Professional Network Platform",
+      description:
+        "Created a web platform for professional networking. I focused on making it easy to connect and share, and learned how important it is to keep things simple and welcoming.",
+      cardDescription: "Web Development & Community",
+      features: [
+        "Professional profile creation and management",
+        "Connection and networking tools",
+        "Content sharing capabilities",
+        "Job opportunity posting and discovery",
+      ],
+      technologies: [
+        "Next.js for frontend and routing",
+        "TailwindCSS for styling",
+        "Prisma for database management",
+        "NextAuth.js for authentication",
+      ],
+      github: "https://github.com/atg25/LinksPage",
+      demo: "https://atg25.github.io/LinksPage/",
+      variant: "terrain",
+      whatILearned:
+        "What I learned: The best features came from talking to users and trying out ideas quickly.",
+    },
+    {
+      title: "First Portfolio Website",
+      description:
+        "My first major website project, where I learned the fundamentals of web development, design, and deployment. Built with care and lots of late nights!",
+      cardDescription: "Web Development Foundations",
+      features: [
+        "Hand-coded HTML & CSS",
+        "Responsive layout",
+        "Personal branding and content",
+        "Deployed with GitHub Pages",
+      ],
+      technologies: ["HTML5 & CSS3", "JavaScript", "GitHub Pages"],
+      github: "https://github.com/atg25/P4",
+      demo: "https://atg25.github.io/P4/",
+      whatILearned:
+        "What I learned: This project taught me the basics of HTML, CSS, and JavaScript, and how to deploy a site for the first time.",
+    },
+  ];
   return (
     <div className="min-h-screen bg-background">
       <main className="container mx-auto space-y-16 pt-20 px-4">
@@ -21,7 +123,7 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="font-heading text-4xl md:text-5xl text-gradient-brand">
-            Projects
+            Playground
           </h1>
           <p className="text-lg text-muted-foreground/80">
             Here’s a look at some things I’ve built. Each project taught me
@@ -29,176 +131,23 @@ export default function Projects() {
             these, just ask!
           </p>
         </motion.div>
-
         <div className="grid grid-cols-1 gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          {projects.map((project, idx) => (
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              key={project.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: idx * 0.2 }}
             >
-              <Card variant="expedition">
-                <CardHeader>
-                  <CardTitle className="font-heading text-gradient-brand">
-                    Athletics Management System
-                  </CardTitle>
-                  <CardDescription>System Design & Teamwork</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="mb-6 text-muted-foreground">
-                    Built a system for tracking athlete performance, scheduling
-                    events, and managing team resources. I learned a lot about
-                    working with real users and making things simple for
-                    everyone.
-                  </p>
-                  <div className="italic text-accent-foreground text-sm pb-2">
-                    What I learned: Listening to feedback early made the system
-                    better for coaches and athletes. Collaboration really
-                    matters.
-                  </div>
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="font-medium mb-2">Key Features:</h3>
-                      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                        <li>Athlete performance tracking and analytics</li>
-                        <li>Event scheduling and facility management</li>
-                        <li>Team communication portal</li>
-                        <li>Resource allocation system</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 className="font-medium mb-2">Technologies Used:</h3>
-                      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                        <li>React.js for frontend development</li>
-                        <li>Node.js and Express for backend API</li>
-                        <li>MongoDB for data storage</li>
-                        <li>WebSocket for real-time updates</li>
-                      </ul>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              >
+                <ProjectCard {...project} />
+              </motion.div>
             </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            >
-              <Card variant="terrain">
-                <CardHeader>
-                  <CardTitle className="font-heading text-gradient-brand">
-                    Professional Network Platform
-                  </CardTitle>
-                  <CardDescription>Web Development & Community</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="mb-6 text-muted-foreground">
-                    Created a web platform for professional networking. I
-                    focused on making it easy to connect and share, and learned
-                    how important it is to keep things simple and welcoming.
-                  </p>
-                  <div className="italic text-accent-foreground text-sm pb-2">
-                    What I learned: The best features came from talking to users
-                    and trying out ideas quickly.
-                  </div>
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="font-medium mb-2">Key Features:</h3>
-                      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                        <li>Professional profile creation and management</li>
-                        <li>Connection and networking tools</li>
-                        <li>Content sharing capabilities</li>
-                        <li>Job opportunity posting and discovery</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 className="font-medium mb-2">Technologies Used:</h3>
-                      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                        <li>Next.js for frontend and routing</li>
-                        <li>TailwindCSS for styling</li>
-                        <li>Prisma for database management</li>
-                        <li>NextAuth.js for authentication</li>
-                      </ul>
-                    </div>
-                    <div className="pt-4">
-                      <Button variant="outline" size="lg" asChild>
-                        <a
-                          href="https://atg25.github.io/LinksPage/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View Project
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            >
-              <Card>
-                <CardHeader>
-                  <CardTitle className="font-heading text-gradient-brand">
-                    Personal Portfolio Website
-                  </CardTitle>
-                  <CardDescription>Frontend Development</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="mb-6 text-muted-foreground">
-                    Designed and built this portfolio to share my work and
-                    process. It’s always a work in progress, and I’m always
-                    learning new ways to make it better.
-                  </p>
-                  <div className="italic text-accent-foreground text-sm pb-2">
-                    What I learned: Sharing my process helps others and keeps me
-                    honest about what works and what doesn’t.
-                  </div>
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="font-medium mb-2">Key Features:</h3>
-                      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                        <li>Responsive design across all devices</li>
-                        <li>Dark mode support</li>
-                        <li>Project showcase with detailed information</li>
-                        <li>Contact form integration</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 className="font-medium mb-2">Technologies Used:</h3>
-                      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                        <li>Next.js 14 with App Router</li>
-                        <li>TailwindCSS for styling</li>
-                        <li>Shadcn UI components</li>
-                        <li>TypeScript for type safety</li>
-                      </ul>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
+          ))}
         </div>
       </main>
     </div>
