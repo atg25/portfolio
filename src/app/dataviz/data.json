@@ -1,0 +1,72 @@
+[
+  {
+    "year": 2011,
+    "Black": 47004,
+    "Hispanic": 49262,
+    "Asian": 52336,
+    "Other": 7388
+  },
+  {
+    "year": 2012,
+    "Black": 47710,
+    "Hispanic": 53015,
+    "Asian": 55577,
+    "Other": 9812
+  },
+  {
+    "year": 2013,
+    "Black": 49455,
+    "Hispanic": 58104,
+    "Asian": 57664,
+    "Other": 13305
+  },
+  {
+    "year": 2014,
+    "Black": 50760,
+    "Hispanic": 63689,
+    "Asian": 60800,
+    "Other": 15764
+  },
+  {
+    "year": 2015,
+    "Black": 48512,
+    "Hispanic": 67822,
+    "Asian": 65252,
+    "Other": 18778
+  },
+  {
+    "year": 2016,
+    "Black": 49888,
+    "Hispanic": 74461,
+    "Asian": 70327,
+    "Other": 20510
+  },
+  {
+    "year": 2017,
+    "Black": 51256,
+    "Hispanic": 81816,
+    "Asian": 75791,
+    "Other": 22471
+  },
+  {
+    "year": 2018,
+    "Black": 53993,
+    "Hispanic": 89797,
+    "Asian": 80920,
+    "Other": 24859
+  },
+  {
+    "year": 2019,
+    "Black": 55655,
+    "Hispanic": 95031,
+    "Asian": 85301,
+    "Other": 26502
+  },
+  {
+    "year": 2020,
+    "Black": 59848,
+    "Hispanic": 101761,
+    "Asian": 90930,
+    "Other": 28389
+  }
+]

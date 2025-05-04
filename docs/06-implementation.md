@@ -1,5 +1,9 @@
 # Implementation Guide: The Creator Archetype (Genuine & Approachable)
 
+## Overview
+
+This project is a Next.js portfolio site with a focus on modularity, data visualization, and clean UI components. The codebase is organized under `src/app` for pages and features, and `src/components` for reusable UI elements.
+
 ## Project Setup
 
 Our setup process is designed to be approachable and accessible for everyone, regardless of technical background. Each step is clearly explained to ensure all users can confidently get started.
@@ -29,30 +33,13 @@ cd my-app
 }
 ```
 
-### Directory Structure
+### File Structure Highlights
 
-```
-src/
-├── app/
-│   ├── layout.tsx         # Root layout (font loading, metadata, nav)
-│   ├── page.tsx           # Home page (hero, features, call-to-action)
-│   ├── globals.css        # Global styles (CSS variables, base styles)
-│   ├── contact/
-│   │   └── page.tsx       # Contact page
-│   ├── experience/
-│   │   └── page.tsx       # Experience page
-│   └── projects/
-│       └── page.tsx       # Projects page
-├── components/
-│   ├── main-nav.tsx       # Main navigation (desktop & mobile)
-│   └── ui/
-│       ├── button.tsx     # Button component (variants, sizes)
-│       ├── card.tsx       # Card component (header, content, footer)
-│       ├── ProjectCard.tsx # Project showcase card
-│       └── sheet.tsx      # Sheet/Drawer for mobile nav
-└── lib/
-    └── utils.ts           # Utility functions (cn)
-```
+- `src/app/` — Main application pages and feature folders
+  - `dataviz/` — Contains all data visualization components and a `data.json` file for chart data
+  - `experience/`, `projects/`, `contact/` — Content pages
+- `src/components/` — Shared UI components (navigation, cards, buttons, etc.)
+- `src/lib/` — Utility functions
 
 ## Configuration Files
 
@@ -346,6 +333,23 @@ const buttonVariants = cva(
   - All navigation and interactive elements include ARIA labels and are keyboard accessible.
   - Focus management and overlay are handled by the Sheet component for mobile nav.
 
+## Data Visualization Implementation
+
+- All charts are implemented as React components in `src/app/dataviz/`:
+  - `ComparisonChart.tsx`
+  - `DonutChart.tsx`
+  - `GrowthBarChart.tsx`
+  - `HispanicCollegeAgeChart.tsx`
+  - `TimeSeriesChart.tsx`
+- Chart data is loaded from `data.json` in the same folder.
+- Components are designed for reusability and easy integration into pages.
+
+### Integration
+
+- Each chart is wrapped in a Card component for consistent layout.
+- Data is loaded from data.json and passed as props to each chart.
+- The dashboard is modular, allowing for easy addition or removal of charts.
+
 ## Testing Protocol
 
 Testing focuses on usability, accessibility, and real-world scenarios to ensure everyone can benefit from the system.
@@ -468,30 +472,23 @@ Testing focuses on usability, accessibility, and real-world scenarios to ensure 
 
 ## Project File Index
 
-All files are documented with clear, friendly descriptions to help everyone understand their purpose and usage.
-
-### Configuration Files
-
-| File                    | Purpose                          | Key Features                                                   |
-| ----------------------- | -------------------------------- | -------------------------------------------------------------- |
-| **package.json**        | Project dependencies and scripts | Next.js 14.1.3, React 18.2.0, Tailwind CSS 3.3.3, TypeScript 5 |
-| **tsconfig.json**       | TypeScript configuration         | Strict mode enabled, path aliases (e.g., `@/components`)       |
-| **next.config.mjs**     | Next.js configuration            | SWC minification, image optimization, experimental features    |
-| **postcss.config.mjs**  | PostCSS plugins                  | Tailwind CSS, Autoprefixer                                     |
-| **tailwind.config.mjs** | Tailwind CSS theme               | Custom colors, fonts, border radius, container settings        |
-| **eslint.config.mjs**   | ESLint rules                     | TypeScript, React, and Next.js specific rules                  |
-| **components.json**     | UI components config             | shadcn/ui configuration for component generation               |
-
 ### Application Files
 
-| File                            | Purpose               | Key Features                                              |
-| ------------------------------- | --------------------- | --------------------------------------------------------- |
-| **src/app/layout.tsx**          | Root layout component | Font loading, metadata, viewport settings, HTML structure |
-| **src/app/page.tsx**            | Homepage component    | Hero section, feature cards, call-to-action               |
-| **src/app/globals.css**         | Global styles         | CSS variables, base styles, utility classes               |
-| **src/app/contact/page.tsx**    | Contact page          | Contact form, accessibility features                      |
-| **src/app/experience/page.tsx** | Experience page       | Education, skills, and experience cards                   |
-| **src/app/projects/page.tsx**   | Projects page         | Project showcase, feature lists, technology stacks        |
+| File                                            | Purpose                      | Key Features                                                    |
+| ----------------------------------------------- | ---------------------------- | --------------------------------------------------------------- |
+| **src/app/layout.tsx**                          | Root layout component        | Font loading, metadata, viewport settings, HTML structure       |
+| **src/app/page.tsx**                            | Homepage component           | Hero section, feature cards, call-to-action                     |
+| **src/app/globals.css**                         | Global styles                | CSS variables, base styles, utility classes                     |
+| **src/app/contact/page.tsx**                    | Contact page                 | Contact form, accessibility features                            |
+| **src/app/experience/page.tsx**                 | Experience page              | Education, skills, and experience cards                         |
+| **src/app/projects/page.tsx**                   | Projects page                | Project showcase, feature lists, technology stacks              |
+| **src/app/dataviz/page.tsx**                    | Data Visualization dashboard | Integrates multiple charts, narrative sections, recommendations |
+| **src/app/dataviz/ComparisonChart.tsx**         | Comparison chart component   | Visualizes comparative data, reusable for different datasets    |
+| **src/app/dataviz/DonutChart.tsx**              | Donut chart component        | Displays proportional data, used for demographic breakdowns     |
+| **src/app/dataviz/GrowthBarChart.tsx**          | Growth bar chart component   | Shows growth trends over time                                   |
+| **src/app/dataviz/HispanicCollegeAgeChart.tsx** | Hispanic college-age chart   | Focused on Hispanic student data, supports HSI analysis         |
+| **src/app/dataviz/TimeSeriesChart.tsx**         | Time series chart component  | Plots data over time, used for degree attainment trends         |
+| **src/app/dataviz/data.json**                   | Data source for charts       | JSON-formatted, used by all dataviz components                  |
 
 ### Component Files
 

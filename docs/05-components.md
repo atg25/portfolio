@@ -403,6 +403,67 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 - Accepts all relevant project data as props, making it easy to add or update projects.
 - Follows the same composition and styling conventions as other shadcn/ui components.
 
+## Data Visualization Components
+
+The following components are used in the Data Visualization dashboard (src/app/dataviz):
+
+| Component File                  | Purpose/Usage                                              |
+| ------------------------------- | ---------------------------------------------------------- |
+| **ComparisonChart.tsx**         | Renders comparison charts for side-by-side data analysis   |
+| **DonutChart.tsx**              | Displays demographic breakdowns as donut/pie charts        |
+| **GrowthBarChart.tsx**          | Visualizes growth trends in bar chart format               |
+| **HispanicCollegeAgeChart.tsx** | Specialized chart for Hispanic college-age population data |
+| **TimeSeriesChart.tsx**         | Plots time series data, e.g., degree attainment over years |
+
+These components are integrated in **src/app/dataviz/page.tsx**, which provides a narrative-driven dashboard with recommendations and insights. All charts consume data from **data.json**.
+
+## Components Documentation
+
+### Main Navigation
+
+- `components/main-nav.tsx`: The main navigation bar for the site.
+
+### UI Components (Reusable)
+
+- `components/ui/button.tsx`: Button component for actions and forms.
+- `components/ui/card.tsx`: Card layout for content blocks.
+- `components/ui/ProjectCard.tsx`: Specialized card for project listings.
+- `components/ui/sheet.tsx`: Sheet/modal component for overlays.
+
+### Data Visualization Components
+
+Located in `src/app/dataviz/`:
+
+- `ComparisonChart.tsx`: Renders comparison data as a chart.
+- `DonutChart.tsx`: Visualizes data in a donut/pie chart format.
+- `GrowthBarChart.tsx`: Displays growth metrics as a bar chart.
+- `HispanicCollegeAgeChart.tsx`: Specialized chart for demographic data.
+- `TimeSeriesChart.tsx`: Plots time series data.
+- All charts use data from `data.json`.
+
+### Page Components
+
+- `src/app/experience/page.tsx`: Experience section.
+- `src/app/projects/page.tsx`: Projects listing.
+- `src/app/contact/page.tsx`: Contact form/page.
+
+### Utilities
+
+- `lib/utils.ts`: Shared utility functions.
+
+---
+
+# Adding/Updating Components
+
+- Place new UI components in `components/ui/`.
+- Place new feature-specific components in the relevant `src/app/` subfolder.
+- Update this document and the implementation guide after changes.
+
+## UI Components
+
+- **Card**: Used for grouping content and charts in the dashboard, with headers and content sections.
+- **Button**: Used for interactive elements, such as toggling views or filters.
+
 ### Psychological Testing Protocol
 
 - Validate for approachability, clarity, and universal usability
