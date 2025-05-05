@@ -74,7 +74,8 @@ function ExpandedMovieDetails({
     <div className="w-full flex flex-col md:flex-row gap-4 mt-2 opacity-0 animate-fade-in-expanded">
       <div className="flex-1 space-y-2">
         <div className="text-muted-foreground text-sm">
-          {details?.release_date ? details.release_date.slice(0, 4) : ''} • {details?.runtime ?? ''} min
+          {details?.release_date ? details.release_date.slice(0, 4) : ""} •{" "}
+          {details?.runtime ?? ""} min
         </div>
         <div className="text-sm text-muted-foreground">
           {Array.isArray(details?.genres)
@@ -118,10 +119,10 @@ export default function MovieSearchPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
-  const [tab, setTab] = useState<'search' | 'recommend'>('search');
-  const [recInput, setRecInput] = useState('');
+  const [tab, setTab] = useState<"search" | "recommend">("search");
+  const [recInput, setRecInput] = useState("");
   const [recLoading, setRecLoading] = useState(false);
-  const [recError, setRecError] = useState('');
+  const [recError, setRecError] = useState("");
   const [recResults, setRecResults] = useState<MovieDetails[]>([]);
 
   async function handleSearch(e: React.FormEvent) {
@@ -146,19 +147,19 @@ export default function MovieSearchPage() {
     e.preventDefault();
     if (!recInput.trim()) return;
     setRecLoading(true);
-    setRecError('');
+    setRecError("");
     setRecResults([]);
     try {
-      const res = await fetch('/api/recommend', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: recInput })
+      const res = await fetch("/api/recommend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: recInput }),
       });
-      if (!res.ok) throw new Error('API error');
+      if (!res.ok) throw new Error("API error");
       const data = await res.json();
       setRecResults(data.results || []);
     } catch {
-      setRecError('Something went wrong. Please try again.');
+      setRecError("Something went wrong. Please try again.");
     } finally {
       setRecLoading(false);
     }
@@ -172,19 +173,27 @@ export default function MovieSearchPage() {
         </h1>
         <div className="flex justify-center gap-4 mb-8">
           <button
-            className={`px-4 py-2 rounded-full font-semibold transition border ${tab === 'search' ? 'bg-primary text-white border-primary' : 'bg-background text-primary border-primary/30 hover:bg-primary/10'}`}
-            onClick={() => setTab('search')}
+            className={`px-4 py-2 rounded-full font-semibold transition border ${
+              tab === "search"
+                ? "bg-primary text-white border-primary"
+                : "bg-background text-primary border-primary/30 hover:bg-primary/10"
+            }`}
+            onClick={() => setTab("search")}
           >
             Search
           </button>
           <button
-            className={`px-4 py-2 rounded-full font-semibold transition border ${tab === 'recommend' ? 'bg-primary text-white border-primary' : 'bg-background text-primary border-primary/30 hover:bg-primary/10'}`}
-            onClick={() => setTab('recommend')}
+            className={`px-4 py-2 rounded-full font-semibold transition border ${
+              tab === "recommend"
+                ? "bg-primary text-white border-primary"
+                : "bg-background text-primary border-primary/30 hover:bg-primary/10"
+            }`}
+            onClick={() => setTab("recommend")}
           >
             Recommendations
           </button>
         </div>
-        {tab === 'search' && (
+        {tab === "search" && (
           <>
             <form
               onSubmit={handleSearch}
@@ -208,9 +217,13 @@ export default function MovieSearchPage() {
               </Button>
             </form>
             {loading && (
-              <div className="text-center text-accent-foreground">Loading...</div>
+              <div className="text-center text-accent-foreground">
+                Loading...
+              </div>
             )}
-            {error && <div className="text-center text-red-500 mb-4">{error}</div>}
+            {error && (
+              <div className="text-center text-red-500 mb-4">{error}</div>
+            )}
             <div className="flex flex-col gap-6 mt-6">
               {results.map((movie, idx) => {
                 const expanded = expandedIdx === idx;
@@ -219,9 +232,7 @@ export default function MovieSearchPage() {
                     key={movie.id}
                     tabIndex={0}
                     className={`group rounded-xl bg-muted/30 shadow p-3 flex flex-col items-center cursor-pointer hover:bg-accent/20 focus:bg-accent/20 transition-all duration-300 relative overflow-visible outline-none ${
-                      expanded
-                        ? "z-30 scale-105 shadow-2xl bg-background"
-                        : ""
+                      expanded ? "z-30 scale-105 shadow-2xl bg-background" : ""
                     }`}
                     aria-label={`Show details for ${movie.title}`}
                     onMouseEnter={() => setExpandedIdx(idx)}
@@ -246,15 +257,24 @@ export default function MovieSearchPage() {
                         </div>
                       )}
                       <div className="flex-1 flex flex-col justify-center">
-                        <div className="font-semibold text-lg mb-1">{movie.title}</div>
+                        <div className="font-semibold text-lg mb-1">
+                          {movie.title}
+                        </div>
                         {!expanded && (
                           <>
                             <div className="text-sm text-muted-foreground mb-1">
-                              {movie.release_date ? movie.release_date.slice(0, 4) : "N/A"}
+                              {movie.release_date
+                                ? movie.release_date.slice(0, 4)
+                                : "N/A"}
                             </div>
                             <div className="text-xs text-muted-foreground">
-                              {movie.genre_ids && Array.isArray(movie.genre_ids) && movie.genre_ids.length > 0
-                                ? movie.genre_ids.map((id) => GENRE_MAP[id]).filter(Boolean).join(", ")
+                              {movie.genre_ids &&
+                              Array.isArray(movie.genre_ids) &&
+                              movie.genre_ids.length > 0
+                                ? movie.genre_ids
+                                    .map((id) => GENRE_MAP[id])
+                                    .filter(Boolean)
+                                    .join(", ")
                                 : ""}
                             </div>
                           </>
@@ -268,35 +288,56 @@ export default function MovieSearchPage() {
             </div>
           </>
         )}
-        {tab === 'recommend' && (
+        {tab === "recommend" && (
           <div className="flex flex-col gap-6 items-center">
-            <form onSubmit={handleRecommend} className="w-full max-w-xl flex flex-col gap-4 items-center">
+            <form
+              onSubmit={handleRecommend}
+              className="w-full max-w-xl flex flex-col gap-4 items-center"
+            >
               <textarea
                 value={recInput}
-                onChange={e => setRecInput(e.target.value)}
+                onChange={(e) => setRecInput(e.target.value)}
                 placeholder="Describe what kind of movie you want, your mood, or what you typically like..."
                 className="w-full p-3 rounded-lg border-2 border-input bg-background focus:border-accent focus:ring-2 focus:ring-accent/30 transition text-base font-medium shadow-sm min-h-[80px]"
                 disabled={recLoading}
               />
-              <Button type="submit" disabled={recLoading || !recInput.trim()} className="rounded-full px-6 py-3 text-lg">
-                {recLoading ? 'Finding...' : 'Get Recommendations'}
+              <Button
+                type="submit"
+                disabled={recLoading || !recInput.trim()}
+                className="rounded-full px-6 py-3 text-lg"
+              >
+                {recLoading ? "Finding..." : "Get Recommendations"}
               </Button>
             </form>
-            {recError && <div className="text-center text-red-500 mb-4">{recError}</div>}
+            {recError && (
+              <div className="text-center text-red-500 mb-4">{recError}</div>
+            )}
             <div className="flex flex-col gap-6 w-full max-w-xl">
               {recResults.map((movie, idx) => {
-                const expanded = recResults.length > 0 && recResults[idx]?.id && expandedIdx === idx;
+                const expanded =
+                  recResults.length > 0 &&
+                  recResults[idx]?.id &&
+                  expandedIdx === idx;
                 return (
                   <div
                     key={movie.id || idx}
                     tabIndex={0}
-                    className={`group rounded-xl bg-muted/30 shadow p-3 flex flex-col items-center cursor-pointer hover:bg-accent/20 focus:bg-accent/20 transition-all duration-300 relative overflow-visible outline-none ${expanded ? 'z-30 scale-105 shadow-2xl bg-background' : ''}`}
+                    className={`group rounded-xl bg-muted/30 shadow p-3 flex flex-col items-center cursor-pointer hover:bg-accent/20 focus:bg-accent/20 transition-all duration-300 relative overflow-visible outline-none ${
+                      expanded ? "z-30 scale-105 shadow-2xl bg-background" : ""
+                    }`}
                     aria-label={`Show details for ${movie.title}`}
-                    onMouseEnter={() => typeof movie.id === 'number' && setExpandedIdx(idx)}
-                    onFocus={() => typeof movie.id === 'number' && setExpandedIdx(idx)}
+                    onMouseEnter={() =>
+                      typeof movie.id === "number" && setExpandedIdx(idx)
+                    }
+                    onFocus={() =>
+                      typeof movie.id === "number" && setExpandedIdx(idx)
+                    }
                     onMouseLeave={() => setExpandedIdx(null)}
                     onBlur={() => setExpandedIdx(null)}
-                    style={{ minHeight: expanded ? 340 : undefined, transition: 'min-height 1.2s cubic-bezier(.4,2,.6,1)' }}
+                    style={{
+                      minHeight: expanded ? 340 : undefined,
+                      transition: "min-height 1.2s cubic-bezier(.4,2,.6,1)",
+                    }}
                   >
                     <div className="transition-all duration-[1200ms] w-full flex flex-row items-center rounded-xl p-2 gap-4">
                       {movie.poster_path ? (
@@ -311,16 +352,25 @@ export default function MovieSearchPage() {
                         </div>
                       )}
                       <div className="flex-1 flex flex-col justify-center">
-                        <div className="font-semibold text-lg mb-1">{movie.title}</div>
+                        <div className="font-semibold text-lg mb-1">
+                          {movie.title}
+                        </div>
                         {!expanded && (
                           <>
                             <div className="text-sm text-muted-foreground mb-1">
-                              {movie.release_date ? movie.release_date.slice(0, 4) : ''}
+                              {movie.release_date
+                                ? movie.release_date.slice(0, 4)
+                                : ""}
                             </div>
                             <div className="text-xs text-muted-foreground">
-                              {movie.genres && Array.isArray(movie.genres) && movie.genres.length > 0
-                                ? movie.genres.map((g) => g.name).filter(Boolean).join(', ')
-                                : ''}
+                              {movie.genres &&
+                              Array.isArray(movie.genres) &&
+                              movie.genres.length > 0
+                                ? movie.genres
+                                    .map((g) => g.name)
+                                    .filter(Boolean)
+                                    .join(", ")
+                                : ""}
                             </div>
                           </>
                         )}

@@ -15,7 +15,7 @@ import React, { useState } from "react";
 import timeSeriesData from "./data.json";
 
 const demographicOptions = ["Hispanic", "Black", "Asian", "Other"] as const;
-type Demographic = typeof demographicOptions[number];
+type Demographic = (typeof demographicOptions)[number];
 const metricOptions = [
   { value: "total", label: "Total Degrees (2020)" },
   { value: "growth", label: "Numeric Growth (2011–2020)" },
@@ -52,7 +52,10 @@ function calculateComparisonData(
 }
 
 export function ComparisonChart({ className }: { className?: string }) {
-  const [selected, setSelected] = useState<Demographic[]>(["Hispanic", "Black"]);
+  const [selected, setSelected] = useState<Demographic[]>([
+    "Hispanic",
+    "Black",
+  ]);
   const [metric, setMetric] = useState("total");
   const [startYear, setStartYear] = useState(2011);
   const [endYear, setEndYear] = useState(2020);
