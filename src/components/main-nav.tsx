@@ -11,6 +11,10 @@ const routes = [
     label: "Playground",
   },
   {
+    href: "/movie-search",
+    label: "Movie Search",
+  },
+  {
     href: "/experience",
     label: "About Me",
   },
@@ -22,6 +26,10 @@ const routes = [
     href: "/resume.pdf",
     label: "Resume",
     external: true,
+  },
+  {
+    href: "/rag-demo",
+    label: "LLM Chat",
   },
 ];
 
@@ -51,7 +59,9 @@ export function MainNav() {
                   {route.label}
                 </a>
               ) : (
-                <Link href={route.href}>{route.label}</Link>
+                <Link href={route.href} scroll={false}>
+                  {route.label}
+                </Link>
               )}
             </Button>
           ))}
@@ -81,6 +91,7 @@ export function MainNav() {
                     <Link
                       key={route.href}
                       href={route.href}
+                      scroll={false}
                       className="block px-4 py-3 rounded-lg text-base font-medium hover:bg-muted focus:bg-muted transition-colors"
                     >
                       {route.label}

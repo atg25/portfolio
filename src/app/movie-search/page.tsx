@@ -1,0 +1,329 @@
+"use client";
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+
+const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
+
+const GENRE_MAP: Record<number, string> = {
+  28: "Action",
+  12: "Adventure",
+  16: "Animation",
+  35: "Comedy",
+  80: "Crime",
+  99: "Documentary",
+  18: "Drama",
+  10751: "Family",
+  14: "Fantasy",
+  36: "History",
+  27: "Horror",
+  10402: "Music",
+  9648: "Mystery",
+  10749: "Romance",
+  878: "Science Fiction",
+  10770: "TV Movie",
+  53: "Thriller",
+  10752: "War",
+  37: "Western",
+};
+
+function ExpandedMovieDetails({
+  movie,
+  expanded,
+}: {
+  movie: Record<string, unknown>;
+  expanded: boolean;
+}) {
+  const [details, setDetails] = React.useState<Record<string, unknown> | null>(null);
+  const [providers, setProviders] = React.useState<Array<Record<string, unknown>> | null>(null);
+  React.useEffect(() => {
+    if (expanded) {
+      fetch(`/api/tmdb/details?id=${movie.id}`)
+        .then((r) => r.json())
+        .then(setDetails);
+      fetch(`/api/tmdb/providers?id=${movie.id}`)
+        .then((r) => r.json())
+        .then(setProviders);
+    }
+  }, [movie.id, expanded]);
+
+  if (!expanded) return null;
+  return (
+    <div className="w-full flex flex-col md:flex-row gap-4 mt-2 opacity-0 animate-fade-in-expanded">
+      <div className="flex-1 space-y-2">
+        <div className="text-muted-foreground text-sm">
+          {details?.release_date?.slice(0, 4)} • {details?.runtime} min
+        </div>
+        <div className="text-sm text-muted-foreground">
+          {Array.isArray(details?.genres)
+            ? (details.genres as Array<{ name: string }> | undefined)?.map((g) => g.name).join(", ")
+            : ""}
+        </div>
+        <div className="mt-2 text-base line-clamp-5">{details?.overview}</div>
+        {providers && providers.length > 0 && (
+          <div className="mt-4">
+            <div className="font-semibold mb-1">Available on:</div>
+            <div className="flex flex-wrap gap-2">
+              {Array.isArray(providers) && providers.map((prov) => (
+                <a
+                  key={prov.provider_id as string}
+                  href={prov.link as string}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-1 rounded bg-muted hover:bg-accent transition"
+                >
+                  {prov.logo_path && (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w45${prov.logo_path}`}
+                      alt={prov.provider_name as string}
+                      className="w-6 h-6 rounded"
+                    />
+                  )}
+                  <span className="text-sm">{prov.provider_name as string}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function MovieSearchPage() {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState<Record<string, unknown>[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
+  const [tab, setTab] = useState<'search' | 'recommend'>('search');
+  const [recInput, setRecInput] = useState('');
+  const [recLoading, setRecLoading] = useState(false);
+  const [recError, setRecError] = useState('');
+  const [recResults, setRecResults] = useState<Record<string, unknown>[]>([]);
+
+  async function handleSearch(e: React.FormEvent) {
+    e.preventDefault();
+    if (!query.trim()) return;
+    setLoading(true);
+    setError("");
+    setResults([]);
+    try {
+      const res = await fetch(`/api/tmdb?query=${encodeURIComponent(query)}`);
+      if (!res.ok) throw new Error("API error");
+      const data = await res.json();
+      setResults(data.results || []);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleRecommend(e: React.FormEvent) {
+    e.preventDefault();
+    if (!recInput.trim()) return;
+    setRecLoading(true);
+    setRecError('');
+    setRecResults([]);
+    try {
+      const res = await fetch('/api/recommend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: recInput })
+      });
+      if (!res.ok) throw new Error('API error');
+      const data = await res.json();
+      setRecResults(data.results || []);
+    } catch {
+      setRecError('Something went wrong. Please try again.');
+    } finally {
+      setRecLoading(false);
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-accent-50 to-primary-100 pt-24 pb-12">
+      <main className="container mx-auto px-4 max-w-3xl">
+        <h1 className="font-heading text-4xl md:text-5xl text-gradient-brand font-bold text-center mb-4">
+          Movie Search
+        </h1>
+        <div className="flex justify-center gap-4 mb-8">
+          <button
+            className={`px-4 py-2 rounded-full font-semibold transition border ${tab === 'search' ? 'bg-primary text-white border-primary' : 'bg-background text-primary border-primary/30 hover:bg-primary/10'}`}
+            onClick={() => setTab('search')}
+          >
+            Search
+          </button>
+          <button
+            className={`px-4 py-2 rounded-full font-semibold transition border ${tab === 'recommend' ? 'bg-primary text-white border-primary' : 'bg-background text-primary border-primary/30 hover:bg-primary/10'}`}
+            onClick={() => setTab('recommend')}
+          >
+            Recommendations
+          </button>
+        </div>
+        {tab === 'search' && (
+          <>
+            <form
+              onSubmit={handleSearch}
+              className="flex gap-2 mb-6 justify-center"
+            >
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search for a movie..."
+                className="flex-1 p-3 rounded-full border-2 border-input bg-background focus:border-accent focus:ring-2 focus:ring-accent/30 transition text-lg font-medium shadow-sm"
+                aria-label="Movie title"
+                disabled={loading}
+              />
+              <Button
+                type="submit"
+                disabled={loading || !query.trim()}
+                className="rounded-full px-5 py-3 text-lg bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-md hover:opacity-90 focus:ring-2 focus:ring-accent/40 transition"
+              >
+                Search
+              </Button>
+            </form>
+            {loading && (
+              <div className="text-center text-accent-foreground">Loading...</div>
+            )}
+            {error && <div className="text-center text-red-500 mb-4">{error}</div>}
+            <div className="flex flex-col gap-6 mt-6">
+              {results.map((movie, idx) => {
+                const expanded = expandedIdx === idx;
+                return (
+                  <div
+                    key={movie.id as string}
+                    tabIndex={0}
+                    className={`group rounded-xl bg-muted/30 shadow p-3 flex flex-col items-center cursor-pointer hover:bg-accent/20 focus:bg-accent/20 transition-all duration-300 relative overflow-visible outline-none ${
+                      expanded
+                        ? "z-30 scale-105 shadow-2xl bg-background"
+                        : ""
+                    }`}
+                    aria-label={`Show details for ${movie.title as string}`}
+                    onMouseEnter={() => setExpandedIdx(idx)}
+                    onFocus={() => setExpandedIdx(idx)}
+                    onMouseLeave={() => setExpandedIdx(null)}
+                    onBlur={() => setExpandedIdx(null)}
+                    style={{
+                      minHeight: expanded ? 340 : undefined,
+                      transition: "min-height 1.2s cubic-bezier(.4,2,.6,1)",
+                    }}
+                  >
+                    <div className="transition-all duration-[1200ms] w-full flex flex-row items-center rounded-xl p-2 gap-4">
+                      {movie.poster_path ? (
+                        <img
+                          src={`${TMDB_IMAGE_BASE}${movie.poster_path as string}`}
+                          alt={movie.title as string}
+                          className="w-24 h-36 object-cover rounded shadow"
+                        />
+                      ) : (
+                        <div className="w-24 h-36 flex items-center justify-center bg-muted rounded text-muted-foreground text-sm">
+                          No Image
+                        </div>
+                      )}
+                      <div className="flex-1 flex flex-col justify-center">
+                        <div className="font-semibold text-lg mb-1">{movie.title as string}</div>
+                        {!expanded && (
+                          <>
+                            <div className="text-sm text-muted-foreground mb-1">
+                              {movie.release_date?.slice(0, 4) || "N/A"}
+                            </div>
+                            <div className="text-xs text-muted-foreground">
+                              {movie.genre_ids && Array.isArray(movie.genre_ids) && movie.genre_ids.length > 0
+                                ? movie.genre_ids.map((id: number) => GENRE_MAP[id]).filter(Boolean).join(", ")
+                                : ""}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                    <ExpandedMovieDetails movie={movie} expanded={expanded} />
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
+        {tab === 'recommend' && (
+          <div className="flex flex-col gap-6 items-center">
+            <form onSubmit={handleRecommend} className="w-full max-w-xl flex flex-col gap-4 items-center">
+              <textarea
+                value={recInput}
+                onChange={e => setRecInput(e.target.value)}
+                placeholder="Describe what kind of movie you want, your mood, or what you typically like..."
+                className="w-full p-3 rounded-lg border-2 border-input bg-background focus:border-accent focus:ring-2 focus:ring-accent/30 transition text-base font-medium shadow-sm min-h-[80px]"
+                disabled={recLoading}
+              />
+              <Button type="submit" disabled={recLoading || !recInput.trim()} className="rounded-full px-6 py-3 text-lg">
+                {recLoading ? 'Finding...' : 'Get Recommendations'}
+              </Button>
+            </form>
+            {recError && <div className="text-center text-red-500 mb-4">{recError}</div>}
+            <div className="flex flex-col gap-6 w-full max-w-xl">
+              {recResults.map((movie, idx) => {
+                const expanded = recResults.length > 0 && recResults[idx]?.id && expandedIdx === idx;
+                return (
+                  <div
+                    key={movie.id as string || idx}
+                    tabIndex={0}
+                    className={`group rounded-xl bg-muted/30 shadow p-3 flex flex-col items-center cursor-pointer hover:bg-accent/20 focus:bg-accent/20 transition-all duration-300 relative overflow-visible outline-none ${expanded ? 'z-30 scale-105 shadow-2xl bg-background' : ''}`}
+                    aria-label={`Show details for ${movie.title as string}`}
+                    onMouseEnter={() => typeof movie.id === 'number' && setExpandedIdx(idx)}
+                    onFocus={() => typeof movie.id === 'number' && setExpandedIdx(idx)}
+                    onMouseLeave={() => setExpandedIdx(null)}
+                    onBlur={() => setExpandedIdx(null)}
+                    style={{ minHeight: expanded ? 340 : undefined, transition: 'min-height 1.2s cubic-bezier(.4,2,.6,1)' }}
+                  >
+                    <div className="transition-all duration-[1200ms] w-full flex flex-row items-center rounded-xl p-2 gap-4">
+                      {movie.poster_path ? (
+                        <img
+                          src={`https://image.tmdb.org/t/p/w200${movie.poster_path as string}`}
+                          alt={movie.title as string}
+                          className="w-24 h-36 object-cover rounded shadow"
+                        />
+                      ) : (
+                        <div className="w-24 h-36 flex items-center justify-center bg-muted rounded text-muted-foreground text-sm">
+                          No Image
+                        </div>
+                      )}
+                      <div className="flex-1 flex flex-col justify-center">
+                        <div className="font-semibold text-lg mb-1">{movie.title as string}</div>
+                        {!expanded && (
+                          <>
+                            <div className="text-sm text-muted-foreground mb-1">
+                              {movie.release_date?.slice(0, 4) || ''}
+                            </div>
+                            <div className="text-xs text-muted-foreground">
+                              {movie.genres && Array.isArray(movie.genres) && movie.genres.length > 0
+                                ? movie.genres.map((g: { name?: string } | number | string) =>
+                                    typeof g === 'string'
+                                      ? g
+                                      : typeof g === 'object' && 'name' in g && g.name
+                                      ? g.name
+                                      : typeof g === 'number'
+                                      ? GENRE_MAP[g as number]
+                                      : ''
+                                  ).filter(Boolean).join(', ')
+                                : ''}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                    {movie.id && (
+                      <ExpandedMovieDetails movie={movie} expanded={expanded} />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}
+
+// Add to the bottom of the file or in your global CSS:
+// .animate-fade-in-expanded { opacity: 1 !important; }

@@ -403,74 +403,49 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 - Accepts all relevant project data as props, making it easy to add or update projects.
 - Follows the same composition and styling conventions as other shadcn/ui components.
 
-## Data Visualization Components
+## Key UI Components (as of May 2025)
 
-The following components are used in the Data Visualization dashboard (src/app/dataviz):
+### ProjectCard (`src/components/ui/ProjectCard.tsx`)
 
-| Component File                  | Purpose/Usage                                              |
-| ------------------------------- | ---------------------------------------------------------- |
-| **ComparisonChart.tsx**         | Renders comparison charts for side-by-side data analysis   |
-| **DonutChart.tsx**              | Displays demographic breakdowns as donut/pie charts        |
-| **GrowthBarChart.tsx**          | Visualizes growth trends in bar chart format               |
-| **HispanicCollegeAgeChart.tsx** | Specialized chart for Hispanic college-age population data |
-| **TimeSeriesChart.tsx**         | Plots time series data, e.g., degree attainment over years |
+- Used for all project showcases in `/projects` and the homepage carousel.
+- Props: `title`, `description`, `cardDescription`, `features`, `technologies`, `github`, `demo`, `figma`, `variant`, `whatILearned`, `children`.
+- Supports links to GitHub, Figma, and live demos.
+- Follows shadcn/ui and design system conventions for layout, color, and accessibility.
 
-These components are integrated in **src/app/dataviz/page.tsx**, which provides a narrative-driven dashboard with recommendations and insights. All charts consume data from **data.json**.
+### Card (`src/components/ui/card.tsx`)
 
-## Components Documentation
+- Used for grouping content in all major pages (Home, Projects, DataViz, LLM Chat, etc.).
+- Subcomponents: `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`, `CardAction`.
+- Accepts a `variant` prop for creative border accents (default, expedition, terrain).
+- All subcomponents use the `cn` utility for className merging.
 
-### Main Navigation
+### Button (`src/components/ui/button.tsx`)
 
-- `components/main-nav.tsx`: The main navigation bar for the site.
+- Used for all actions and navigation.
+- Variants: `default`, `outline`, `ghost`, etc.
+- Large touch targets, accessible labels, and micro-interactions.
 
-### UI Components (Reusable)
+### LLM Chat Demo UI (`src/app/rag-demo/page.tsx`)
 
-- `components/ui/button.tsx`: Button component for actions and forms.
-- `components/ui/card.tsx`: Card layout for content blocks.
-- `components/ui/ProjectCard.tsx`: Specialized card for project listings.
-- `components/ui/sheet.tsx`: Sheet/modal component for overlays.
+- Creative, accessible chat interface with avatars, gradient backgrounds, and a typing indicator.
+- Uses Card and Button components for layout and actions.
+- Follows all design system and accessibility guidelines.
 
-### Data Visualization Components
+### Navigation (`src/components/main-nav.tsx`)
 
-Located in `src/app/dataviz/`:
+- Responsive, accessible, and uses shadcn/ui Sheet for mobile.
+- All navigation links are large, easy to tap, and accessible.
 
-- `ComparisonChart.tsx`: Renders comparison data as a chart.
-- `DonutChart.tsx`: Visualizes data in a donut/pie chart format.
-- `GrowthBarChart.tsx`: Displays growth metrics as a bar chart.
-- `HispanicCollegeAgeChart.tsx`: Specialized chart for demographic data.
-- `TimeSeriesChart.tsx`: Plots time series data.
-- All charts use data from `data.json`.
+### Utility Functions (`src/lib/utils.ts`)
 
-### Page Components
+- Only the `cn` function for className merging is present and used throughout.
 
-- `src/app/experience/page.tsx`: Experience section.
-- `src/app/projects/page.tsx`: Projects listing.
-- `src/app/contact/page.tsx`: Contact form/page.
+## Code Cleanliness & DRY Principles
 
-### Utilities
-
-- `lib/utils.ts`: Shared utility functions.
+- No unused code, imports, or legacy patterns remain in any UI component.
+- All components are modular, accessible, and follow the Creator brand.
+- Documentation is kept in sync with code changes.
 
 ---
 
-# Adding/Updating Components
-
-- Place new UI components in `components/ui/`.
-- Place new feature-specific components in the relevant `src/app/` subfolder.
-- Update this document and the implementation guide after changes.
-
-## UI Components
-
-- **Card**: Used for grouping content and charts in the dashboard, with headers and content sections.
-- **Button**: Used for interactive elements, such as toggling views or filters.
-
-### Psychological Testing Protocol
-
-- Validate for approachability, clarity, and universal usability
-- Test for accessibility and comfort across devices
-
-### Research References
-
-- "Component Usability in Digital Products" – UX Psychology Journal
-- "Inclusive Design Patterns" – Digital Design Psychology Review
-- "Accessible UI Systems" – Interface Psychology Studies
+_Last updated: May 4, 2025_

@@ -1,9 +1,5 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { useState } from "react";
 import { GrowthBarChart } from "./GrowthBarChart";
 import { TimeSeriesChart } from "./TimeSeriesChart";
 import { DonutChart } from "./DonutChart";
@@ -11,9 +7,6 @@ import { HispanicCollegeAgeChart, HSIChart } from "./HispanicCollegeAgeChart";
 import timeSeriesData from "./data.json";
 
 export default function DataVizPage() {
-  // Placeholder for chart filter state
-  const [filter, setFilter] = useState("2025");
-
   return (
     <div className="min-h-screen bg-background pt-24 pb-12">
       <header className="w-full bg-gradient-to-r from-primary/80 to-accent/70 py-16 mb-14 rounded-b-3xl shadow-lg flex flex-col items-center justify-center text-center">
@@ -133,7 +126,6 @@ export default function DataVizPage() {
             </div>
             <div className="flex-1 bg-card/80 rounded-lg p-6 shadow flex flex-col items-center">
               <DonutChart />
-              {/* Slider for year selection is built into DonutChart */}
             </div>
           </div>
           <div className="mt-12 bg-card/80 rounded-lg p-8 shadow">

@@ -112,6 +112,49 @@ export default function Playground() {
       whatILearned:
         "What I learned: This project taught me the basics of HTML, CSS, and JavaScript, and how to deploy a site for the first time.",
     },
+    {
+      title: "Programming Languages Ancestry Graph",
+      description:
+        "An interactive force-directed graph visualizing the relationships and ancestry of modern and historical programming languages. Explore how languages have influenced each other over time.",
+      cardDescription: "Data Visualization & React Force Graph",
+      features: [
+        "Force-directed graph visualization",
+        "Interactive exploration of language ancestry",
+        "Hover to see details about each language",
+        "Responsive and accessible UI",
+      ],
+      technologies: [
+        "React.js",
+        "react-force-graph",
+        "TypeScript",
+        "Tailwind CSS",
+      ],
+      demo: "/force-graph-demo",
+      whatILearned:
+        "What I learned: Visualizing relationships helps reveal the rich history and evolution of programming languages.",
+    },
+    {
+      title: "Movie Search (TMDB API)",
+      description:
+        "A movie search app that lets you find movies by title using the TMDB API. See posters, release years, and more in a clean, creative UI.",
+      cardDescription: "API Integration & Search UI",
+      features: [
+        "Search for movies by title",
+        "View posters, release years, and overviews",
+        "Responsive, accessible, and on-brand UI",
+        "Live search with loading and error states",
+      ],
+      technologies: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "TMDB API",
+        "Tailwind CSS",
+      ],
+      demo: "/movie-search",
+      whatILearned:
+        "What I learned: Integrating third-party APIs and designing a delightful search experience.",
+    },
   ];
   return (
     <div className="min-h-screen bg-background">
