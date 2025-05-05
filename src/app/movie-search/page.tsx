@@ -26,15 +26,38 @@ const GENRE_MAP: Record<number, string> = {
   37: "Western",
 };
 
+interface Genre {
+  id?: number;
+  name: string;
+}
+
+interface Provider {
+  provider_id: number;
+  provider_name: string;
+  logo_path?: string;
+  link?: string;
+}
+
+interface MovieDetails {
+  id: number;
+  title: string;
+  release_date?: string;
+  runtime?: number;
+  genres?: Genre[];
+  overview?: string;
+  poster_path?: string;
+  genre_ids?: number[];
+}
+
 function ExpandedMovieDetails({
   movie,
   expanded,
 }: {
-  movie: Record<string, unknown>;
+  movie: MovieDetails;
   expanded: boolean;
 }) {
-  const [details, setDetails] = React.useState<Record<string, unknown> | null>(null);
-  const [providers, setProviders] = React.useState<Array<Record<string, unknown>> | null>(null);
+  const [details, setDetails] = React.useState<MovieDetails | null>(null);
+  const [providers, setProviders] = React.useState<Provider[] | null>(null);
   React.useEffect(() => {
     if (expanded) {
       fetch(`/api/tmdb/details?id=${movie.id}`)
@@ -51,11 +74,11 @@ function ExpandedMovieDetails({
     <div className="w-full flex flex-col md:flex-row gap-4 mt-2 opacity-0 animate-fade-in-expanded">
       <div className="flex-1 space-y-2">
         <div className="text-muted-foreground text-sm">
-          {details?.release_date?.slice(0, 4)} • {details?.runtime} min
+          {details?.release_date ? details.release_date.slice(0, 4) : ''} • {details?.runtime ?? ''} min
         </div>
         <div className="text-sm text-muted-foreground">
           {Array.isArray(details?.genres)
-            ? (details.genres as Array<{ name: string }> | undefined)?.map((g) => g.name).join(", ")
+            ? details.genres.map((g) => g.name).join(", ")
             : ""}
         </div>
         <div className="mt-2 text-base line-clamp-5">{details?.overview}</div>
@@ -63,10 +86,10 @@ function ExpandedMovieDetails({
           <div className="mt-4">
             <div className="font-semibold mb-1">Available on:</div>
             <div className="flex flex-wrap gap-2">
-              {Array.isArray(providers) && providers.map((prov) => (
+              {providers.map((prov) => (
                 <a
-                  key={prov.provider_id as string}
-                  href={prov.link as string}
+                  key={prov.provider_id}
+                  href={prov.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-3 py-1 rounded bg-muted hover:bg-accent transition"
@@ -74,11 +97,11 @@ function ExpandedMovieDetails({
                   {prov.logo_path && (
                     <img
                       src={`https://image.tmdb.org/t/p/w45${prov.logo_path}`}
-                      alt={prov.provider_name as string}
+                      alt={prov.provider_name}
                       className="w-6 h-6 rounded"
                     />
                   )}
-                  <span className="text-sm">{prov.provider_name as string}</span>
+                  <span className="text-sm">{prov.provider_name}</span>
                 </a>
               ))}
             </div>
@@ -91,7 +114,7 @@ function ExpandedMovieDetails({
 
 export default function MovieSearchPage() {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<Record<string, unknown>[]>([]);
+  const [results, setResults] = useState<MovieDetails[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
@@ -99,7 +122,7 @@ export default function MovieSearchPage() {
   const [recInput, setRecInput] = useState('');
   const [recLoading, setRecLoading] = useState(false);
   const [recError, setRecError] = useState('');
-  const [recResults, setRecResults] = useState<Record<string, unknown>[]>([]);
+  const [recResults, setRecResults] = useState<MovieDetails[]>([]);
 
   async function handleSearch(e: React.FormEvent) {
     e.preventDefault();
@@ -193,14 +216,14 @@ export default function MovieSearchPage() {
                 const expanded = expandedIdx === idx;
                 return (
                   <div
-                    key={movie.id as string}
+                    key={movie.id}
                     tabIndex={0}
                     className={`group rounded-xl bg-muted/30 shadow p-3 flex flex-col items-center cursor-pointer hover:bg-accent/20 focus:bg-accent/20 transition-all duration-300 relative overflow-visible outline-none ${
                       expanded
                         ? "z-30 scale-105 shadow-2xl bg-background"
                         : ""
                     }`}
-                    aria-label={`Show details for ${movie.title as string}`}
+                    aria-label={`Show details for ${movie.title}`}
                     onMouseEnter={() => setExpandedIdx(idx)}
                     onFocus={() => setExpandedIdx(idx)}
                     onMouseLeave={() => setExpandedIdx(null)}
@@ -213,8 +236,8 @@ export default function MovieSearchPage() {
                     <div className="transition-all duration-[1200ms] w-full flex flex-row items-center rounded-xl p-2 gap-4">
                       {movie.poster_path ? (
                         <img
-                          src={`${TMDB_IMAGE_BASE}${movie.poster_path as string}`}
-                          alt={movie.title as string}
+                          src={`${TMDB_IMAGE_BASE}${movie.poster_path}`}
+                          alt={movie.title}
                           className="w-24 h-36 object-cover rounded shadow"
                         />
                       ) : (
@@ -223,15 +246,15 @@ export default function MovieSearchPage() {
                         </div>
                       )}
                       <div className="flex-1 flex flex-col justify-center">
-                        <div className="font-semibold text-lg mb-1">{movie.title as string}</div>
+                        <div className="font-semibold text-lg mb-1">{movie.title}</div>
                         {!expanded && (
                           <>
                             <div className="text-sm text-muted-foreground mb-1">
-                              {movie.release_date?.slice(0, 4) || "N/A"}
+                              {movie.release_date ? movie.release_date.slice(0, 4) : "N/A"}
                             </div>
                             <div className="text-xs text-muted-foreground">
                               {movie.genre_ids && Array.isArray(movie.genre_ids) && movie.genre_ids.length > 0
-                                ? movie.genre_ids.map((id: number) => GENRE_MAP[id]).filter(Boolean).join(", ")
+                                ? movie.genre_ids.map((id) => GENRE_MAP[id]).filter(Boolean).join(", ")
                                 : ""}
                             </div>
                           </>
@@ -265,10 +288,10 @@ export default function MovieSearchPage() {
                 const expanded = recResults.length > 0 && recResults[idx]?.id && expandedIdx === idx;
                 return (
                   <div
-                    key={movie.id as string || idx}
+                    key={movie.id || idx}
                     tabIndex={0}
                     className={`group rounded-xl bg-muted/30 shadow p-3 flex flex-col items-center cursor-pointer hover:bg-accent/20 focus:bg-accent/20 transition-all duration-300 relative overflow-visible outline-none ${expanded ? 'z-30 scale-105 shadow-2xl bg-background' : ''}`}
-                    aria-label={`Show details for ${movie.title as string}`}
+                    aria-label={`Show details for ${movie.title}`}
                     onMouseEnter={() => typeof movie.id === 'number' && setExpandedIdx(idx)}
                     onFocus={() => typeof movie.id === 'number' && setExpandedIdx(idx)}
                     onMouseLeave={() => setExpandedIdx(null)}
@@ -278,8 +301,8 @@ export default function MovieSearchPage() {
                     <div className="transition-all duration-[1200ms] w-full flex flex-row items-center rounded-xl p-2 gap-4">
                       {movie.poster_path ? (
                         <img
-                          src={`https://image.tmdb.org/t/p/w200${movie.poster_path as string}`}
-                          alt={movie.title as string}
+                          src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                          alt={movie.title}
                           className="w-24 h-36 object-cover rounded shadow"
                         />
                       ) : (
@@ -288,23 +311,15 @@ export default function MovieSearchPage() {
                         </div>
                       )}
                       <div className="flex-1 flex flex-col justify-center">
-                        <div className="font-semibold text-lg mb-1">{movie.title as string}</div>
+                        <div className="font-semibold text-lg mb-1">{movie.title}</div>
                         {!expanded && (
                           <>
                             <div className="text-sm text-muted-foreground mb-1">
-                              {movie.release_date?.slice(0, 4) || ''}
+                              {movie.release_date ? movie.release_date.slice(0, 4) : ''}
                             </div>
                             <div className="text-xs text-muted-foreground">
                               {movie.genres && Array.isArray(movie.genres) && movie.genres.length > 0
-                                ? movie.genres.map((g: { name?: string } | number | string) =>
-                                    typeof g === 'string'
-                                      ? g
-                                      : typeof g === 'object' && 'name' in g && g.name
-                                      ? g.name
-                                      : typeof g === 'number'
-                                      ? GENRE_MAP[g as number]
-                                      : ''
-                                  ).filter(Boolean).join(', ')
+                                ? movie.genres.map((g) => g.name).filter(Boolean).join(', ')
                                 : ''}
                             </div>
                           </>
