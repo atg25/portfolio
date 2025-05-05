@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
   const openaiData = await openaiRes.json();
   const text = openaiData.choices?.[0]?.message?.content || '';
   // Parse movie titles from OpenAI response
-  const titles = text.split(',').map(t => t.trim()).filter(Boolean);
+  const titles = text.split(',').map((t: string) => t.trim()).filter(Boolean);
 
   // Step 2: Fetch details for each movie from TMDB
   const results = [];
