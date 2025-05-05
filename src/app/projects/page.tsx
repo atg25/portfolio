@@ -129,7 +129,6 @@ export default function Playground() {
         "TypeScript",
         "Tailwind CSS",
       ],
-      demo: "/force-graph-demo",
       whatILearned:
         "What I learned: Visualizing relationships helps reveal the rich history and evolution of programming languages.",
     },
