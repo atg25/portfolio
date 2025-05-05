@@ -37,25 +37,27 @@ export default function Home() {
       description:
         "An interactive dashboard for visualizing complex datasets with charts and graphs. Built to help users explore and understand data trends easily.",
       border: "border-blue-400/30",
-      github: "https://github.com/atg25/219dashboard",
-      demo: "https://219dashboard-oqoc72or4-andrew-gardners-projects.vercel.app",
+      demo: "/dataviz",
+      whatILearned:
+        "I learned how to use D3.js and React together, and how to design interactive charts that make complex data more approachable for users.",
     },
     {
-      title: "Highlander Hustle Prototype",
+      title: "OpenAI LLM Chat",
       description:
-        "A comprehensive system for managing athletic programs, featuring performance tracking, event scheduling, and team communication tools.",
-      border: "border-primary/30",
-      figma:
-        "https://www.figma.com/design/ff5kroo7lHROkYmJXkTkBP/Highlander-Hustle-Prototype?node-id=0-1&p=f&t=ZIXnxrQZQi20nhp7-0",
-      demo: "https://www.figma.com/proto/ff5kroo7lHROkYmJXkTkBP/Highlander-Hustle-Prototype?node-id=148-223&p=f&t=ZIXnxrQZQi20nhp7-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=148%3A223",
+        "A real-time chat application powered by WebSockets and a Large Language Model (LLM) backend. Enables interactive conversations and demonstrates modern AI integration in web apps.",
+      border: "border-purple-400/30",
+      demo: "/rag-demo",
+      whatILearned:
+        "I learned how to integrate OpenAI APIs, manage real-time communication with WebSockets, and handle prompt engineering for better AI responses.",
     },
     {
-      title: "First Portfolio Website",
+      title: "Movie Search (TMDB API)",
       description:
-        "My first major website project, where I learned the fundamentals of web development, design, and deployment. Built with care and lots of late nights!",
+        "A movie search app that lets you find movies by title using the TMDB API. See posters, release years, and more in a clean, creative UI.",
       border: "border-accent/30",
-      github: "https://github.com/atg25/P4",
-      demo: "https://atg25.github.io/P4/",
+      demo: "/movie-search",
+      whatILearned:
+        "I learned how to work with third-party APIs, manage asynchronous data fetching in Next.js, and improve user experience with responsive design.",
     },
   ];
   const [currentProject, setCurrentProject] = useState(0);
@@ -290,9 +292,13 @@ export default function Home() {
             My Approach
           </h2>
           <p className="text-lg text-muted-foreground/90">
-            I believe creativity is for everyone. I learn by doing, and I’m
-            always happy to share what I find along the way. If you want to
-            build something new or just talk about ideas, I’d love to connect.
+            My approach is rooted in creativity, inclusivity, and practical
+            problem-solving. I believe the best ideas come from open minds and
+            diverse voices, so I seek feedback early and often. I focus on
+            building solutions that are not just functional, but also accessible
+            and enjoyable to use. For me, every project is a chance to learn,
+            experiment, and help others do the same. If you have an idea or want
+            to collaborate, let’s connect!
           </p>
         </section>
 
@@ -337,41 +343,9 @@ export default function Home() {
                     {projects[currentProject].description}
                   </p>
                   <div className="italic text-accent-foreground text-sm pb-2">
-                    Here’s what I learned: Every project is a chance to try
-                    something new, make mistakes, and get better. If you’re
-                    curious about the details, just ask!
+                    {projects[currentProject].whatILearned}
                   </div>
                   <div className="flex gap-4">
-                    {projects[currentProject].github && (
-                      <Button
-                        variant="outline"
-                        asChild
-                        className="rounded-full"
-                      >
-                        <a
-                          href={projects[currentProject].github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View on GitHub
-                        </a>
-                      </Button>
-                    )}
-                    {projects[currentProject].figma && (
-                      <Button
-                        variant="outline"
-                        asChild
-                        className="rounded-full"
-                      >
-                        <a
-                          href={projects[currentProject].figma}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View on Figma
-                        </a>
-                      </Button>
-                    )}
                     {projects[currentProject].demo && (
                       <Button
                         variant="default"
@@ -380,8 +354,16 @@ export default function Home() {
                       >
                         <a
                           href={projects[currentProject].demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          target={
+                            projects[currentProject].demo.startsWith("http")
+                              ? "_blank"
+                              : undefined
+                          }
+                          rel={
+                            projects[currentProject].demo.startsWith("http")
+                              ? "noopener noreferrer"
+                              : undefined
+                          }
                         >
                           Live Demo
                         </a>

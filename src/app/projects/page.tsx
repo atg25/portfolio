@@ -6,9 +6,9 @@ import { ProjectCard } from "@/components/ui/ProjectCard";
 export default function Playground() {
   const projects = [
     {
-      title: "Personal Portfolio Website",
+      title: "Personal Portfolio Website (this website)",
       description:
-        "Designed and built this portfolio to share my work and process. It’s always a work in progress, and I’m always learning new ways to make it better.",
+        "Designed and built this portfolio to share my work and process. Leveraged GitHub Copilot for all code generation, ensuring that no code was written by hand. This approach allowed for rapid prototyping and consistent code quality throughout the project. It’s always a work in progress, and I’m always learning new ways to make it better.",
       cardDescription: "Frontend Development",
       features: [
         "Responsive design across all devices",
@@ -25,6 +25,28 @@ export default function Playground() {
       github: "https://github.com/atg25/portfolio",
       whatILearned:
         "What I learned: Sharing my process helps others and keeps me honest about what works and what doesn’t.",
+    },
+    {
+      title: "Movie Search (TMDB API)",
+      description:
+        "A movie search app that lets you find movies by title using the TMDB API. See posters, release years, and more in a clean, creative UI.",
+      cardDescription: "API Integration & Search UI",
+      features: [
+        "Search for movies by title",
+        "View posters, release years, and overviews",
+        "Responsive, accessible, and on-brand UI",
+        "Live search with loading and error states",
+      ],
+      technologies: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "TMDB API",
+        "Tailwind CSS",
+      ],
+      demo: "/movie-search",
+      whatILearned:
+        "What I learned: Integrating third-party APIs and designing a delightful search experience.",
     },
     {
       title: "Data Visualization Dashboard",
@@ -73,7 +95,7 @@ export default function Playground() {
         "What I learned: Listening to feedback early made the system better for coaches and athletes. Collaboration really matters.",
     },
     {
-      title: "Professional Network Platform",
+      title: "First Portfolio Website",
       description:
         "Created a web platform for professional networking. I focused on making it easy to connect and share, and learned how important it is to keep things simple and welcoming.",
       cardDescription: "Web Development & Community",
@@ -96,7 +118,7 @@ export default function Playground() {
         "What I learned: The best features came from talking to users and trying out ideas quickly.",
     },
     {
-      title: "First Portfolio Website",
+      title: "Pinelands Info Website",
       description:
         "My first major website project, where I learned the fundamentals of web development, design, and deployment. Built with care and lots of late nights!",
       cardDescription: "Web Development Foundations",
@@ -112,48 +134,6 @@ export default function Playground() {
       whatILearned:
         "What I learned: This project taught me the basics of HTML, CSS, and JavaScript, and how to deploy a site for the first time.",
     },
-    {
-      title: "Programming Languages Ancestry Graph",
-      description:
-        "An interactive force-directed graph visualizing the relationships and ancestry of modern and historical programming languages. Explore how languages have influenced each other over time.",
-      cardDescription: "Data Visualization & React Force Graph",
-      features: [
-        "Force-directed graph visualization",
-        "Interactive exploration of language ancestry",
-        "Hover to see details about each language",
-        "Responsive and accessible UI",
-      ],
-      technologies: [
-        "React.js",
-        "react-force-graph",
-        "TypeScript",
-        "Tailwind CSS",
-      ],
-      whatILearned:
-        "What I learned: Visualizing relationships helps reveal the rich history and evolution of programming languages.",
-    },
-    {
-      title: "Movie Search (TMDB API)",
-      description:
-        "A movie search app that lets you find movies by title using the TMDB API. See posters, release years, and more in a clean, creative UI.",
-      cardDescription: "API Integration & Search UI",
-      features: [
-        "Search for movies by title",
-        "View posters, release years, and overviews",
-        "Responsive, accessible, and on-brand UI",
-        "Live search with loading and error states",
-      ],
-      technologies: [
-        "React.js",
-        "Next.js",
-        "TypeScript",
-        "TMDB API",
-        "Tailwind CSS",
-      ],
-      demo: "/movie-search",
-      whatILearned:
-        "What I learned: Integrating third-party APIs and designing a delightful search experience.",
-    },
   ];
   return (
     <div className="min-h-screen bg-background">
@@ -165,7 +145,7 @@ export default function Playground() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="font-heading text-4xl md:text-5xl text-gradient-brand">
-            Playground
+            My Projects
           </h1>
           <p className="text-lg text-muted-foreground/80">
             Here’s a look at some things I’ve built. Each project taught me
