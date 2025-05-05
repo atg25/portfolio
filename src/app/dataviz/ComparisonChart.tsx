@@ -14,7 +14,8 @@ import { cn } from "@/lib/utils";
 import React, { useState } from "react";
 import timeSeriesData from "./data.json";
 
-const demographicOptions = ["Hispanic", "Black", "Asian", "Other"];
+const demographicOptions = ["Hispanic", "Black", "Asian", "Other"] as const;
+type Demographic = typeof demographicOptions[number];
 const metricOptions = [
   { value: "total", label: "Total Degrees (2020)" },
   { value: "growth", label: "Numeric Growth (2011–2020)" },
@@ -29,7 +30,7 @@ const demographicColors: Record<string, string> = {
 
 function calculateComparisonData(
   metric: string,
-  selected: string[],
+  selected: Demographic[],
   startYear: number,
   endYear: number
 ) {
@@ -37,8 +38,8 @@ function calculateComparisonData(
   const end = timeSeriesData.find((d) => d.year === endYear);
   if (!start || !end) return [];
   return selected.map((demo) => {
-    const startValue = start[demo];
-    const endValue = end[demo];
+    const startValue = start[demo as keyof typeof start] as number;
+    const endValue = end[demo as keyof typeof end] as number;
     const growth = endValue - startValue;
     const percentage = startValue > 0 ? (growth / startValue) * 100 : 0;
     return {
@@ -51,7 +52,7 @@ function calculateComparisonData(
 }
 
 export function ComparisonChart({ className }: { className?: string }) {
-  const [selected, setSelected] = useState<string[]>(["Hispanic", "Black"]);
+  const [selected, setSelected] = useState<Demographic[]>(["Hispanic", "Black"]);
   const [metric, setMetric] = useState("total");
   const [startYear, setStartYear] = useState(2011);
   const [endYear, setEndYear] = useState(2020);
