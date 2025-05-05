@@ -314,10 +314,11 @@ export default function MovieSearchPage() {
             )}
             <div className="flex flex-col gap-6 w-full max-w-xl">
               {recResults.map((movie, idx) => {
-                const expanded =
+                const expanded = !!(
                   recResults.length > 0 &&
                   recResults[idx]?.id &&
-                  expandedIdx === idx;
+                  expandedIdx === idx
+                );
                 return (
                   <div
                     key={movie.id || idx}
