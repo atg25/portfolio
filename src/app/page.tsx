@@ -102,7 +102,7 @@ export default function Home() {
             initial="hidden"
             animate="visible"
           >
-            {Array.from("Hi, I'm Andrew.").map((letter, index) => (
+            {Array.from("Hi, I'm Andrew!").map((letter, index) => (
               <motion.span key={`name-${index}`} variants={letterVariants}>
                 {letter}
               </motion.span>
@@ -118,15 +118,7 @@ export default function Home() {
             Here’s some of my work—take a look, and if you have an idea, let’s
             talk.
           </motion.p>
-          <motion.p
-            className="text-lg text-muted-foreground/80 max-w-xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2 }}
-          >
-            I believe creativity is for everyone. I love learning by doing and
-            sharing what I find along the way.
-          </motion.p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6">
             <Button
               asChild
@@ -161,7 +153,7 @@ export default function Home() {
             </Button>
             <div className="flex gap-3 mt-2 sm:mt-0">
               <a
-                href="https://www.linkedin.com/in/andrewgardner"
+                href="https://www.linkedin.com/in/andrew-gardner2026/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -177,7 +169,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="https://github.com/andrewgardner"
+                href="https://github.com/atg25"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -193,7 +185,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="mailto:andrew@example.com"
+                href="mailto:agard1205@gmail.com"
                 aria-label="Email"
                 className="hover:text-primary focus:text-primary transition-colors"
               >
@@ -238,7 +230,9 @@ export default function Home() {
                       />
                     </svg>
                   </span>
-                  <CardTitle className="font-heading">Frontend</CardTitle>
+                  <CardTitle className="font-heading focus:outline-none focus:ring-0">
+                    Frontend
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="list-disc list-inside space-y-2 text-muted-foreground">
@@ -266,7 +260,7 @@ export default function Home() {
                       />
                     </svg>
                   </span>
-                  <CardTitle className="font-heading">
+                  <CardTitle className="font-heading focus:outline-none focus:ring-0">
                     Backend & Tools
                   </CardTitle>
                 </CardHeader>
@@ -334,7 +328,7 @@ export default function Home() {
                 className={`rounded-2xl shadow-lg border-2 bg-card/80 min-w-[90vw] max-w-md mx-auto sm:min-w-[340px] ${projects[currentProject].border}`}
               >
                 <CardHeader>
-                  <CardTitle className="font-heading">
+                  <CardTitle className="font-heading focus:outline-none focus:ring-0">
                     {projects[currentProject].title}
                   </CardTitle>
                 </CardHeader>

@@ -14,13 +14,14 @@ export default function Experience() {
     <div className="min-h-screen bg-background">
       <main className="container mx-auto space-y-16 pt-20 px-4">
         {/* Profile Hero Section */}
-        <section className="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto mb-20 py-12 md:py-20">
-          <img
-            src="/profile.jpg"
-            alt="Profile photo of Andrew Gardner"
-            className="w-56 h-56 md:w-64 md:h-64 rounded-full object-cover border-4 border-primary/40 shadow-xl mb-8 md:mb-0"
-          />
+        <section className="flex flex-col items-center gap-12 max-w-4xl mx-auto mb-20 py-12 md:py-20">
           <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+            <img
+              src="/AI2.png"
+              alt="Profile photo of Andrew Gardner"
+              className="w-56 h-56 md:w-64 md:h-64 rounded-full object-cover object-center border-4 border-primary/40 shadow-xl mb-8 md:mb-0 mx-auto"
+              style={{ aspectRatio: "1 / 1", objectPosition: "50% 20%" }}
+            />
             <div className="text-center md:text-left space-y-8 flex-1">
               <h1 className="text-5xl md:text-6xl font-heading text-gradient-brand font-bold leading-tight">
                 About Me

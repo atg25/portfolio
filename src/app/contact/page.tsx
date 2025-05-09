@@ -53,10 +53,10 @@ export default function Contact() {
                     <h3 className="font-medium mb-2">Email</h3>
                     <p className="text-muted-foreground">
                       <a
-                        href="mailto:atg25@njit.edu"
+                        href="mailto:agard1205@gmail.com"
                         className="hover:underline"
                       >
-                        atg25@njit.edu
+                        agard1205@gmail.com
                       </a>
                     </p>
                   </div>
@@ -64,12 +64,12 @@ export default function Contact() {
                     <h3 className="font-medium mb-2">LinkedIn</h3>
                     <p className="text-muted-foreground">
                       <a
-                        href="https://linkedin.com/in/your-profile"
+                        href="https://linkedin.com/in/andrew-gardner2026/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:underline"
                       >
-                        linkedin.com/in/your-profile
+                        linkedin.com/in/andrew-gardner2026/
                       </a>
                     </p>
                   </div>

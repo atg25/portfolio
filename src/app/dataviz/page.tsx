@@ -5,6 +5,7 @@ import { TimeSeriesChart } from "./TimeSeriesChart";
 import { DonutChart } from "./DonutChart";
 import { HispanicCollegeAgeChart, HSIChart } from "./HispanicCollegeAgeChart";
 import timeSeriesData from "./data.json";
+import { motion } from "framer-motion";
 
 export default function DataVizPage() {
   return (
@@ -19,7 +20,12 @@ export default function DataVizPage() {
           groups from 2011 to 2021.
         </p>
       </header>
-      <main className="container mx-auto px-4 space-y-16">
+      <motion.main
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
+      >
         <section className="card narrative-section w-full max-w-7xl mx-auto my-16 p-12 rounded-2xl shadow-lg bg-background/90 border border-primary/20">
           <h2 className="font-heading text-4xl md:text-5xl mb-8 text-center font-bold tracking-tight">
             Understanding the Changing Landscape of STEM Education
@@ -346,7 +352,7 @@ export default function DataVizPage() {
             dashboard use synthetic data for educational purposes only.
           </p>
         </footer>
-      </main>
+      </motion.main>
     </div>
   );
 }
