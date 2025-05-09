@@ -46,3 +46,16 @@ This project is a Next.js portfolio site with a focus on modularity, data visual
 ---
 
 _Last updated: May 4, 2025_
+
+---
+
+## Recent Updates (May 2025)
+
+- **Codebase Cleanup:** All unused imports, duplicate code, and legacy patterns have been removed from `src/app` and `src/components`.
+- **LLM Chat Demo:** The LLM Chat page (`/rag-demo`) no longer imports `node-fetch` and uses the browser's native `fetch` API as intended for client components.
+- **Fade-in Animations:** Fade-in animations are now only present on the home, about, contact, and experience pages. The LLM Chat page no longer uses a fade-in animation for its main content.
+- **Focus Ring Removal:** Blue focus rings and glows have been removed from card titles and containers across the site for a cleaner look, with accessibility maintained via other cues.
+- **Component Consistency:** All UI components use the `cn` utility for className merging, and only shadcn/ui and design system components are used for UI.
+- **Docs Sync:** Documentation is now fully in sync with the current codebase and design system.
+
+_Last reviewed: May 9, 2025_

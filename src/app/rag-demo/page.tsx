@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import fetch from "node-fetch";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FaUserCircle, FaRobot, FaPaperPlane, FaPlus } from "react-icons/fa";
@@ -175,3 +174,6 @@ export default function LLMChatDemoPage() {
     </div>
   );
 }
+
+// No need to import fetch in a Next.js client component; the browser provides it.
+// If you see a 'fetch is not defined' error, ensure this file is not being run in a Node.js environment.
