@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,8 +10,35 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+
+// Use hardcoded env values for EmailJS (as a workaround for Next.js client env issues)
+const EMAILJS_SERVICE_ID = "service_lmznzhf";
+const EMAILJS_TEMPLATE_ID = "template_cpxuw1m";
+const EMAILJS_USER_ID = "m5LmsQGrHiaAvPfuH";
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<string>("");
+
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("");
+    if (!formRef.current) return;
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_USER_ID
+      );
+      setStatus("Thank you for reaching out! I’ll reply as soon as I can.");
+      formRef.current.reset();
+    } catch {
+      setStatus("Sorry, something went wrong. Please try again later.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <main className="container mx-auto space-y-16 pt-20 px-4">
@@ -49,17 +77,6 @@ export default function Contact() {
                   <CardDescription>Ways to reach me directly</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div>
-                    <h3 className="font-medium mb-2">Email</h3>
-                    <p className="text-muted-foreground">
-                      <a
-                        href="mailto:agard1205@gmail.com"
-                        className="hover:underline"
-                      >
-                        agard1205@gmail.com
-                      </a>
-                    </p>
-                  </div>
                   <div>
                     <h3 className="font-medium mb-2">LinkedIn</h3>
                     <p className="text-muted-foreground">
@@ -113,8 +130,9 @@ export default function Contact() {
                 </CardHeader>
                 <CardContent>
                   <form
+                    ref={formRef}
                     className="space-y-4"
-                    onSubmit={(e) => e.preventDefault()}
+                    onSubmit={sendEmail}
                   >
                     <div>
                       <label htmlFor="name" className="block font-medium mb-2">
@@ -130,7 +148,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <label htmlFor="email" className="block font-medium mb-2">
-                        Email
+                        Email (for reply)
                       </label>
                       <input
                         type="email"
@@ -138,6 +156,8 @@ export default function Contact() {
                         name="email"
                         className="w-full p-2 rounded-md border border-input bg-background"
                         required
+                        autoComplete="off"
+                        placeholder="your@email.com"
                       />
                     </div>
                     <div>
@@ -162,10 +182,16 @@ export default function Contact() {
                       Send Message
                     </Button>
                     <p
-                      className="text-green-600 text-center pt-2"
+                      className={`text-center pt-2 ${
+                        status.includes("Thank")
+                          ? "text-green-600"
+                          : status
+                          ? "text-red-600"
+                          : ""
+                      }`}
                       aria-live="polite"
                     >
-                      {/* Thank you for reaching out! I’ll reply as soon as I can. */}
+                      {status}
                     </p>
                   </form>
                 </CardContent>
