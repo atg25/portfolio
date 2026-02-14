@@ -14,7 +14,10 @@ export default function DataVizPage() {
         <h1 className="font-heading text-5xl md:text-6xl font-bold tracking-tight text-white drop-shadow mb-5 max-w-3xl leading-tight">
           A Decade of Progress: Minority Representation in STEM
         </h1>
-        <p className="max-w-xl mx-auto text-xl md:text-2xl text-white/90 font-medium mb-3 leading-relaxed">
+        <p className="text-white text-sm md:text-base font-medium mb-3">
+          Portfolio project by Andrew Gardner
+        </p>
+        <p className="max-w-xl mx-auto text-xl md:text-2xl text-white font-medium mb-3 leading-relaxed">
           Data-driven insights on the transformation of STEM education,
           highlighting growth, equity, and opportunity for underrepresented
           groups from 2011 to 2021.
@@ -78,8 +81,7 @@ export default function DataVizPage() {
           </div>
           <div className="flex flex-col items-center mt-6">
             <p className="mb-2 text-muted-foreground text-base max-w-lg text-center">
-              Start exploring below or use the navigation menu to jump to
-              specific sections.
+              Start exploring below—each section is labeled as you scroll.
             </p>
           </div>
         </section>
@@ -331,7 +333,7 @@ export default function DataVizPage() {
               students and strengthens America's future.
             </p>
             <button
-              className="action-button bg-primary text-white px-8 py-3 rounded font-semibold shadow hover:bg-primary/90 transition text-lg"
+              className="action-button bg-primary text-primary-foreground px-8 py-3 rounded font-semibold shadow hover:bg-primary/90 transition text-lg"
               onClick={() => {
                 if (typeof window !== "undefined") {
                   window.scrollTo({ top: 0, behavior: "smooth" });

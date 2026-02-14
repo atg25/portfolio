@@ -199,6 +199,9 @@ export default function MovieSearchPage() {
               <FaInfoCircle className="w-5 h-5" />
             </button>
           </div>
+          <p className="text-sm text-muted-foreground text-center -mt-2 mb-6">
+            Portfolio demo by Andrew Gardner
+          </p>
           <div className="max-w-2xl mx-auto mb-8 flex flex-col items-center">
             {showInfo && (
               <div
@@ -209,27 +212,23 @@ export default function MovieSearchPage() {
                   How this works
                 </h2>
                 <p className="mb-2 text-base text-muted-foreground">
-                  Search for any movie by title, or get AI-powered
-                  recommendations based on your mood or interests. Hover or
-                  focus on a movie card to see more details, including genres,
-                  runtime, overview, and streaming providers.
+                  Search by title, or describe what you're in the mood for to
+                  get recommendations.
                 </p>
                 <ul className="text-sm text-muted-foreground mb-2 list-disc list-inside text-left inline-block">
                   <li>
-                    Use the{" "}
+                    Use{" "}
                     <span className="font-semibold text-primary">Search</span>{" "}
-                    tab to find movies by name.
+                    to find movies by name.
                   </li>
                   <li>
-                    Use the{" "}
+                    Use{" "}
                     <span className="font-semibold text-primary">
                       Recommendations
                     </span>{" "}
-                    tab to describe what you want and get suggestions.
+                    for AI suggestions.
                   </li>
-                  <li>
-                    Expand a card for more info, including where to watch.
-                  </li>
+                  <li>Expand a result to see details and where to watch.</li>
                 </ul>
                 <p className="text-xs text-muted-foreground mt-2">
                   Powered by TMDB and OpenAI. Data may not be complete for all
@@ -242,7 +241,7 @@ export default function MovieSearchPage() {
             <button
               className={`px-4 py-2 rounded-full font-semibold transition border ${
                 tab === "search"
-                  ? "bg-primary text-white border-primary"
+                  ? "bg-primary text-primary-foreground border-primary"
                   : "bg-background text-primary border-primary/30 hover:bg-primary/10"
               }`}
               onClick={() => setTab("search")}
@@ -252,7 +251,7 @@ export default function MovieSearchPage() {
             <button
               className={`px-4 py-2 rounded-full font-semibold transition border ${
                 tab === "recommend"
-                  ? "bg-primary text-white border-primary"
+                  ? "bg-primary text-primary-foreground border-primary"
                   : "bg-background text-primary border-primary/30 hover:bg-primary/10"
               }`}
               onClick={() => setTab("recommend")}
@@ -278,7 +277,7 @@ export default function MovieSearchPage() {
                 <Button
                   type="submit"
                   disabled={loading || !query.trim()}
-                  className="rounded-full px-5 py-3 text-lg bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-md hover:opacity-90 focus:ring-2 focus:ring-accent/40 transition"
+                  className="rounded-full px-5 py-3 text-lg bg-gradient-to-r from-primary-500 to-accent-500 text-primary-foreground shadow-md hover:opacity-90 focus:ring-2 focus:ring-accent/40 transition"
                 >
                   Search
                 </Button>

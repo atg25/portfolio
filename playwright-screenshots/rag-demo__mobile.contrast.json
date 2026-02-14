@@ -1,0 +1,75 @@
+{
+  "count": 7,
+  "worst": [
+    {
+      "text": "LLM Chat",
+      "selector": "h3.transition-all.duration-300",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "LLM Chat",
+      "selector": "span.inline-flex.items-center",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Andrew GardnerAG",
+      "selector": "a.font-heading.text-lg",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Andrew Gardner",
+      "selector": "span.hidden.sm\\:inline",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "About",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Contact",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Resume",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    }
+  ]
+}

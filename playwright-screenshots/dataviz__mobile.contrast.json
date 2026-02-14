@@ -1,0 +1,255 @@
+{
+  "count": 69,
+  "worst": [
+    {
+      "text": "A Decade of Progress: Minority Representation in STEM",
+      "selector": "h1.font-heading.text-5xl",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 32,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Portfolio project by Andrew Gardner",
+      "selector": "p.text-white.text-sm",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Data-driven insights on the transformation of STEM education, highlighting growth, equity, and opportunity for underrepr",
+      "selector": "p.max-w-xl.mx-auto",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Understanding the Changing Landscape of STEM Education",
+      "selector": "h2.font-heading.text-4xl",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 24,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "How has minority representation in STEM programs changed over the past decade?",
+      "selector": "h4.font-semibold.mb-1",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "We'll examine time-series data showing degree attainment across demographics from 2011–2021.",
+      "selector": "p.text-muted-foreground.text-center",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Which demographic groups have experienced the most significant growth?",
+      "selector": "h4.font-semibold.mb-1",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "We'll analyze comparative data to identify leaders and understand variations in progress.",
+      "selector": "p.text-muted-foreground.text-center",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "What factors have contributed to the success of Hispanic students in STEM?",
+      "selector": "h4.font-semibold.mb-1",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "We'll investigate Hispanic-Serving Institutions and other potential drivers of growth.",
+      "selector": "p.text-muted-foreground.text-center",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "How can successful strategies be adapted to benefit other underrepresented groups?",
+      "selector": "h4.font-semibold.mb-1",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "We'll translate insights into actionable recommendations for institutions and policymakers.",
+      "selector": "p.text-muted-foreground.text-center",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Start exploring below—each section is labeled as you scroll.",
+      "selector": "p.mb-2.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Executive Summary",
+      "selector": "h2.font-heading.text-4xl",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 24,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "From 2011 to 2021, minority representation in STEM programs has shown significant growth, with Hispanic students leading",
+      "selector": "p.text-xl.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Total Growth",
+      "selector": "h3.font-semibold.text-xl",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "124,938",
+      "selector": "p.text-3xl.font-bold",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "New STEM Degrees",
+      "selector": "span.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Leading Growth",
+      "selector": "h3.font-semibold.text-xl",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Hispanic",
+      "selector": "p.text-3xl.font-bold",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "106% Increase",
+      "selector": "span.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "HSI Growth",
+      "selector": "h3.font-semibold.text-xl",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "60%",
+      "selector": "p.text-3xl.font-bold",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "More Hispanic-Serving Institutions",
+      "selector": "span.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Minority Growth in STEM Degrees (2011–2021)",
+      "selector": "h2.font-heading.text-4xl",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 24,
+      "fontWeight": 700,
+      "threshold": 3
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "count": 180,
+  "worst": [
+    {
+      "text": "My Projects",
+      "selector": "h1.font-heading.text-4xl",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 32,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Here’s a look at some things I’ve built. Each project taught me something new—if you want to know more about how I made ",
+      "selector": "p.text-lg.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "NextGen Wallcovering",
+      "selector": "h3.leading-none.font-semibold",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Brand Identity & Web Presence",
+      "selector": "p.text-muted-foreground.text-sm",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "End-to-end digital launch for NGwallcovering.com, including custom site work and a luxury Art Deco brand identity focuse",
+      "selector": "p.mb-6.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Key Features:",
+      "selector": "h3.font-medium.mb-2",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Launch-ready marketing site and core pages",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Luxury Art Deco brand direction and visual system",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Mobile-first, responsive layout",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Conversion-focused UX (clear CTAs and messaging)",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Technologies Used:",
+      "selector": "h3.font-medium.mb-2",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "TBD (share stack + I’ll update)",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "TBD",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "TBD",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Pure Home Inspections",
+      "selector": "h3.leading-none.font-semibold",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Small Business Website",
+      "selector": "p.text-muted-foreground.text-sm",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "A business web presence for a home inspection company—built to make services clear, establish trust quickly, and drive s",
+      "selector": "p.mb-6.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Key Features:",
+      "selector": "h3.font-medium.mb-2",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Service and pricing/coverage information",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Contact + inquiry funnel",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Trust signals (reviews, certifications, FAQs)",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Mobile-friendly performance and accessibility focus",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Technologies Used:",
+      "selector": "h3.font-medium.mb-2",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "TBD (share stack + I’ll update)",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "TBD",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    }
+  ]
+}

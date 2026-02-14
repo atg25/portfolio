@@ -17,7 +17,7 @@ export default function Experience() {
         <section className="flex flex-col items-center gap-12 max-w-4xl mx-auto mb-20 py-12 md:py-20">
           <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
             <img
-              src="/AI2.png"
+              src="/headShot.jpeg"
               alt="Profile photo of Andrew Gardner"
               className="w-56 h-56 md:w-64 md:h-64 rounded-full object-cover object-center border-4 border-primary/40 shadow-xl mb-8 md:mb-0 mx-auto"
               style={{ aspectRatio: "1 / 1", objectPosition: "50% 20%" }}
@@ -27,10 +27,10 @@ export default function Experience() {
                 About Me
               </h1>
               <p className="text-2xl text-muted-foreground max-w-2xl mx-auto md:mx-0">
-                My name's Andrew. I'm a left-handed web developer, problem
-                solver, and creative builder! Currently I'm in my 3rd year at
-                NJIT, and I'll be a Technical Specialist intern at NJ Transit
-                this summer. I love learning new things, collaborating, and
+                My name's Andrew. I'm left-handed, a problem solver, and
+                creative builder! Currently I'm in my Senior year at NJIT, and
+                I'm diving deep into autonomous development and AI
+                orchestration. I love learning new things, collaborating, and
                 making tech that helps people.
               </p>
               <div className="flex flex-col md:flex-row gap-8">
@@ -39,7 +39,6 @@ export default function Experience() {
                     Hobbies:
                   </span>
                   <ul className="inline-block list-disc list-inside ml-6 text-lg text-muted-foreground text-left">
-                    <li>Coding side projects</li>
                     <li>Binging sitcoms</li>
                     <li>Hiking and exploring nature</li>
                     <li>Watching sci-fi movies</li>
@@ -56,7 +55,6 @@ export default function Experience() {
                     <li>Continuous learning</li>
                     <li>Kindness</li>
                     <li>Curiosity</li>
-                    <li>Openness</li>
                   </ul>
                 </div>
               </div>
@@ -70,10 +68,10 @@ export default function Experience() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="font-heading text-4xl md:text-5xl text-gradient-brand">
+          <h2 className="font-heading text-4xl md:text-5xl text-gradient-brand">
             Experience
-          </h1>
-          <p className="text-lg text-muted-foreground/80">
+          </h2>
+          <p className="text-lg text-muted-foreground">
             Here’s my journey so far—full of learning, teamwork, and growth. I’m
             grateful for every chance to solve problems and help others along
             the way.

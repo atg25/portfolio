@@ -1,0 +1,205 @@
+{
+  "count": 20,
+  "worst": [
+    {
+      "text": "Let’s chat about your idea",
+      "selector": "h1.font-heading.text-4xl",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 32,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Got a question, want to work together, or just want to say hi? I’d love to hear from you. Drop me a message and I’ll get",
+      "selector": "p.text-lg.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Contact Information",
+      "selector": "h3.leading-none.font-semibold",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Ways to reach me directly",
+      "selector": "p.text-muted-foreground.text-sm",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "LinkedIn",
+      "selector": "h3.font-medium.mb-2",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "linkedin.com/in/andrew-gardner2026/",
+      "selector": "p.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "GitHub",
+      "selector": "h3.font-medium.mb-2",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "github.com/atg25",
+      "selector": "p.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Send a Message",
+      "selector": "h3.leading-none.font-semibold",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Fill out the form below and I’ll get back to you soon. Your message matters!",
+      "selector": "p.text-muted-foreground.text-sm",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Name",
+      "selector": "label.block.font-medium",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Email (for reply)",
+      "selector": "label.block.font-medium",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Message",
+      "selector": "label.block.font-medium",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Andrew GardnerAG",
+      "selector": "a.font-heading.text-lg",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Andrew Gardner",
+      "selector": "span.hidden.sm\\:inline",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "About",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Contact",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Resume",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "linkedin.com/in/andrew-gardner2026/",
+      "selector": "a.hover\\:underline",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "github.com/atg25",
+      "selector": "a.hover\\:underline",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    }
+  ]
+}

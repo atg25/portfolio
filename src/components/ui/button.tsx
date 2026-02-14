@@ -17,9 +17,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:opacity-90",
         ghost: "hover:bg-muted hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        adventure: "bg-primary-600 text-white hover:bg-primary-700",
-        terrain: "bg-secondary-600 text-white hover:bg-secondary-700",
-        explorer: "bg-accent-600 text-white hover:bg-accent-700",
+        adventure: "bg-primary text-primary-foreground hover:opacity-90",
+        terrain: "bg-secondary text-secondary-foreground hover:opacity-90",
+        explorer: "bg-accent text-accent-foreground hover:opacity-90",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -32,7 +32,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 function Button({

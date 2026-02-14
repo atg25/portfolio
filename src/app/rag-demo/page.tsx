@@ -78,6 +78,9 @@ export default function LLMChatDemoPage() {
                 LLM Chat
               </span>
             </CardTitle>
+            <div className="text-sm text-muted-foreground text-center">
+              Portfolio demo by Andrew Gardner
+            </div>
             <div className="text-muted-foreground text-lg text-center max-w-xl mt-2">
               Ask anything about AI, coding, or creativity. This chat is powered
               by OpenAI and designed to be friendly, clear, and helpful.
@@ -119,7 +122,7 @@ export default function LLMChatDemoPage() {
                     className={`px-4 py-2 rounded-2xl shadow-md max-w-[75%] whitespace-pre-line text-base font-medium transition-all duration-200
                       ${
                         msg.role === "user"
-                          ? "bg-gradient-to-r from-primary-500 to-accent-500 text-white self-end animate-fade-in"
+                          ? "bg-gradient-to-r from-primary-500 to-accent-500 text-primary-foreground self-end animate-fade-in"
                           : "bg-accent/10 text-accent-foreground self-start animate-fade-in"
                       }
                     `}
@@ -162,7 +165,7 @@ export default function LLMChatDemoPage() {
               <Button
                 type="submit"
                 disabled={loading || !input.trim()}
-                className="rounded-full px-5 py-3 text-lg bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-md hover:opacity-90 focus:ring-2 focus:ring-accent/40 transition flex items-center gap-2"
+                className="rounded-full px-5 py-3 text-lg bg-gradient-to-r from-primary-500 to-accent-500 text-primary-foreground shadow-md hover:opacity-90 focus:ring-2 focus:ring-accent/40 transition flex items-center gap-2"
                 aria-label="Send message"
               >
                 <FaPaperPlane className="w-5 h-5" />

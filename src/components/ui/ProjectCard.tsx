@@ -50,7 +50,7 @@ export function ProjectCard({
       <CardContent>
         <p className="mb-6 text-muted-foreground">{description}</p>
         {whatILearned && (
-          <div className="italic text-accent-foreground text-sm pb-2">
+          <div className="italic text-muted-foreground text-sm pb-2">
             {whatILearned}
           </div>
         )}

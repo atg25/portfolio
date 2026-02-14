@@ -1,0 +1,245 @@
+{
+  "count": 24,
+  "worst": [
+    {
+      "text": "Frontend",
+      "selector": "h3.leading-none.font-semibold",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "React & Next.js",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "TypeScript",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Tailwind CSS",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "UI/UX Design",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Backend & Tools",
+      "selector": "h3.leading-none.font-semibold",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Node.js, Java, Python, SQL",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Git & GitHub",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Salesforce CRM",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Autonomous Development",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "My Approach",
+      "selector": "h2.text-3xl.font-heading",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 24,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "I build practical, creative web experiences with real users in mind. I seek feedback early, keep interfaces clear, and s",
+      "selector": "p.text-lg.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "NextGen Wallcovering",
+      "selector": "h3.leading-none.font-semibold",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 18.72,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Executed the end-to-end digital establishment for NGwallcovering.com, including custom site development and a luxury Art",
+      "selector": "p.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Andrew GardnerAG",
+      "selector": "a.font-heading.text-lg",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Andrew Gardner",
+      "selector": "span.hidden.sm\\:inline",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "About",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Contact",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Resume",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Let’s chat",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "View Resume",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "See how I work",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Live Demo",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Explore All Projects",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    }
+  ]
+}

@@ -30,7 +30,7 @@ export default function Contact() {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         formRef.current,
-        EMAILJS_USER_ID
+        EMAILJS_USER_ID,
       );
       setStatus("Thank you for reaching out! I’ll reply as soon as I can.");
       formRef.current.reset();
@@ -41,7 +41,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-background">
-      <main className="container mx-auto space-y-16 pt-20 px-4">
+      <main className="container mx-auto space-y-16 pt-24 px-4">
         <motion.div
           className="text-center space-y-6 max-w-[800px] mx-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export default function Contact() {
           <h1 className="font-heading text-4xl md:text-5xl text-gradient-brand">
             Let’s chat about your idea
           </h1>
-          <p className="text-lg text-muted-foreground/80">
+          <p className="text-lg text-muted-foreground">
             Got a question, want to work together, or just want to say hi? I’d
             love to hear from you. Drop me a message and I’ll get back to you
             soon.
@@ -177,7 +177,7 @@ export default function Contact() {
                     </div>
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-primary to-accent text-white hover:opacity-90"
+                      className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90"
                     >
                       Send Message
                     </Button>
@@ -186,8 +186,8 @@ export default function Contact() {
                         status.includes("Thank")
                           ? "text-green-600"
                           : status
-                          ? "text-red-600"
-                          : ""
+                            ? "text-red-600"
+                            : ""
                       }`}
                       aria-live="polite"
                     >

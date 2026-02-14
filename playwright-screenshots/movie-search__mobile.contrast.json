@@ -1,0 +1,165 @@
+{
+  "count": 16,
+  "worst": [
+    {
+      "text": "Movie Search",
+      "selector": "h1.font-heading.text-4xl",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 32,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Portfolio demo by Andrew Gardner",
+      "selector": "p.text-sm.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "How this works",
+      "selector": "h2.font-heading.text-2xl",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 24,
+      "fontWeight": 700,
+      "threshold": 3
+    },
+    {
+      "text": "Search by title, or describe what you're in the mood for to get recommendations.",
+      "selector": "p.mb-2.text-base",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Use Search to find movies by name.",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Search",
+      "selector": "span.font-semibold.text-primary",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Use Recommendations for AI suggestions.",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Recommendations",
+      "selector": "span.font-semibold.text-primary",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Expand a result to see details and where to watch.",
+      "selector": "li",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Powered by TMDB and OpenAI. Data may not be complete for all movies.",
+      "selector": "p.text-xs.text-muted-foreground",
+      "ratio": 1,
+      "fg": "rgb(0, 0, 0)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Search",
+      "selector": "button.inline-flex.items-center",
+      "ratio": 1.3,
+      "fg": "rgba(16, 16, 16, 0.3)",
+      "bg": "rgba(239, 239, 239, 0.3)",
+      "fontSizePx": 13.33,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Andrew GardnerAG",
+      "selector": "a.font-heading.text-lg",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Andrew Gardner",
+      "selector": "span.hidden.sm\\:inline",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "About",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Contact",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    },
+    {
+      "text": "Resume",
+      "selector": "a.inline-flex.items-center",
+      "ratio": 2.23,
+      "fg": "rgb(0, 0, 238)",
+      "bg": "(inherited)",
+      "fontSizePx": 16,
+      "fontWeight": 400,
+      "threshold": 4.5
+    }
+  ]
+}

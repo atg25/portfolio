@@ -32,7 +32,7 @@ function calculateComparisonData(
   metric: string,
   selected: Demographic[],
   startYear: number,
-  endYear: number
+  endYear: number,
 ) {
   const start = timeSeriesData.find((d) => d.year === startYear);
   const end = timeSeriesData.find((d) => d.year === endYear);
@@ -80,8 +80,8 @@ export function ComparisonChart({ className }: { className?: string }) {
                     cur.includes(demo)
                       ? cur.filter((d) => d !== demo)
                       : cur.length < 3
-                      ? [...cur, demo]
-                      : cur
+                        ? [...cur, demo]
+                        : cur,
                   )
                 }
                 aria-pressed={selected.includes(demo)}
@@ -177,7 +177,7 @@ export function ComparisonChart({ className }: { className?: string }) {
         </ResponsiveContainer>
         <div className="mt-4">
           <h4 className="font-semibold mb-2">Key Observations</h4>
-          <ul className="list-disc pl-6 text-muted-foreground/90">
+          <ul className="list-disc pl-6 text-muted-foreground">
             {data.map((d) => (
               <li
                 key={d.demographic}
@@ -193,7 +193,7 @@ export function ComparisonChart({ className }: { className?: string }) {
                   `Increased by ${d.growth.toLocaleString()} degrees`}
                 {metric === "percentage" &&
                   `${d.percentage.toFixed(
-                    1
+                    1,
                   )}% growth from ${startYear} to ${endYear}`}
               </li>
             ))}
