@@ -33,13 +33,13 @@ export default function Home() {
   // Project data for carousel
   const projects = [
     {
-      title: "Data Visualization Dashboard",
+      title: "NextGen Wallcovering",
       description:
-        "An interactive dashboard for visualizing complex datasets with charts and graphs. Built to help users explore and understand data trends easily.",
+        "Executed the end-to-end digital establishment for NGwallcovering.com, including custom site development and a luxury Art Deco brand identity, resulting in a seamless, high-conversion user experience.",
       border: "border-blue-400/30",
-      demo: "/dataviz",
+      demo: "https://ngwallcovering.com",
       whatILearned:
-        "I learned how to use D3.js and React together, and how to design interactive charts that make complex data more approachable for users.",
+        "I learned how to translate a premium brand into a fast, conversion-focused web experience through consistent typography, spacing, and clear calls-to-action.",
     },
     {
       title: "OpenAI LLM Chat",
@@ -102,21 +102,21 @@ export default function Home() {
             initial="hidden"
             animate="visible"
           >
-            {Array.from("Hi, I'm Andrew!").map((letter, index) => (
+            {Array.from("Hi, I'm Andrew.").map((letter, index) => (
               <motion.span key={`name-${index}`} variants={letterVariants}>
                 {letter}
               </motion.span>
             ))}
           </motion.h1>
           <motion.p
-            className="text-xl text-muted-foreground/90 max-w-2xl mx-auto font-semibold"
+            className="text-xl text-muted-foreground max-w-2xl mx-auto font-semibold"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
           >
-            I like building things that are useful and a little different.
-            Here’s some of my work—take a look, and if you have an idea, let’s
-            talk.
+            Full-stack engineer & A.I. orchestrator building usable, slightly
+            different web apps. Here’s some of my work—take a look, and if you
+            have an idea, let’s talk.
           </motion.p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6">
@@ -151,13 +151,13 @@ export default function Home() {
                 See how I work
               </Link>
             </Button>
-            <div className="flex gap-3 mt-2 sm:mt-0">
+            <div className="flex gap-2 mt-2 sm:mt-0">
               <a
                 href="https://www.linkedin.com/in/andrew-gardner2026/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="hover:text-primary focus:text-primary transition-colors"
+                className="inline-flex items-center justify-center rounded-full p-2 border border-border bg-background/50 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary transition-colors"
               >
                 <svg
                   width="24"
@@ -173,7 +173,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="hover:text-primary focus:text-primary transition-colors"
+                className="inline-flex items-center justify-center rounded-full p-2 border border-border bg-background/50 hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary transition-colors"
               >
                 <svg
                   width="24"
@@ -225,7 +225,7 @@ export default function Home() {
                   <ul className="list-disc list-inside space-y-2 text-muted-foreground">
                     <li>React & Next.js</li>
                     <li>TypeScript</li>
-                    <li>HTML5 & CSS3</li>
+                    <li>Tailwind CSS</li>
                     <li>UI/UX Design</li>
                   </ul>
                 </CardContent>
@@ -253,10 +253,10 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                    <li>Node.js, Java, Python, SQL, C++</li>
+                    <li>Node.js, Java, Python, SQL</li>
                     <li>Git & GitHub</li>
                     <li>Salesforce CRM</li>
-                    <li>Docker</li>
+                    <li>Autonomous Development</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -272,14 +272,10 @@ export default function Home() {
           <h2 className="text-3xl font-heading text-gradient-brand">
             My Approach
           </h2>
-          <p className="text-lg text-muted-foreground/90">
-            My approach is rooted in creativity, inclusivity, and practical
-            problem-solving. I believe the best ideas come from open minds and
-            diverse voices, so I seek feedback early and often. I focus on
-            building solutions that are not just functional, but also accessible
-            and enjoyable to use. For me, every project is a chance to learn,
-            experiment, and help others do the same. If you have an idea or want
-            to collaborate, let’s connect!
+          <p className="text-lg text-muted-foreground">
+            I build practical, creative web experiences with real users in mind.
+            I seek feedback early, keep interfaces clear, and ship accessible
+            solutions that feel good to use. If you have an idea, let’s connect.
           </p>
         </section>
 
@@ -312,7 +308,7 @@ export default function Home() {
               className="w-full flex justify-center"
             >
               <Card
-                className={`rounded-2xl shadow-lg border-2 bg-card/80 min-w-[90vw] max-w-md mx-auto sm:min-w-[340px] ${projects[currentProject].border}`}
+                className={`rounded-2xl shadow-lg border-2 bg-card min-w-[90vw] max-w-md mx-auto sm:min-w-[340px] ${projects[currentProject].border}`}
               >
                 <CardHeader>
                   <CardTitle className="font-heading focus:outline-none focus:ring-0">
@@ -323,7 +319,7 @@ export default function Home() {
                   <p className="text-muted-foreground">
                     {projects[currentProject].description}
                   </p>
-                  <div className="italic text-accent-foreground text-sm pb-2">
+                  <div className="italic text-muted-foreground text-sm pb-2">
                     {projects[currentProject].whatILearned}
                   </div>
                   <div className="flex gap-4">

@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
@@ -9,11 +10,11 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 const routes = [
   {
     href: "/experience",
-    label: "About Me",
+    label: "About",
   },
   {
     href: "/contact",
-    label: "Contact & Support",
+    label: "Contact",
   },
   {
     href: "/resume.pdf",
@@ -23,24 +24,38 @@ const routes = [
 ];
 
 export function MainNav() {
-  const [playgroundOpen, setPlaygroundOpen] = useState(false);
-  const playgroundRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const [isInIframe, setIsInIframe] = useState(false);
+  const [isEmbedParam, setIsEmbedParam] = useState(false);
 
-  // Close dropdown when clicking outside
-  React.useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        playgroundRef.current &&
-        !playgroundRef.current.contains(event.target as Node)
-      ) {
-        setPlaygroundOpen(false);
-      }
+  useEffect(() => {
+    try {
+      setIsInIframe(window.self !== window.top);
+    } catch {
+      setIsInIframe(true);
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
   }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    setIsEmbedParam(params.get("embed") === "1");
+  }, []);
+
+  if (isEmbedParam || isInIframe) return null;
+
+  const isInProjects =
+    pathname === "/projects" || pathname.startsWith("/projects/");
+
+  function navButtonClassName(isActive: boolean) {
+    return [
+      "text-sm font-medium transition-colors",
+      "hover:text-primary",
+      isActive ? "text-primary" : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+  }
 
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm z-50 border-b border-border">
@@ -50,80 +65,30 @@ export function MainNav() {
           className="font-heading text-lg hover:text-primary transition-colors"
           aria-label="Home"
         >
-          AG
+          <span className="hidden sm:inline">Andrew Gardner</span>
+          <span className="sm:hidden">AG</span>
         </Link>
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6">
-          {/* Projects Dropdown */}
-          <div className="relative" ref={playgroundRef}>
-            <Button
-              variant="ghost"
-              className="text-sm font-medium transition-colors hover:text-primary"
-              onClick={() => setPlaygroundOpen((v) => !v)}
-              aria-haspopup="menu"
-              aria-expanded={playgroundOpen}
-              aria-label="Projects"
+          <Button
+            variant="ghost"
+            className={navButtonClassName(isInProjects)}
+            asChild
+            aria-label="Playground"
+          >
+            <Link
+              href="/projects"
+              aria-current={isInProjects ? "page" : undefined}
             >
-              Projects
-              <svg
-                className="ml-1 w-4 h-4 inline"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </Button>
-            {playgroundOpen && (
-              <div className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-background border border-border z-50">
-                <ul className="py-2">
-                  <li>
-                    <Link
-                      href="/rag-demo"
-                      className="block px-4 py-2 hover:bg-muted transition-colors"
-                    >
-                      LLM Chat
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/movie-search"
-                      className="block px-4 py-2 hover:bg-muted transition-colors"
-                    >
-                      Movie Search
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/dataviz"
-                      className="block px-4 py-2 hover:bg-muted transition-colors"
-                    >
-                      Data Visualization
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/projects"
-                      className="block px-4 py-2 hover:bg-muted transition-colors"
-                    >
-                      All Projects
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
+              Playground
+            </Link>
+          </Button>
           {/* Other routes */}
           {routes.map((route) => (
             <Button
               key={route.href}
               variant="ghost"
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className={navButtonClassName(pathname === route.href)}
               asChild
               aria-label={route.label}
             >
@@ -132,7 +97,11 @@ export function MainNav() {
                   {route.label}
                 </a>
               ) : (
-                <Link href={route.href} scroll={false}>
+                <Link
+                  href={route.href}
+                  scroll={false}
+                  aria-current={pathname === route.href ? "page" : undefined}
+                >
                   {route.label}
                 </Link>
               )}
@@ -149,46 +118,15 @@ export function MainNav() {
             </SheetTrigger>
             <SheetContent>
               <nav className="flex flex-col gap-2 mt-8">
-                {/* Projects Dropdown for Mobile */}
-                <details className="group">
-                  <summary className="block px-4 py-3 rounded-lg text-base font-medium hover:bg-muted focus:bg-muted transition-colors cursor-pointer select-none">
-                    Projects
-                  </summary>
-                  <ul className="pl-4 pb-2">
-                    <li>
-                      <Link
-                        href="/rag-demo"
-                        className="block px-2 py-2 rounded hover:bg-muted transition-colors"
-                      >
-                        LLM Chat
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/movie-search"
-                        className="block px-2 py-2 rounded hover:bg-muted transition-colors"
-                      >
-                        Movie Search
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/dataviz"
-                        className="block px-2 py-2 rounded hover:bg-muted transition-colors"
-                      >
-                        Data Visualization
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/projects"
-                        className="block px-2 py-2 rounded hover:bg-muted transition-colors"
-                      >
-                        All Projects
-                      </Link>
-                    </li>
-                  </ul>
-                </details>
+                <Link
+                  href="/projects"
+                  aria-current={isInProjects ? "page" : undefined}
+                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors hover:bg-muted focus:bg-muted ${
+                    isInProjects ? "bg-muted" : ""
+                  }`}
+                >
+                  Playground
+                </Link>
                 {routes.map((route) =>
                   route.external ? (
                     <a
@@ -205,11 +143,16 @@ export function MainNav() {
                       key={route.href}
                       href={route.href}
                       scroll={false}
-                      className="block px-4 py-3 rounded-lg text-base font-medium hover:bg-muted focus:bg-muted transition-colors"
+                      aria-current={
+                        pathname === route.href ? "page" : undefined
+                      }
+                      className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors hover:bg-muted focus:bg-muted ${
+                        pathname === route.href ? "bg-muted" : ""
+                      }`}
                     >
                       {route.label}
                     </Link>
-                  )
+                  ),
                 )}
               </nav>
             </SheetContent>

@@ -4,70 +4,82 @@
 
 @layer base {
   :root {
-    --background: 270 100% 99%; /* Soft creative white */
-    --foreground: 260 20% 18%; /* Deep neutral for text */
+    /* Cyber Graphite (Light) */
+    --background: 210 20% 98%;
+    --foreground: 240 10% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 260 20% 18%;
+    --card-foreground: 240 10% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 260 20% 18%;
+    --popover-foreground: 240 10% 10%;
 
-    --primary: 265 90% 60%; /* Vivid purple */
-    --primary-foreground: 0 0% 100%;
+    --primary: 78 100% 45%;
+    --primary-foreground: 240 10% 8%;
 
-    --secondary: 20 98% 65%; /* Vibrant orange */
-    --secondary-foreground: 260 20% 18%;
+    --secondary: 320 85% 55%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 270 60% 95%;
-    --muted-foreground: 260 20% 40%;
+    --muted: 240 10% 92%;
+    --muted-foreground: 240 8% 35%;
 
-    --accent: 200 100% 60%; /* Electric blue accent */
-    --accent-foreground: 0 0% 100%;
+    --accent: 190 100% 45%;
+    --accent-foreground: 240 10% 8%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 270 60% 85%;
-    --input: 270 60% 85%;
-    --ring: 265 90% 60%;
+    --border: 240 10% 85%;
+    --input: 240 10% 85%;
+    --ring: 190 100% 45%;
 
     --radius: 0.5rem;
 
+    /* macOS window traffic lights */
+    --mac-red: 3 100% 67%;
+    --mac-yellow: 40 99% 59%;
+    --mac-green: 132 67% 47%;
+
     --font-sans: "Inter", "system-ui", "sans-serif";
-    --font-heading: "Montserrat", "Poppins", "Inter", "system-ui", "sans-serif";
+    --font-heading: "Inter", "system-ui", "sans-serif";
     --line-height-body: 1.7;
     --tracking-heading: -0.01em;
   }
 
   .dark {
-    --background: 260 20% 12%;
-    --foreground: 0 0% 100%;
+    /* Cyber Graphite (Dark) */
+    --background: 240 10% 8%;
+    --foreground: 210 20% 96%;
 
-    --card: 260 20% 15%;
-    --card-foreground: 0 0% 100%;
+    --card: 240 10% 12%;
+    --card-foreground: 210 20% 96%;
 
-    --popover: 260 20% 15%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 240 10% 12%;
+    --popover-foreground: 210 20% 96%;
 
-    --primary: 265 90% 70%;
-    --primary-foreground: 260 20% 12%;
+    --primary: 78 100% 60%;
+    --primary-foreground: 240 10% 8%;
 
-    --secondary: 20 98% 45%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 320 85% 65%;
+    --secondary-foreground: 240 10% 8%;
 
-    --muted: 260 20% 20%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 240 8% 18%;
+    --muted-foreground: 215 15% 70%;
 
-    --accent: 200 100% 70%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 190 100% 60%;
+    --accent-foreground: 240 10% 8%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 260 20% 12%;
+    --destructive-foreground: 45 40% 92%;
 
-    --border: 260 20% 20%;
-    --input: 260 20% 20%;
-    --ring: 265 90% 70%;
+    --border: 240 8% 22%;
+    --input: 240 8% 22%;
+    --ring: 78 100% 60%;
+
+    /* macOS window traffic lights */
+    --mac-red: 3 100% 67%;
+    --mac-yellow: 40 99% 59%;
+    --mac-green: 132 67% 47%;
   }
 }
 
@@ -121,13 +133,13 @@
 }
 
 @layer utilities {
-  /* Simplified gradient utilities */
+  /* Brand utilities (solid — no gradients) */
   .bg-gradient-brand {
-    @apply bg-gradient-to-r from-accent to-primary;
+    @apply bg-primary;
   }
 
   .text-gradient-brand {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-primary;
+    @apply text-primary;
   }
 
   /* High-contrast text utilities for accessibility */
@@ -142,24 +154,6 @@
   .text-balance {
     text-wrap: balance;
   }
-}
-
-/* Explorer-themed animations */
-@keyframes pathfinder {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-pathfinder {
-  background-size: 200% 200%;
-  animation: pathfinder 6s ease infinite;
 }
 
 /* Fade in for expanded movie details */
