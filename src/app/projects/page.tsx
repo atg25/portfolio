@@ -31,6 +31,34 @@ type Project = {
 export default function Playground() {
   const projects: Project[] = [
     {
+      id: "autoconsult",
+      title: "AutoConsult",
+      description:
+        "An autonomous, zero-maintenance consulting portfolio where plain-language owner prompts trigger a GitHub-native AI workflow that validates structured content updates and publishes automatically.",
+      cardDescription: "Autonomous Content Ops",
+      features: [
+        "Owner admin console dispatches updates with natural-language instructions",
+        "Strict JSON schema guardrails block malformed or out-of-policy AI output",
+        "Automated GitHub commit pipeline updates content source of truth and publishes live",
+        "Public portfolio renders fully from structured content.json data",
+      ],
+      technologies: [
+        "GitHub Actions workflow_dispatch",
+        "GitHub Pages",
+        "JavaScript + HTML/CSS",
+        "OpenAI API integration",
+        "JSON schema validation",
+      ],
+      github: "https://github.com/atg25/AutoConsulting",
+      demo: "https://atg25.github.io/AutoConsulting/portfolio/",
+      preview: {
+        src: "https://atg25.github.io/AutoConsulting/portfolio/",
+        label: "Live site preview",
+      },
+      whatILearned:
+        "What I learned: Reliable AI systems need hard guardrails, deterministic validation, and a deployment path that is simple enough to trust.",
+    },
+    {
       id: "nextgen-wallcovering",
       title: "NextGen Wallcovering",
       description:

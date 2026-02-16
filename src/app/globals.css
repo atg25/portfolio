@@ -14,8 +14,9 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 10%;
 
-    --primary: 78 100% 45%;
-    --primary-foreground: 240 10% 8%;
+    /* Emerald (more sophisticated than neon lime) */
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 320 85% 55%;
     --secondary-foreground: 0 0% 100%;
@@ -57,7 +58,7 @@
     --popover: 240 10% 12%;
     --popover-foreground: 210 20% 96%;
 
-    --primary: 78 100% 60%;
+    --primary: 158 64% 52%;
     --primary-foreground: 240 10% 8%;
 
     --secondary: 320 85% 65%;
@@ -74,7 +75,7 @@
 
     --border: 240 8% 22%;
     --input: 240 8% 22%;
-    --ring: 78 100% 60%;
+    --ring: 158 64% 52%;
 
     /* macOS window traffic lights */
     --mac-red: 3 100% 67%;

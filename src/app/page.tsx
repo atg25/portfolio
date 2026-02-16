@@ -131,7 +131,7 @@ export default function Home() {
             <Button
               asChild
               variant="outline"
-              className="rounded-full px-6 py-3 text-base shadow-md border-primary hover:bg-primary/10"
+              className="rounded-full px-6 py-3 text-base shadow-md border-primary hover:bg-primary/10 hover:text-foreground"
             >
               <a
                 href="/resume.pdf"

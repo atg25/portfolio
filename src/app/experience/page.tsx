@@ -90,12 +90,113 @@ export default function Experience() {
             Professional Experience
           </motion.h2>
           <div className="space-y-6 max-w-4xl mx-auto">
-            {/* Student Ambassador */}
+            {/* Freelance Technological Consultant */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              >
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="font-heading text-gradient-brand">
+                      Freelance Technological Consultant
+                    </CardTitle>
+                    <CardDescription>
+                      AG Media | Aug 2025 - Present
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <p className="text-muted-foreground">
+                        Built and deployed custom websites with Next.js,
+                        TypeScript, and Tailwind CSS, consistently driving 95+
+                        Lighthouse performance scores through AI orchestration
+                        and autonomous development workflows.
+                      </p>
+                      <div>
+                        <h3 className="font-medium mb-2">Key Contributions:</h3>
+                        <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                          <li>
+                            Executed the end-to-end digital establishment for
+                            NGwallcovering.com, including custom site
+                            development and a luxury Art Deco brand identity,
+                            resulting in a seamless, high-conversion user
+                            experience.
+                          </li>
+                          <li>
+                            Designed and developed a responsive, mobile-first
+                            web presence for njpurehome.com, focusing on clean
+                            UI patterns and intuitive navigation to improve
+                            engagement metrics and brand trust.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </motion.div>
+
+            {/* Management Systems Intern */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              >
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="font-heading text-gradient-brand">
+                      Management Systems Intern
+                    </CardTitle>
+                    <CardDescription>
+                      New Jersey Transit, Newark, NJ | June 2025 - August 2025
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <p className="text-muted-foreground">
+                        Developed a Python web application with Streamlit and
+                        Pandas featuring CSV/SQL comparison workflows, reducing
+                        pre-validation time by 40% and eliminating manual
+                        comparison errors.
+                      </p>
+                      <div>
+                        <h3 className="font-medium mb-2">Key Contributions:</h3>
+                        <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                          <li>
+                            Validated large datasets during system transitions
+                            using Excel, Python, and SQL, ensuring data
+                            integrity across thousands of employee records.
+                          </li>
+                          <li>
+                            Collaborated with a 12-person team to create,
+                            refine, and troubleshoot SQL queries for reliable
+                            data extraction and reporting.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </motion.div>
+
+            {/* Student Ambassador */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
               <motion.div
                 whileHover={{ scale: 1.02 }}
@@ -145,7 +246,7 @@ export default function Experience() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
               <motion.div
                 whileHover={{ scale: 1.02 }}
