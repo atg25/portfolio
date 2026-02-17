@@ -2,148 +2,146 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════════
+   BOLD SWISS MODERN — International Typographic Style
+   Single-mode: true black canvas, stark white type,
+   #2bff88 brand accent. No light mode. No gradients.
+   ═══════════════════════════════════════════════════════ */
+
 @layer base {
   :root {
-    /* Cyber Graphite (Light) */
-    --background: 210 20% 98%;
-    --foreground: 240 10% 10%;
+    /* ── Brand Palette ── */
+    --brand: #2bff88;
+    --brand-hsl: 148 100% 58%;
+    --black: #000000;
+    --white: #ffffff;
+    --grey-700: #2a2a2a;
+    --grey-500: #555555;
+    --grey-300: #999999;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
+    /* ── Semantic Tokens (consumed by Tailwind) ── */
+    --background: 0 0% 0%; /* true black */
+    --foreground: 0 0% 100%; /* stark white */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 10%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
 
-    /* Emerald (more sophisticated than neon lime) */
-    --primary: 160 84% 39%;
-    --primary-foreground: 0 0% 100%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
 
-    --secondary: 320 85% 55%;
+    --primary: 148 100% 58%; /* #2bff88 */
+    --primary-foreground: 0 0% 0%; /* black on brand */
+
+    --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 10% 92%;
-    --muted-foreground: 240 8% 35%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 190 100% 45%;
-    --accent-foreground: 240 10% 8%;
+    --accent: 148 100% 58%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 10% 85%;
-    --input: 240 10% 85%;
-    --ring: 190 100% 45%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 148 100% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0px; /* Swiss: no rounded corners anywhere */
 
-    /* macOS window traffic lights */
-    --mac-red: 3 100% 67%;
-    --mac-yellow: 40 99% 59%;
-    --mac-green: 132 67% 47%;
-
-    --font-sans: "Inter", "system-ui", "sans-serif";
-    --font-heading: "Inter", "system-ui", "sans-serif";
-    --line-height-body: 1.7;
-    --tracking-heading: -0.01em;
-  }
-
-  .dark {
-    /* Cyber Graphite (Dark) */
-    --background: 240 10% 8%;
-    --foreground: 210 20% 96%;
-
-    --card: 240 10% 12%;
-    --card-foreground: 210 20% 96%;
-
-    --popover: 240 10% 12%;
-    --popover-foreground: 210 20% 96%;
-
-    --primary: 158 64% 52%;
-    --primary-foreground: 240 10% 8%;
-
-    --secondary: 320 85% 65%;
-    --secondary-foreground: 240 10% 8%;
-
-    --muted: 240 8% 18%;
-    --muted-foreground: 215 15% 70%;
-
-    --accent: 190 100% 60%;
-    --accent-foreground: 240 10% 8%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 45 40% 92%;
-
-    --border: 240 8% 22%;
-    --input: 240 8% 22%;
-    --ring: 158 64% 52%;
-
-    /* macOS window traffic lights */
-    --mac-red: 3 100% 67%;
-    --mac-yellow: 40 99% 59%;
-    --mac-green: 132 67% 47%;
+    /* ── Typography ── */
+    --font-sans: "Inter", "Helvetica Neue", "Arial", sans-serif;
+    --font-heading: "Inter", "Helvetica Neue", "Arial", sans-serif;
+    --font-mono: "JetBrains Mono", "SF Mono", "Consolas", monospace;
+    --line-height-body: 1.55;
+    --tracking-heading: -0.03em;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    border-radius: 0 !important; /* enforce sharp corners globally */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: geometricPrecision;
   }
 
   body {
     @apply bg-background text-foreground font-sans;
+    line-height: var(--line-height-body);
   }
 
-  /* Explorer Typography Base Styles */
+  /* ── Swiss Typographic Scale ── */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-heading font-bold tracking-tight;
+    @apply font-heading font-black tracking-tighter;
     letter-spacing: var(--tracking-heading);
+    text-transform: uppercase;
+    line-height: 0.92;
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
-    font-variation-settings: "wght" 700;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
-    font-variation-settings: "wght" 600;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 900;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl;
-    font-variation-settings: "wght" 600;
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 800;
   }
 
   h4 {
-    @apply text-xl md:text-2xl font-semibold;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 700;
   }
 
   p {
-    @apply text-base leading-relaxed font-normal;
+    @apply text-base font-normal;
     line-height: var(--line-height-body);
   }
 
-  .supporting-text {
-    @apply text-sm text-muted-foreground font-normal;
+  /* ── Swiss Label (archival metadata) ── */
+  .swiss-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--grey-300);
+  }
+
+  ::selection {
+    background: var(--brand);
+    color: var(--black);
   }
 }
 
 @layer utilities {
-  /* Brand utilities (solid — no gradients) */
+  /* Brand solid fills — no gradients ever */
   .bg-gradient-brand {
-    @apply bg-primary;
+    background: var(--brand);
+    color: var(--black);
   }
 
   .text-gradient-brand {
-    @apply text-primary;
+    color: var(--brand);
   }
 
-  /* High-contrast text utilities for accessibility */
   .text-high-contrast {
     @apply text-foreground;
   }
@@ -154,6 +152,17 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Inverted brand container */
+  .brand-invert {
+    background: var(--brand);
+    color: var(--black);
+  }
+
+  /* Structural border utility */
+  .border-structure {
+    border: 2px solid var(--brand);
   }
 }
 
@@ -167,5 +176,5 @@
   }
 }
 .animate-fade-in-expanded {
-  animation: fade-in-expanded 1.2s cubic-bezier(0.4, 2, 0.6, 1) both;
+  animation: fade-in-expanded 0.15s ease-out both;
 }

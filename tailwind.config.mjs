@@ -5,17 +5,17 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "Helvetica Neue", "Arial", "sans-serif"],
         heading: [
           "var(--font-heading)",
-          "Montserrat",
-          "Poppins",
-          "Inter",
-          "system-ui",
+          "Helvetica Neue",
+          "Arial",
           "sans-serif",
         ],
+        mono: ["var(--font-mono)", "SF Mono", "Consolas", "monospace"],
       },
       colors: {
+        brand: "#2bff88",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -51,16 +51,21 @@ const config = {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "0px",
+        md: "0px",
+        sm: "0px",
+        DEFAULT: "0px",
       },
       container: {
-        center: true,
-        padding: "2rem",
+        center: false,
+        padding: "1.5rem",
         screens: {
           "2xl": "1400px",
         },
+      },
+      letterSpacing: {
+        swiss: "-0.03em",
+        label: "0.14em",
       },
     },
   },

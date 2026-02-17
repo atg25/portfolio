@@ -3,11 +3,15 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
-import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 
 const routes = [
+  {
+    href: "/projects",
+    label: "Playground",
+  },
   {
     href: "/experience",
     label: "About",
@@ -44,89 +48,73 @@ export function MainNav() {
 
   if (isEmbedParam || isInIframe) return null;
 
-  const isInProjects =
-    pathname === "/projects" || pathname.startsWith("/projects/");
+  const isActiveRoute = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
-  function navButtonClassName(isActive: boolean) {
-    return [
-      "text-sm font-medium transition-colors",
-      "hover:text-primary",
-      isActive ? "text-primary" : "",
-    ]
-      .filter(Boolean)
-      .join(" ");
-  }
+  const navLinkClass = (active: boolean) =>
+    cn(
+      "px-4 py-2 border-2 text-xs font-bold uppercase tracking-label transition-all duration-100",
+      active
+        ? "border-brand bg-brand text-black"
+        : "border-transparent text-foreground hover:border-brand hover:text-brand",
+    );
 
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm z-50 border-b border-border">
-      <div className="container flex items-center justify-between h-16">
+    <nav className="fixed top-0 w-full z-50 bg-background border-b-2 border-muted">
+      <div className="h-16 px-8 md:px-12 lg:px-16 flex items-center justify-between">
         <Link
           href="/"
-          className="font-heading text-lg hover:text-primary transition-colors"
+          className="font-heading text-sm font-black uppercase tracking-label text-brand hover:text-foreground transition-colors duration-100"
           aria-label="Home"
         >
-          <span className="hidden sm:inline">Andrew Gardner</span>
-          <span className="sm:hidden">AG</span>
+          Andrew Gardner
         </Link>
+
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-6">
-          <Button
-            variant="ghost"
-            className={navButtonClassName(isInProjects)}
-            asChild
-            aria-label="Playground"
-          >
-            <Link
-              href="/projects"
-              aria-current={isInProjects ? "page" : undefined}
-            >
-              Playground
-            </Link>
-          </Button>
-          {/* Other routes */}
-          {routes.map((route) => (
-            <Button
-              key={route.href}
-              variant="ghost"
-              className={navButtonClassName(pathname === route.href)}
-              asChild
-              aria-label={route.label}
-            >
-              {route.external ? (
-                <a href={route.href} target="_blank" rel="noopener noreferrer">
-                  {route.label}
-                </a>
-              ) : (
-                <Link
-                  href={route.href}
-                  scroll={false}
-                  aria-current={pathname === route.href ? "page" : undefined}
-                >
-                  {route.label}
-                </Link>
-              )}
-            </Button>
-          ))}
+        <div className="hidden md:flex items-center gap-1">
+          {routes.map((route) =>
+            route.external ? (
+              <a
+                key={route.href}
+                href={route.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={navLinkClass(false)}
+                aria-label={route.label}
+              >
+                {route.label}
+              </a>
+            ) : (
+              <Link
+                key={route.href}
+                href={route.href}
+                scroll={false}
+                aria-current={isActiveRoute(route.href) ? "page" : undefined}
+                className={navLinkClass(isActiveRoute(route.href))}
+                aria-label={route.label}
+              >
+                {route.label}
+              </Link>
+            ),
+          )}
         </div>
+
         {/* Mobile Nav */}
         <div className="md:hidden flex items-center">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Open menu">
-                <Menu className="w-6 h-6" />
-              </Button>
+              <button
+                type="button"
+                className="size-10 border-2 border-muted flex items-center justify-center text-foreground hover:border-brand hover:text-brand transition-all duration-100"
+                aria-label="Open menu"
+              >
+                <Menu className="w-5 h-5" />
+              </button>
             </SheetTrigger>
-            <SheetContent>
-              <nav className="flex flex-col gap-2 mt-8">
-                <Link
-                  href="/projects"
-                  aria-current={isInProjects ? "page" : undefined}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors hover:bg-muted focus:bg-muted ${
-                    isInProjects ? "bg-muted" : ""
-                  }`}
-                >
-                  Playground
-                </Link>
+            <SheetContent className="bg-background border-l-2 border-muted p-0">
+              <nav className="mt-16 px-6 pb-6 flex flex-col gap-2">
                 {routes.map((route) =>
                   route.external ? (
                     <a
@@ -134,7 +122,7 @@ export function MainNav() {
                       href={route.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block px-4 py-3 rounded-lg text-base font-medium hover:bg-muted focus:bg-muted transition-colors"
+                      className="px-4 py-3 border-2 border-muted text-xs font-bold uppercase tracking-label transition-all duration-100 hover:border-brand hover:text-brand"
                     >
                       {route.label}
                     </a>
@@ -144,11 +132,14 @@ export function MainNav() {
                       href={route.href}
                       scroll={false}
                       aria-current={
-                        pathname === route.href ? "page" : undefined
+                        isActiveRoute(route.href) ? "page" : undefined
                       }
-                      className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors hover:bg-muted focus:bg-muted ${
-                        pathname === route.href ? "bg-muted" : ""
-                      }`}
+                      className={cn(
+                        "px-4 py-3 border-2 text-xs font-bold uppercase tracking-label transition-all duration-100",
+                        isActiveRoute(route.href)
+                          ? "border-brand bg-brand text-black"
+                          : "border-muted text-foreground hover:border-brand hover:text-brand",
+                      )}
                     >
                       {route.label}
                     </Link>

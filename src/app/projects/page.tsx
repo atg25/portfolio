@@ -3,11 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type Project = {
   id: string;
+  no: string;
+  year: string;
+  category: string;
   title: string;
   description: string;
   cardDescription?: string;
@@ -32,6 +33,9 @@ export default function Playground() {
   const projects: Project[] = [
     {
       id: "autoconsult",
+      no: "01",
+      year: "2025",
+      category: "AUTOMATION",
       title: "AutoConsult",
       description:
         "An autonomous, zero-maintenance consulting portfolio where plain-language owner prompts trigger a GitHub-native AI workflow that validates structured content updates and publishes automatically.",
@@ -60,6 +64,9 @@ export default function Playground() {
     },
     {
       id: "nextgen-wallcovering",
+      no: "02",
+      year: "2025",
+      category: "DESIGN",
       title: "NextGen Wallcovering",
       description:
         "End-to-end digital launch for NGwallcovering.com, including custom site work and a luxury Art Deco brand identity focused on a clean, high-conversion experience.",
@@ -93,6 +100,9 @@ export default function Playground() {
     },
     {
       id: "pure-home-inspections",
+      no: "03",
+      year: "2025",
+      category: "WEB",
       title: "Pure Home Inspections",
       description:
         "A business web presence for a home inspection company—built to make services clear, establish trust quickly, and drive straightforward booking/contact actions.",
@@ -126,6 +136,9 @@ export default function Playground() {
     },
     {
       id: "study-hive",
+      no: "04",
+      year: "2024",
+      category: "APP",
       title: "Study Hive",
       description:
         "A study/productivity project aimed at helping learners organize work, stay consistent, and track progress in a simple, motivating interface.",
@@ -153,6 +166,9 @@ export default function Playground() {
     },
     {
       id: "mcm-design-hub",
+      no: "05",
+      year: "2024",
+      category: "EDUCATION",
       title: "MCM Design Hub",
       description:
         "An educational web platform focused on Mid-Century Modern design, combining curated learning content with interactive tools and a custom design system.",
@@ -176,10 +192,13 @@ export default function Playground() {
         label: "Live site preview",
       },
       whatILearned:
-        "What I learned: A good hub is search + structure + naming conventions—without those, it’s just a folder.",
+        "What I learned: A good hub is search + structure + naming conventions—without those, it's just a folder.",
     },
     {
       id: "ainspire",
+      no: "06",
+      year: "2024",
+      category: "AI",
       title: "AInspire",
       description:
         "An AI-enabled project focused on helping users generate ideas, refine concepts, or get unstuck with structured prompts and useful outputs.",
@@ -217,6 +236,9 @@ export default function Playground() {
     },
     {
       id: "autonomous-dev-cli",
+      no: "07",
+      year: "2024",
+      category: "TOOLING",
       title: "Autonomous Development CLI",
       description:
         "solid-cli is a SOLID-inspired Python CLI toolkit for autonomous research (OpenAI), multimodal AI review (Gemini), and self-organizing knowledge management.",
@@ -244,12 +266,15 @@ export default function Playground() {
     },
     {
       id: "newsletter-webscrapers",
+      no: "08",
+      year: "2024",
+      category: "AUTOMATION",
       title: "Newsletter Webscrapers",
       description:
         "A set of web scraping utilities for collecting newsletter content in a structured way—useful for downstream analysis, summaries, or internal search.",
       cardDescription: "Automation & Data Collection",
       features: ["TBD (sources, parsing, and scheduling)", "TBD", "TBD", "TBD"],
-      technologies: ["TBD (share stack + I’ll update)", "TBD", "TBD"],
+      technologies: ["TBD (share stack + I'll update)", "TBD", "TBD"],
       github: undefined,
       demo: undefined,
       whatILearned:
@@ -257,6 +282,9 @@ export default function Playground() {
     },
     {
       id: "movie-search",
+      no: "09",
+      year: "2024",
+      category: "API",
       title: "Movie Search (TMDB API)",
       description:
         "A movie search app that lets you find movies by title using the TMDB API. See posters, release years, and more in a clean, creative UI.",
@@ -284,6 +312,9 @@ export default function Playground() {
     },
     {
       id: "dataviz",
+      no: "10",
+      year: "2024",
+      category: "DATA",
       title: "Data Visualization Dashboard",
       description:
         "An interactive dashboard for visualizing complex datasets with charts and graphs. Built to help users explore and understand data trends easily.",
@@ -311,6 +342,9 @@ export default function Playground() {
     },
     {
       id: "links-page",
+      no: "11",
+      year: "2023",
+      category: "WEB",
       title: "First Portfolio Website",
       description:
         "Created a web platform for professional networking. I focused on making it easy to connect and share, and learned how important it is to keep things simple and welcoming.",
@@ -338,6 +372,9 @@ export default function Playground() {
     },
     {
       id: "pinelands",
+      no: "12",
+      year: "2023",
+      category: "WEB",
       title: "Pinelands Info Website",
       description:
         "My first major website project, where I learned the fundamentals of web development, design, and deployment. Built with care and lots of late nights!",
@@ -370,390 +407,329 @@ export default function Playground() {
 
   const isInternalPreview = (src: string) => src.startsWith("/");
 
-  const projectBadge = (title: string) => {
-    const cleaned = title
-      .replace(/\(.*?\)/g, "")
-      .replace(/[^a-zA-Z0-9\s]/g, " ")
-      .trim();
-    const words = cleaned.split(/\s+/).filter(Boolean);
-    if (words.length === 0) return "PR";
-    if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
-    return (words[0][0] + words[1][0]).toUpperCase();
-  };
-
-  const selectorCardTones = [
-    {
-      shell: "bg-gradient-to-br from-primary/10 via-accent/5 to-background",
-      badge: "bg-primary/10 text-primary border-primary/30",
-      shine: "from-primary/20 via-accent/10 to-transparent",
-    },
-    {
-      shell: "bg-gradient-to-br from-accent/10 via-secondary/5 to-background",
-      badge: "bg-accent/10 text-accent border-accent/30",
-      shine: "from-accent/20 via-secondary/10 to-transparent",
-    },
-    {
-      shell: "bg-gradient-to-br from-secondary/10 via-primary/5 to-background",
-      badge: "bg-secondary/10 text-secondary border-secondary/30",
-      shine: "from-secondary/20 via-primary/10 to-transparent",
-    },
-  ] as const;
-
   useEffect(() => {
     setShowDetails(false);
   }, [activeProject?.id]);
 
   return (
     <div className="min-h-screen bg-background">
-      <main className="container mx-auto space-y-10 pt-20 px-4 pb-24">
+      <main className="px-8 md:px-12 lg:px-16 pt-32 pb-24 space-y-16">
+        {/* HEADER — Swiss archival label */}
         <motion.div
-          className="text-center space-y-4 max-w-[900px] mx-auto"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          className="space-y-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
         >
-          <h1 className="font-heading text-4xl md:text-5xl text-gradient-brand">
-            Projects Playground
+          <div className="swiss-label text-brand">
+            WORK ARCHIVE — {projects.length} PROJECTS
+          </div>
+          <h1 className="font-heading font-black uppercase text-5xl md:text-7xl tracking-swiss leading-[0.92]">
+            PROJECT<br />PLAYGROUND
           </h1>
-          <p className="text-lg text-muted-foreground">
-            Explore one project at a time—without leaving the site.
-          </p>
         </motion.div>
 
-        {/* Selector Bar */}
-        <div className="w-full mx-auto">
+        {/* PROJECT SELECTOR — Archival labeled cards */}
+        <div className="space-y-4">
+          <div className="swiss-label text-muted-foreground">
+            SELECT PROJECT
+          </div>
           <motion.div
-            initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.18 }}
-            className="w-full rounded-2xl border-2 border-input bg-card/80 backdrop-blur-sm shadow-lg"
-            role="menu"
-            aria-label="Project selector"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-x-auto pb-4"
           >
-            <div className="p-4">
-              <div className="overflow-x-auto">
-                <div className="flex gap-3 min-w-max pb-2">
-                  {projects.map((p, idx) => {
-                    const isActive = p.id === activeProject?.id;
-                    const tone =
-                      selectorCardTones[idx % selectorCardTones.length];
-                    return (
-                      <button
-                        key={p.id}
-                        onClick={() => {
-                          setActiveId(p.id);
-                        }}
-                        className={[
-                          "relative w-[260px] sm:w-[320px] rounded-2xl border-2 p-4 text-left",
-                          "transition-colors duration-200",
-                          "hover:border-accent/60",
-                          tone.shell,
-                          isActive
-                            ? "border-accent shadow-md shadow-foreground/5"
-                            : "border-input",
-                        ].join(" ")}
-                        role="menuitem"
-                        aria-current={isActive ? "page" : undefined}
-                        aria-label={`Select project: ${p.title}`}
-                      >
-                        <div className="flex items-start gap-3">
-                          <div
-                            className={[
-                              "mt-0.5 size-11 rounded-2xl border-2 flex items-center justify-center",
-                              "transition-colors duration-200",
-                              tone.badge,
-                              isActive ? "border-accent/60" : "border-input",
-                            ].join(" ")}
-                          >
-                            <span className="text-xs font-semibold tracking-wide">
-                              {projectBadge(p.title)}
-                            </span>
-                          </div>
-                          <div className="min-w-0">
-                            <div className="font-medium truncate">
-                              {p.title}
-                            </div>
-                            <div className="text-xs text-muted-foreground line-clamp-2 mt-1">
-                              {p.cardDescription ?? p.description}
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
+            <div className="flex gap-4 min-w-max">
+              {projects.map((p) => {
+                const isActive = p.id === activeProject?.id;
+                return (
+                  <button
+                    key={p.id}
+                    onClick={() => setActiveId(p.id)}
+                    className={`w-[280px] border-2 transition-all duration-100 ${
+                      isActive
+                        ? "border-brand"
+                        : "border-muted hover:border-brand"
+                    }`}
+                  >
+                    {/* Archival label block — brand-invert */}
+                    <div className="bg-brand text-black p-3 flex items-center justify-between border-b-2 border-black">
+                      <span className="font-mono text-xs font-bold uppercase tracking-label">
+                        NO. {p.no}
+                      </span>
+                      <span className="font-mono text-xs font-bold uppercase tracking-label">
+                        {p.year}
+                      </span>
+                    </div>
+
+                    {/* Content area */}
+                    <div className="p-4 text-left space-y-2 bg-background">
+                      <div className="font-mono text-xs uppercase tracking-label text-brand">
+                        {p.category}
+                      </div>
+                      <div className="font-bold text-sm uppercase">
+                        {p.title}
+                      </div>
+                      <div className="text-xs text-muted-foreground line-clamp-2">
+                        {p.cardDescription ?? p.description}
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </motion.div>
         </div>
 
-        {/* Active project stage */}
+        {/* ACTIVE PROJECT STAGE */}
         <motion.div
           key={activeProject?.id}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
           className="space-y-6"
         >
-          <div className="relative [perspective:1200px]">
-            <div
-              className={
-                "relative transition-transform duration-500 [transform-style:preserve-3d] " +
-                (showDetails ? "[transform:rotateY(180deg)]" : "")
-              }
-            >
-              {/* Front: Live demo */}
-              <Card
-                className={
-                  "border-2 border-input bg-card rounded-2xl overflow-hidden [backface-visibility:hidden] " +
-                  (showDetails ? "pointer-events-none" : "pointer-events-auto")
-                }
-                aria-hidden={showDetails}
-              >
-                <CardHeader className="flex items-center justify-between gap-3 px-4 py-3 border-b border-input bg-muted/30">
-                  <div className="flex items-center gap-2">
-                    <div
-                      className="flex items-center gap-1.5"
-                      aria-hidden="true"
-                    >
-                      <span className="inline-block size-3 rounded-full bg-[hsl(var(--mac-red))] border border-border" />
-                      <span className="inline-block size-3 rounded-full bg-[hsl(var(--mac-yellow))] border border-border" />
-                      <span className="inline-block size-3 rounded-full bg-[hsl(var(--mac-green))] border border-border" />
-                    </div>
-                    <CardTitle className="font-heading text-sm md:text-base text-foreground ml-2 truncate max-w-[40vw] sm:max-w-[55vw]">
-                      {activeProject?.title}
-                    </CardTitle>
+          {!showDetails ? (
+            // PREVIEW MODE
+            <div className="border-2 border-muted bg-card">
+              {/* Browser chrome — archival label header */}
+              <div className="flex items-center justify-between px-4 py-3 bg-muted border-b-2 border-border">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1.5">
+                    <span className="inline-block size-3 bg-[hsl(var(--mac-red))] border-2 border-border" />
+                    <span className="inline-block size-3 bg-[hsl(var(--mac-yellow))] border-2 border-border" />
+                    <span className="inline-block size-3 bg-[hsl(var(--mac-green))] border-2 border-border" />
                   </div>
-
-                  <div className="flex items-center gap-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setShowDetails(true)}
-                      aria-label="Show project details"
-                    >
-                      Details
-                    </Button>
-                    {activeProject?.demo &&
-                      activeProject.demo.startsWith("http") && (
-                        <Button asChild variant="default" size="sm">
-                          <a
-                            href={activeProject.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Open
-                          </a>
-                        </Button>
-                      )}
+                  <div className="font-mono text-xs uppercase tracking-label truncate max-w-[50vw]">
+                    {activeProject?.title}
                   </div>
-                </CardHeader>
+                </div>
 
-                <CardContent className="px-0 py-0">
-                  {activeProject?.preview &&
-                  activeProject.preview.embeddable !== false ? (
-                    <div className="bg-background overflow-hidden h-[78vh] min-h-[540px]">
-                      <iframe
-                        title={`${activeProject.title} preview`}
-                        src={activeProject.preview.src}
-                        className="w-full h-full"
-                        sandbox={
-                          isInternalPreview(activeProject.preview.src)
-                            ? undefined
-                            : "allow-scripts allow-same-origin allow-forms allow-popups"
-                        }
-                      />
-                    </div>
-                  ) : activeProject?.demo &&
-                    activeProject.demo.startsWith("http") ? (
-                    <div className="bg-background h-[78vh] min-h-[540px] grid place-items-center p-8">
-                      <div className="text-center max-w-xl space-y-4">
-                        <div className="font-medium text-lg">Live demo</div>
-                        <div className="text-sm text-muted-foreground">
-                          This site blocks embedded previews. Open it in a new
-                          tab to view the full experience.
-                        </div>
-                        <Button asChild variant="default" size="sm">
-                          <a
-                            href={activeProject.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Open live site
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="bg-background p-6">
-                      <div className="font-medium">
-                        Preview not available yet
-                      </div>
-                      <div className="text-sm text-muted-foreground mt-1">
-                        Add a live URL or an internal route for an embedded
-                        demo.
-                      </div>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-
-              {/* Back: Details */}
-              <Card
-                className={
-                  "absolute inset-0 border-2 border-input bg-card rounded-2xl overflow-hidden [transform:rotateY(180deg)] [backface-visibility:hidden] " +
-                  (!showDetails ? "pointer-events-none" : "pointer-events-auto")
-                }
-                aria-hidden={!showDetails}
-              >
-                <CardHeader className="flex items-center justify-between gap-3 px-4 py-3 border-b border-input bg-muted/30">
-                  <div className="flex items-center gap-2">
-                    <div
-                      className="flex items-center gap-1.5"
-                      aria-hidden="true"
-                    >
-                      <span className="inline-block size-3 rounded-full bg-[hsl(var(--mac-red))] border border-border" />
-                      <span className="inline-block size-3 rounded-full bg-[hsl(var(--mac-yellow))] border border-border" />
-                      <span className="inline-block size-3 rounded-full bg-[hsl(var(--mac-green))] border border-border" />
-                    </div>
-                    <CardTitle className="font-heading text-sm md:text-base text-foreground ml-2 truncate max-w-[45vw] sm:max-w-[60vw]">
-                      {activeProject?.title}
-                    </CardTitle>
-                  </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setShowDetails(false)}
-                    aria-label="Back to preview"
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setShowDetails(true)}
+                    className="px-3 py-1 border-2 border-muted text-xs font-bold uppercase tracking-label hover:border-brand hover:text-brand transition-all duration-100"
                   >
-                    Back
-                  </Button>
-                </CardHeader>
-                <CardContent className="space-y-5 overflow-auto h-[70vh] min-h-[460px]">
-                  <div className="space-y-2">
-                    {activeProject?.cardDescription && (
-                      <div className="text-xs text-muted-foreground">
-                        {activeProject.cardDescription}
-                      </div>
+                    Details
+                  </button>
+                  {activeProject?.demo &&
+                    activeProject.demo.startsWith("http") && (
+                      <a
+                        href={activeProject.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1 border-2 border-brand bg-brand text-black text-xs font-bold uppercase tracking-label hover:bg-black hover:text-brand transition-all duration-100"
+                      >
+                        Open
+                      </a>
                     )}
-                    <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
-                      {activeProject?.description}
-                    </p>
-                  </div>
+                </div>
+              </div>
 
-                  {activeProject?.whatILearned && (
-                    <div className="rounded-2xl border-2 border-accent/30 bg-accent/10 p-4">
-                      <div className="text-xs font-semibold text-accent mb-1">
-                        Key takeaway
+              {/* Preview iframe or fallback */}
+              <div className="bg-background">
+                {activeProject?.preview &&
+                activeProject.preview.embeddable !== false ? (
+                  <div className="h-[70vh] min-h-[540px]">
+                    <iframe
+                      title={`${activeProject.title} preview`}
+                      src={activeProject.preview.src}
+                      className="w-full h-full"
+                      sandbox={
+                        isInternalPreview(activeProject.preview.src)
+                          ? undefined
+                          : "allow-scripts allow-same-origin allow-forms allow-popups"
+                      }
+                    />
+                  </div>
+                ) : activeProject?.demo &&
+                  activeProject.demo.startsWith("http") ? (
+                  <div className="h-[70vh] min-h-[540px] grid place-items-center p-8">
+                    <div className="text-center max-w-xl space-y-4">
+                      <div className="font-bold uppercase">
+                        Preview blocked
                       </div>
-                      <div className="text-sm md:text-base text-muted-foreground">
-                        {activeProject.whatILearned}
+                      <div className="text-sm text-muted-foreground">
+                        This site blocks embedded previews. Open it in a new tab
+                        to view the full experience.
                       </div>
+                      <a
+                        href={activeProject.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-4 py-2 border-2 border-brand bg-brand text-black text-xs font-bold uppercase tracking-label hover:bg-black hover:text-brand transition-all duration-100"
+                      >
+                        Open live site
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-8">
+                    <div className="font-bold uppercase">
+                      Preview not available
+                    </div>
+                    <div className="text-sm text-muted-foreground mt-2">
+                      Add a live URL or internal route for embedded demo.
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : (
+            // DETAILS MODE
+            <div className="border-2 border-muted bg-card">
+              {/* Header */}
+              <div className="flex items-center justify-between px-4 py-3 bg-muted border-b-2 border-border">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1.5">
+                    <span className="inline-block size-3 bg-[hsl(var(--mac-red))] border-2 border-border" />
+                    <span className="inline-block size-3 bg-[hsl(var(--mac-yellow))] border-2 border-border" />
+                    <span className="inline-block size-3 bg-[hsl(var(--mac-green))] border-2 border-border" />
+                  </div>
+                  <div className="font-mono text-xs uppercase tracking-label truncate max-w-[50vw]">
+                    {activeProject?.title}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowDetails(false)}
+                  className="px-3 py-1 border-2 border-muted text-xs font-bold uppercase tracking-label hover:border-brand hover:text-brand transition-all duration-100"
+                >
+                  Back
+                </button>
+              </div>
+
+              {/* Details content */}
+              <div className="p-8 space-y-8 overflow-auto max-h-[70vh]">
+                {/* Metadata grid — archival labels */}
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="border-2 border-muted p-3">
+                    <div className="swiss-label text-brand mb-2">NO.</div>
+                    <div className="font-bold">{activeProject?.no}</div>
+                  </div>
+                  <div className="border-2 border-muted p-3">
+                    <div className="swiss-label text-brand mb-2">YEAR</div>
+                    <div className="font-bold">{activeProject?.year}</div>
+                  </div>
+                  <div className="border-2 border-muted p-3">
+                    <div className="swiss-label text-brand mb-2">
+                      CATEGORY
+                    </div>
+                    <div className="font-bold">{activeProject?.category}</div>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div className="space-y-2">
+                  {activeProject?.cardDescription && (
+                    <div className="swiss-label text-muted-foreground">
+                      {activeProject.cardDescription}
                     </div>
                   )}
+                  <p className="text-base leading-relaxed">
+                    {activeProject?.description}
+                  </p>
+                </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="rounded-2xl border-2 border-input bg-background/40 p-4">
-                      <div className="font-medium mb-3">What it does</div>
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        {activeProject?.features.map((f, i) => (
-                          <li
-                            key={`${activeProject.id}-feature-${i}`}
-                            className="flex gap-2"
-                          >
-                            <span className="mt-0.5 text-primary">✓</span>
-                            <span className="leading-relaxed">{f}</span>
-                          </li>
-                        ))}
-                      </ul>
+                {/* Key takeaway — brand-invert block */}
+                {activeProject?.whatILearned && (
+                  <div className="border-l-4 border-brand bg-muted p-4">
+                    <div className="swiss-label text-brand mb-2">
+                      KEY TAKEAWAY
                     </div>
+                    <div className="text-sm">{activeProject.whatILearned}</div>
+                  </div>
+                )}
 
-                    <div className="rounded-2xl border-2 border-input bg-background/40 p-4">
-                      <div className="font-medium mb-3">Built with</div>
-                      <div className="flex flex-wrap gap-2">
-                        {activeProject?.technologies.map((t, i) => (
-                          <span
-                            key={`${activeProject.id}-tech-${i}`}
-                            className="inline-flex items-center rounded-full border-2 border-input bg-background/60 px-3 py-1 text-xs text-muted-foreground"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="mt-3 text-xs text-muted-foreground">
-                        Use the menu to switch projects.
-                      </div>
-                    </div>
+                {/* Features & Tech grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="border-2 border-muted p-4 space-y-3">
+                    <div className="swiss-label text-brand">WHAT IT DOES</div>
+                    <ul className="space-y-2 text-sm">
+                      {activeProject?.features.map((f, i) => (
+                        <li key={i} className="flex gap-2">
+                          <span className="text-brand">✓</span>
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <div className="rounded-2xl border-2 border-input bg-background/40 p-4">
-                    <div className="font-medium mb-3">Quick links</div>
+                  <div className="border-2 border-muted p-4 space-y-3">
+                    <div className="swiss-label text-brand">BUILT WITH</div>
                     <div className="flex flex-wrap gap-2">
-                      {activeProject?.github && (
-                        <Button asChild variant="outline" size="sm">
-                          <a
-                            href={activeProject.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            GitHub
-                          </a>
-                        </Button>
-                      )}
-                      {activeProject?.figma && (
-                        <Button asChild variant="outline" size="sm">
-                          <a
-                            href={activeProject.figma}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Figma
-                          </a>
-                        </Button>
-                      )}
-
-                      {activeProject?.demo &&
-                        activeProject.demo.startsWith("http") && (
-                          <Button asChild variant="default" size="sm">
-                            <a
-                              href={activeProject.demo}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Open live site
-                            </a>
-                          </Button>
-                        )}
-
-                      {activeProject?.demo &&
-                        activeProject.demo.startsWith("/") && (
-                          <Button asChild variant="outline" size="sm">
-                            <Link href={activeProject.demo}>Open route</Link>
-                          </Button>
-                        )}
-
-                      {activeProject?.quickLinks?.map((l) => (
-                        <Button
-                          key={l.href}
-                          asChild
-                          variant="outline"
-                          size="sm"
+                      {activeProject?.technologies.map((t, i) => (
+                        <span
+                          key={i}
+                          className="border-2 border-muted px-2 py-1 text-xs font-mono"
                         >
-                          <a
-                            href={l.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {l.label}
-                          </a>
-                        </Button>
+                          {t}
+                        </span>
                       ))}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+
+                {/* Quick links */}
+                <div className="border-2 border-muted p-4 space-y-3">
+                  <div className="swiss-label text-brand">QUICK LINKS</div>
+                  <div className="flex flex-wrap gap-2">
+                    {activeProject?.github && (
+                      <a
+                        href={activeProject.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1 border-2 border-muted text-xs font-bold uppercase tracking-label hover:border-brand hover:text-brand transition-all duration-100"
+                      >
+                        GitHub
+                      </a>
+                    )}
+                    {activeProject?.figma && (
+                      <a
+                        href={activeProject.figma}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1 border-2 border-muted text-xs font-bold uppercase tracking-label hover:border-brand hover:text-brand transition-all duration-100"
+                      >
+                        Figma
+                      </a>
+                    )}
+                    {activeProject?.demo &&
+                      activeProject.demo.startsWith("http") && (
+                        <a
+                          href={activeProject.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1 border-2 border-brand bg-brand text-black text-xs font-bold uppercase tracking-label hover:bg-black hover:text-brand transition-all duration-100"
+                        >
+                          Open live site
+                        </a>
+                      )}
+                    {activeProject?.demo &&
+                      activeProject.demo.startsWith("/") && (
+                        <Link
+                          href={activeProject.demo}
+                          className="px-3 py-1 border-2 border-muted text-xs font-bold uppercase tracking-label hover:border-brand hover:text-brand transition-all duration-100"
+                        >
+                          Open route
+                        </Link>
+                      )}
+                    {activeProject?.quickLinks?.map((l) => (
+                      <a
+                        key={l.href}
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1 border-2 border-muted text-xs font-bold uppercase tracking-label hover:border-brand hover:text-brand transition-all duration-100"
+                      >
+                        {l.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </motion.div>
       </main>
     </div>
