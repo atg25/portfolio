@@ -34,9 +34,7 @@ export default function Contact() {
   };
 
   return (
-    <SwissPageShell>
-      <div className="col-span-12 h-24 md:h-40" aria-hidden="true" />
-
+    <SwissPageShell mainClassName="pt-20 pb-24">
       <SwissPageHeader
         label="CONTACT — 2026"
         title={
